@@ -1,5 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-var test_script = <h1>Hello World TEST</h1>;
-ReactDOM.render(test_script,document.getElementById('root'));
+import PhotoPost from './components/PhotoPost'
+
+var myjsx= <div>
+                Home
+                <PhotoPost />
+                <PhotoPost />
+                <PhotoPost />
+            </div>;
+    
+ReactDOM.render(myjsx,document.getElementById('root'));
