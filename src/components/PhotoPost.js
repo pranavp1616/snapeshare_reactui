@@ -1,10 +1,10 @@
 import React from 'react';
 
-function PhotoPost(){
+function PhotoPost(props){
     return (
         <div>
             <br/>
-            Uploaded by
+            Uploaded by : {props.uploaded_by}
             <br/>
             id
             <br/>
