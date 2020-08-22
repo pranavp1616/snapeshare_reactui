@@ -1,15 +1,25 @@
 import React, {useState} from 'react';
+import {API} from '../components/Global';
+
 
 function LoginPage(){
     //state variables using hooks
     const [loginUsername, setLoginUsername] = useState('');
     const [loginPassword, setLoginPassword] = useState('');
     const [errorMessage, setErrorMessage]   = useState('');
-    function loginLogic(){
-        alert(loginUsername +" " +loginPassword);
-        // call login API here
-        setErrorMessage('Incorrect Password TEST');
+    
+    async function loginLogic(){
+        var url = 'http://127.0.0.1:8000/api/user/login/';
+        var formData = new FormData();  
+        formData.append('username',loginUsername);  
+        formData.append('password',loginPassword);
+        var request = new Request(url, {method:'POST',  body:formData}  );
+
+        const resp = await fetch(request);
+        const data = await resp.json();
+        setErrorMessage(data);
     }
+
     return <div>
                 <h1>Login</h1>
                     <input onChange={e => setLoginUsername(e.target.value)} type='text' placeholder='username'/>

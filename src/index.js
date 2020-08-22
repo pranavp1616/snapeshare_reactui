@@ -6,10 +6,10 @@ import {LoginPage, RegisterPage} from './pages/LoginRegisterPage'
 
 
 var myjsx = <div>
-            <LoginPage />
-            <RegisterPage />
-            <PhotoPost uploaded_by='a'/>
-            <PhotoPost uploaded_by='a'/>
-        </div>  
+                <LoginPage />
+                <RegisterPage />
+                <PhotoPost uploaded_by='a'/>
+                <PhotoPost uploaded_by='a'/>
+            </div>  
     
 ReactDOM.render(myjsx,document.getElementById('root'));
