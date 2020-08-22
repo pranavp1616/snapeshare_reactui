@@ -1,6 +1,32 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import PhotoPost from './PhotoPost';
 
+class PopulateData extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            main_data : ''
+        };
+    }
+    componentDidMount(){
+        console.log('Compoenent mounted');
+        this.setState({ main_data : <PhotoPost uploaded_by='b'/> })
+    }
+    render(){
+        console.log('render function called');
+        return (
+                <div>
+                Populated posts from <b>{this.props.url}</b> and pagetype is <b>{this.props.pagetype}</b>
+                <br/>
+                {this.state.main_data}
+                <br/>
+                </div>
+        );
+    }
+}
+
+
+/*
 function PopulateData(props){
 
     // CHANGE below variables to STATE variables (hook type)
@@ -29,5 +55,5 @@ function PopulateData(props){
         <br/>
     </div>
 }
-
+*/
 export default PopulateData;

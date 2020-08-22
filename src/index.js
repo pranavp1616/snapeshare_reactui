@@ -9,7 +9,6 @@ var myjsx = <div>
                 <LoginPage />
                 <RegisterPage />
                 <Home />
-                <MyProfile />
             </div>  
     
 ReactDOM.render(myjsx,document.getElementById('root'));
