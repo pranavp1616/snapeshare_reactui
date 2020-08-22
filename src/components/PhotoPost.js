@@ -1,20 +1,24 @@
 import React from 'react';
 
-function PhotoPost(props){
-    return (
-        <div>
-            <br/>
-            Uploaded by : {props.uploaded_by}
-            <br/>
-            id
-            <br/>
-            image
-            <br/>
-            hashtags
-            <br/>
-            <br/>
-        </div>
-    );
+class PhotoPost extends React.Component{
+
+    constructor(props){
+        super(props);
+    }
+
+    render(){
+        return (
+            <div>
+                Uploaded by {this.props.uploaded_by}
+                <br/>
+                {this.props.image}            
+                <br/>
+                {this.props.hashtags}
+                <br/>
+                <br/>
+            </div>
+            );
+    }
 }
 
 export default PhotoPost;
