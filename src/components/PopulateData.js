@@ -9,19 +9,16 @@ function PopulateData(props){
     var main_data = '';
     
     useEffect(() => {
-        console.log('mounted');
-        // BUG - twice this function is executed  - ie twice the fetch on same API
         fetchData();
     });
 
     async function fetchData(){
-        alert('fetching data from API');
         var headers = new Headers();
         headers.append('Authorization','Token '+localStorage.auth_token);
-        var request = new Request('http://127.0.0.1:8000/api/home-feed/', {method:'GET', headers});
+        var request = new Request(url, {method:'GET', headers});
         var resp = await fetch(request);
-        var data = await resp.json();
-        // main_data = data;
+        main_data = await resp.json();
+        console.log(main_data);
     }
     
     return <div>
