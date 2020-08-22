@@ -16,6 +16,7 @@ class PopulateData extends React.Component{
         const resp = await fetch(request);
         const data = await resp.json();
         console.log(data);
+        console.log(this.state.main_data)
         this.setState(  {   main_data : data    }   );
     }   
     
