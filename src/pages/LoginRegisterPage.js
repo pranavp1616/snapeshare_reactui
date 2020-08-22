@@ -1,6 +1,4 @@
 import React, {useState} from 'react';
-import {API} from '../components/Global';
-
 
 function LoginPage(){
     //state variables using hooks
@@ -17,7 +15,10 @@ function LoginPage(){
 
         const resp = await fetch(request);
         const data = await resp.json();
-        setErrorMessage(data);
+        setErrorMessage(data.response);
+        if(data.response == 'success'){
+            localStorage.auth_token = data.token;
+        }
     }
 
     return <div>

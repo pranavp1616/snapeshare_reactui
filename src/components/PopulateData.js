@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
 import PhotoPost from './PhotoPost';
-import {USER_AUTH_TOKEN} from './Global';
 
 function PopulateData(props){
 
@@ -18,7 +17,7 @@ function PopulateData(props){
     async function fetchData(){
         alert('fetching data from API');
         var headers = new Headers();
-        headers.append('Authorization','Token '+USER_AUTH_TOKEN);
+        headers.append('Authorization','Token '+localStorage.auth_token);
         var request = new Request('http://127.0.0.1:8000/api/home-feed/', {method:'GET', headers});
         var resp = await fetch(request);
         var data = await resp.json();
