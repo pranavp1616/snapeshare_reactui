@@ -3,9 +3,6 @@ import PopulateData from '../components/PopulateData';
 
 
 class MyProfile extends React.Component{
-    constructor(props){
-        super(props);
-    }
     render(){
         var myprofile_url = 'http://127.0.0.1:8000/api/getuserposts/'+localStorage.loggedinUser;
         return <div>

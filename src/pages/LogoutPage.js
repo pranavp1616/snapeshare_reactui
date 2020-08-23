@@ -1,9 +1,6 @@
 import React from 'react';
 
 class LogoutPage extends React.Component {
-    constructor(props){
-        super(props);
-    }
     componentDidMount(){
         localStorage.removeItem('auth_token');
         localStorage.removeItem('loggedinUser');

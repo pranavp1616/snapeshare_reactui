@@ -26,9 +26,10 @@ class LoginPage extends React.Component{
 
         this.setState( { errorMessage: data.response });
 
-        if(data.response == 'success'){
+        if(data.response === 'success'){
             localStorage.auth_token = data.token;
             localStorage.loggedinUser = this.state.loginUsername;
+            window.location = '/home';
         }
     }
 

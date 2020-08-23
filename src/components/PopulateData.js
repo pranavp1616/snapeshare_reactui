@@ -1,5 +1,4 @@
 import React from 'react';
-import PhotoPost from './PhotoPost';
 
 class PopulateData extends React.Component{
     
@@ -21,6 +20,19 @@ class PopulateData extends React.Component{
         this.setState(  {   main_data : data    }   );
     }   
     
+    likeLogic(id){
+        alert('like id '+id);
+    }
+
+    commentLogic(id){
+        alert('comment id '+id);
+    }
+    
+    deleteLogic(id){
+        alert('delete id '+id);
+        // remove this item from state.main_data
+    }
+
     render(){
         console.log('Rendering...');
         return (
@@ -34,7 +46,20 @@ class PopulateData extends React.Component{
         );
     }
     foo(t){
-        return <PhotoPost uploaded_by={t.uploaded_by} image={t.image} hashtags={t.hashtags}/>;
+        var friend_url = '/friend/'+t.uploaded_by; 
+        return <div>
+                    Uploaded by <a href={friend_url}>{t.uploaded_by}</a>
+                    <br/>
+                    <img src={t.image} alt=''/>            
+                    <br/>
+                    {t.hashtags}
+                    <br/>
+                    <button onClick={this.likeLogic.bind(this, t.id)}>Like</button> 
+                    <button onClick={this.commentLogic.bind(this, t.id)}>comment</button> 
+                    <button onClick={this.deleteLogic.bind(this, t.id)}>Delete</button> 
+                    <br/>
+                    <br/>
+                </div>;
     }    
 
 }
