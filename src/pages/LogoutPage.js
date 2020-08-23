@@ -6,6 +6,7 @@ class LogoutPage extends React.Component {
     }
     componentDidMount(){
         localStorage.removeItem('auth_token');
+        localStorage.removeItem('loggedinUser');
     }
     render(){
         return <div>

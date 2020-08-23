@@ -28,6 +28,7 @@ class LoginPage extends React.Component{
 
         if(data.response == 'success'){
             localStorage.auth_token = data.token;
+            localStorage.loggedinUser = this.state.loginUsername;
         }
     }
 

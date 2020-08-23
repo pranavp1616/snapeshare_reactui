@@ -7,21 +7,6 @@ class PhotoPost extends React.Component{
     }
 
     render(){
-        if(this.props.pagetype=='myprofile'){
-            return (
-                <div>
-                    Uploaded by {this.props.uploaded_by}
-                    <br/>
-                    <img src={this.props.image}/>            
-                    <br/>
-                    {this.props.hashtags}
-                    <br/>
-                    <button>Delete</button>
-                    <br/>
-                </div>
-                );
-        }
-        else{
             return (
                     <div>
                         Uploaded by {this.props.uploaded_by}
@@ -33,8 +18,8 @@ class PhotoPost extends React.Component{
                         <br/>
                     </div>
                     );
-        }
     }
+    
 }
 
 export default PhotoPost;
