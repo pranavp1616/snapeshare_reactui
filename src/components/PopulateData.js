@@ -1,4 +1,5 @@
 import React from 'react';
+import {API} from './Global';
 
 class PopulateData extends React.Component{
     
@@ -28,10 +29,20 @@ class PopulateData extends React.Component{
         alert('comment id '+id);
     }
     
-    deleteLogic(id){
-        // call Delete API here
-        const newMainData = this.state.main_data.filter( item => item.id !== id)
-        this.setState( {main_data : newMainData }); 
+    async deleteLogic(id){
+        // delete from DB using API
+        var url = API + 'photopost/delete/'+id;
+        var headers = new Headers();
+        headers.append('Authorization','Token '+localStorage.auth_token);
+        var request = new Request(url, {method:'DELETE', headers});
+        
+        const resp = await fetch(request);
+        const data = await resp.json();
+        if(data.response === 'deleted'){
+            // delete from state.main_data
+            const newMainData = this.state.main_data.filter( item => item.id !== id)
+            this.setState( {main_data : newMainData }); 
+        }
     }
 
     render(){
