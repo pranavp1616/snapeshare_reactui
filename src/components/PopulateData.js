@@ -56,7 +56,11 @@ class PopulateData extends React.Component{
                     <br/>
                     <button onClick={this.likeLogic.bind(this, t.id)}>Like</button> 
                     <button onClick={this.commentLogic.bind(this, t.id)}>comment</button> 
-                    <button onClick={this.deleteLogic.bind(this, t.id)}>Delete</button> 
+
+                    {this.props.pagetype == 'myprofile' &&  
+                        <button onClick={this.deleteLogic.bind(this, t.id)}>Delete</button> 
+                    }
+
                     <br/>
                     <br/>
                 </div>;
