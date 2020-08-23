@@ -1,4 +1,5 @@
 import React from 'react';
+import {API} from '../components/Global';
 
 class LoginPage extends React.Component{
 
@@ -16,7 +17,7 @@ class LoginPage extends React.Component{
     }
 
     async loginLogic(){
-        var url = 'http://127.0.0.1:8000/api/user/login/';
+        var url = API +'user/login/';
         var formData = new FormData();  
         formData.append('username',this.state.loginUsername);  
         formData.append('password',this.state.loginPassword);

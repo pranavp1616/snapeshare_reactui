@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {API} from '../components/Global';
 
 class SearchPage extends React.Component{
 
@@ -12,7 +12,8 @@ class SearchPage extends React.Component{
     async componentDidMount(){
         var headers = new Headers();
         headers.append('Authorization','Token '+localStorage.auth_token);
-        var request = new Request('http://127.0.0.1:8000/api/search/'+this.props.match.params.pattern, {method:'GET', headers});
+        var url = API + 'search/'+this.props.match.params.pattern;
+        var request = new Request(url, {method:'GET', headers});
         
         const resp = await fetch(request);
         const data = await resp.json();

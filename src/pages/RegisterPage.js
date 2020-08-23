@@ -1,4 +1,5 @@
 import React from 'react';
+import {API} from '../components/Global';
 
 class RegisterPage extends React.Component{
     constructor(props){
@@ -16,7 +17,7 @@ class RegisterPage extends React.Component{
     }
 
     async registerLogic(){
-        var url = 'http://127.0.0.1:8000/api/user/register/';
+        var url =   API+ 'user/register/';
         var formData = new FormData();  
         formData.append('username',this.state.loginUsername);  
         formData.append('email',this.state.loginEmail);  
