@@ -29,8 +29,9 @@ class PopulateData extends React.Component{
     }
     
     deleteLogic(id){
-        alert('delete id '+id);
-        // remove this item from state.main_data
+        // call Delete API here
+        const newMainData = this.state.main_data.filter( item => item.id !== id)
+        this.setState( {main_data : newMainData }); 
     }
 
     render(){
