@@ -9,8 +9,20 @@ class MyProfile extends React.Component{
     }
 
     async uploadPostLogic(){
-        alert('test');
-        this.forceUpdate(); // to rerender after upload
+        // change this direct DOM access through document  to state later
+        var image = document.getElementById('upload_input_file').files[0];
+        var hashtags = document.getElementById('upload_input_hashtag').value;
+
+        var url = API +'photopost/create/';
+        var headers = new Headers();
+        headers.append('Authorization','Token '+localStorage.auth_token);
+        var formData = new FormData();  
+        formData.append('image',image);  
+        formData.append('hashtags',hashtags);
+        var request = new Request(url, {method:'POST', headers, body:formData}  );
+        const resp = await fetch(request);
+        const data = await resp.json();
+        window.location.reload();
     }
 
     render(){
@@ -19,8 +31,8 @@ class MyProfile extends React.Component{
                 <h1>This is MyProfile page </h1>
     
                 <div>
-                <input type="text" required/> 
-                <input type="file"accept='image/*' required/> 
+                <input type="text" id='upload_input_hashtag'/> 
+                <input type="file" id='upload_input_file' accept='image/*'/> 
                 <button onClick={this.uploadPostLogic}>Post</button>
                 </div>
     
