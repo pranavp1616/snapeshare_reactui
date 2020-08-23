@@ -6,6 +6,7 @@ class PopulateData extends React.Component{
     constructor(props){
         super(props);
         this.state = {  main_data : []  };
+        this.foo = this.foo.bind(this);
     }
 
     async componentDidMount(){
@@ -33,7 +34,7 @@ class PopulateData extends React.Component{
         );
     }
     foo(t){
-        return <PhotoPost uploaded_by={t.uploaded_by} image={t.image} hashtags={t.hashtags}/>;
+        return <PhotoPost pagetype={this.props.pagetype} uploaded_by={t.uploaded_by} image={t.image} hashtags={t.hashtags}/>;
     }    
 
 }

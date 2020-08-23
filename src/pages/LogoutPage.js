@@ -10,6 +10,7 @@ class LogoutPage extends React.Component {
     render(){
         return <div>
                 <h1>Log out successful</h1>
+                <a href='/login'>login</a>
         </div>;
     }
 }

@@ -6,6 +6,7 @@ class SearchPage extends React.Component{
     constructor(props){
         super(props);
         this.state = {search_result_data: [] };
+        this.foo = this.foo.bind(this);
     }
 
     async componentDidMount(){
