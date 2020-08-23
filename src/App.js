@@ -5,6 +5,7 @@ import RegisterPage from './pages/RegisterPage';
 import Home from './pages/HomePage';
 import MyProfile from './pages/MyProfile';
 import SearchPage from './pages/SearchPage';
+import FriendPage from './pages/FriendPage';
 
 import {Route,BrowserRouter as Router} from 'react-router-dom';
 
@@ -36,7 +37,8 @@ class App extends React.Component {
                     <Route path='/home' component={Home} />
                     <Route path='/myprofile' component={MyProfile} />
                     <Route path='/search/:pattern' component={SearchPage} />
-
+                    <Route path='/friend/:username' component={FriendPage}/>
+                    
                     <Route path='/login' component={LoginPage} />
                     <Route path='/register' component={RegisterPage} />
                 </Router>);

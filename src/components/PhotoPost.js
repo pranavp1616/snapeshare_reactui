@@ -11,7 +11,7 @@ class PhotoPost extends React.Component{
             <div>
                 Uploaded by {this.props.uploaded_by}
                 <br/>
-                {this.props.image}            
+                <img src={this.props.image}/>            
                 <br/>
                 {this.props.hashtags}
                 <br/>
