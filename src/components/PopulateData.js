@@ -21,8 +21,31 @@ class PopulateData extends React.Component{
         this.setState(  {   main_data : data    }   );
     }   
     
-    likeLogic(id){
-        alert('like id '+id);
+    async likeLogic(id){
+        var url = API+'like/'+id;
+        var headers = new Headers();
+        headers.append('Authorization','Token '+localStorage.auth_token);
+        var request = new Request(url, {method:'POST',headers});
+        var resp = await fetch(request);
+        var data = await resp.json();
+
+        const n = this.state.main_data.length; 
+        var i=0, index=-1;
+        for(i=0;i<n;i++){
+            if(this.state.main_data[i].id == id)
+                index = i;
+        }
+
+        if(data.response == 'liked'){
+                    var newMainData = [...this.state.main_data];
+                    newMainData[index].is_liked = true;
+                    this.setState({ main_data : newMainData });
+        }
+        else{
+                    var newMainData = [...this.state.main_data];
+                    newMainData[index].is_liked = false;
+                    this.setState({ main_data : newMainData });
+        }
     }
 
     commentLogic(id){
@@ -65,8 +88,11 @@ class PopulateData extends React.Component{
                     <img src={t.image} alt=''/>            
                     <br/>
                     {t.hashtags}
+                    Posted on {t.date_created}
                     <br/>
-                    <button onClick={this.likeLogic.bind(this, t.id)}>Like</button> 
+                    {(t.is_liked == true) && <b>Liked</b> || <b>NOT LIKED</b>} 
+                    <button onClick={this.likeLogic.bind(this, t.id)}>.</button> 
+                    <br/>
                     <button onClick={this.commentLogic.bind(this, t.id)}>comment</button> 
 
                     {this.props.pagetype == 'myprofile' &&  
