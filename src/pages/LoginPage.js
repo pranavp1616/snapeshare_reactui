@@ -38,6 +38,7 @@ class LoginPage extends React.Component{
                         <input onChange={e => this.setState({loginPassword:e.target.value}) }  type='password' placeholder='password'/>
                     <button onClick={this.loginLogic}>Login</button>
                     <p>{this.state.errorMessage}</p>
+                    <a href='/register'>Register</a>
                 </div>
     }
         

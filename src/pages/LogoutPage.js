@@ -1,0 +1,17 @@
+import React from 'react';
+
+class LogoutPage extends React.Component {
+    constructor(props){
+        super(props);
+    }
+    componentDidMount(){
+        localStorage.removeItem('auth_token');
+    }
+    render(){
+        return <div>
+                <h1>Log out successful</h1>
+        </div>;
+    }
+}
+
+export default LogoutPage;
