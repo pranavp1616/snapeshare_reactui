@@ -26,11 +26,9 @@ class App extends React.Component {
                         <a href='/home'>Home</a>
                         <a href='/myprofile'>Myprofile</a>
 
-                        <input  onChange={(e)=>this.setState({search_box_value:e.target.value})} 
+                        <input  onChange={  (e) => this.setState({search_box_value:e.target.value}) }
                                 type='text'/>
-                        <button onClick={(e)=>{ 
-                                                window.location='/search/'+this.state.search_box_value;
-                                                }}>Search</button>
+                        <button onClick={(e)=>{ window.location='/search/'+this.state.search_box_value; }   }>Search</button>
 
                         <br/>
                     </div>
