@@ -78,12 +78,39 @@ class PopulateData extends React.Component{
 
     
     async getAllLikes(id){
-        alert(id);
+        const url = API + 'getlikes/'+id;
+        var headers = new Headers();
+        headers.append('Authorization','Token '+localStorage.auth_token);
+        var request = new Request(url,  {  method:'GET',headers }   );
+        var resp = await fetch(request);
+        var data = await resp.json();
+        //this.likeModalPopup = true;
+        console.log(data);
     }
     
     async getAllComments(id){
-        alert('all comments of'+ id);
+        const url = API + 'getcomments/'+id;
+        var headers = new Headers();
+        headers.append('Authorization','Token '+localStorage.auth_token);
+        var request = new Request(url,  {  method:'GET',headers }   );
+        var resp = await fetch(request);
+        var data = await resp.json();
+        //this.likeModalPopup = true;
+        console.log(data);
     }
+
+    async deleteComment(i){
+        const url = API + 'comment/delete/'+i.id;
+        var headers = new Headers();
+        headers.append('Authorization','Token '+localStorage.auth_token);
+        var request = new Request(url,  {  method:'DELETE',headers }   );
+        var resp = await fetch(request);
+        var data = await resp.json();
+        // remove from all_comments data
+        //var index = this.all_comments.indexOf(i);
+        //this.all_comments.splice(index, 1);
+    }
+
 
     render(){
         console.log('Rendering...');
