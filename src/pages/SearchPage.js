@@ -53,9 +53,8 @@ class SearchPage extends React.Component{
                 );
     }
     foo(t){
-        var search_url = '/friend/'+t.username;
-        return <li>
-                    <a href={search_url} className="collection-item" >{t.username}</a>        
+        return <li className="collection-item">
+                    <a href={'/friend/'+t.username} className="collection-item" >{t.username}</a>        
                 </li>
     }
 }

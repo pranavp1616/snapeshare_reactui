@@ -29,9 +29,6 @@ class ModalAllLikes extends React.Component{
                             <div className='card-content'>
                                 <button onClick={this.props.onClose} className='btn'>x</button>
                                     <ul class="collection  with-header">
-                                        <li class="collection-header">  
-                                            All likes of {this.props.post_id}
-                                        </li>
                                         {this.state.all_likes.map(this.foo)}
                                     </ul>
                             </div>
@@ -41,9 +38,7 @@ class ModalAllLikes extends React.Component{
         );
     }
     foo(t){
-        return <li>
-                    <a href={'/friend/'+t} className="collection-item" >{t}</a>        
-                </li>
+        return <li className="collection-item"> <a href={'/friend/'+t}> {t} </a></li>
     }
 }
 
