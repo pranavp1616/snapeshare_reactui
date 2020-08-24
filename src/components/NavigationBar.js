@@ -11,14 +11,31 @@ class NaivgationBar extends React.Component{
 
     render(){
         return <div> 
-                <a href='/home'>Home</a>
-                <a href='/myprofile'>Myprofile</a>
+                <div class="navbar-fixed">
+                    <nav class="nav-wrapper indigo">
+                        <div class="container">
+                            <div class="left">  
+                                Snapshare   
+                            </div>
+                            <ul class="right">
+                            <li>    <input  onChange={  (e) => this.setState({search_box_value:e.target.value}) }
+                                            type='text'/>   </li>
+                            <li>    <button 
+                                    onClick={(e)=>{ window.location='/search/'+this.state.search_box_value; }   }>
+                                    search
+                                    </button>
+                                    </li>
+                            <li>    <a href='/home'>home</a>    </li>
+                            <li>    <a href='/myprofile'> hi {localStorage.loggedinUser}! </a> </li>
+                            <li>    <a href='/logout'>logout</a>    </li>                            
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
 
-                <input  onChange={  (e) => this.setState({search_box_value:e.target.value}) }
-                        type='text'/>
-                <button onClick={(e)=>{ window.location='/search/'+this.state.search_box_value; }   }>Search</button>
-                <a href='/logout'>Logout</a>
+
                 <br/>
+            
             </div>
     }
 }
