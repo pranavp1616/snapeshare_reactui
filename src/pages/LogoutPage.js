@@ -1,4 +1,5 @@
 import React from 'react';
+import PleaseLoginPage from '../components/PleaseLoginPage';
 
 class LogoutPage extends React.Component {
     componentDidMount(){
@@ -7,9 +8,15 @@ class LogoutPage extends React.Component {
     }
     render(){
         return <div>
-                <h1>Log out successful</h1>
-                <a href='/login'>login</a>
-        </div>;
+                    { localStorage.auth_token != undefined && 
+                        <div>
+                            <h1>Log out successful</h1>
+                            <a href='/login'>login</a>
+                        </div>  
+                        ||
+                        <PleaseLoginPage />
+                    }
+                </div>;
     }
 }
 

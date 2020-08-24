@@ -1,5 +1,7 @@
 import React from 'react';
 import {API} from '../components/Global';
+import NaivgationBar from '../components/NavigationBar';
+import PleaseLoginPage from '../components/PleaseLoginPage';
 
 class SearchPage extends React.Component{
 
@@ -25,8 +27,15 @@ class SearchPage extends React.Component{
     render() {
         return (
                 <div>
-                    <h1>Search result for {this.props.match.params.pattern}</h1>
-                    {this.state.search_result_data.map(this.foo)}
+                    { localStorage.auth_token != undefined && 
+                        <div>
+                            <NaivgationBar />
+                            <h1>Search result for {this.props.match.params.pattern}</h1>
+                            {this.state.search_result_data.map(this.foo)}
+                        </div>
+                    ||
+                        <PleaseLoginPage/>
+                    }
                 </div>
                 );
     }

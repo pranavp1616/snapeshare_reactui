@@ -1,6 +1,8 @@
 import React from 'react';
 import PopulateData from '../components/PopulateData';
+import NaivgationBar from '../components/NavigationBar';
 import {API} from '../components/Global';
+import PleaseLoginPage from '../components/PleaseLoginPage';
 
 class MyProfile extends React.Component{
     constructor(props){
@@ -28,17 +30,22 @@ class MyProfile extends React.Component{
     render(){
         var myprofile_url = API+ 'getuserposts/'+localStorage.loggedinUser;
         return <div>
-                <h1>This is MyProfile page </h1>
-    
-                <div>
-                <input type="text" id='upload_input_hashtag'/> 
-                <input type="file" id='upload_input_file' accept='image/*'/> 
-                <button onClick={this.uploadPostLogic}>Post</button>
-                </div>
-    
-                <br/>
-                <PopulateData url={myprofile_url} pagetype='myprofile'/>
-        </div>;
+                    { localStorage.auth_token != undefined && 
+                        <div>
+                            <NaivgationBar />
+                            <h1>This is MyProfile page </h1>
+                            <div>
+                            <input type="text" id='upload_input_hashtag'/> 
+                            <input type="file" id='upload_input_file' accept='image/*'/> 
+                            <button onClick={this.uploadPostLogic}>Post</button>
+                            </div>
+                            <br/>
+                            <PopulateData url={myprofile_url} pagetype='myprofile'/>
+                        </div>
+                    ||
+                        <PleaseLoginPage />
+                    }
+                </div>;
     }
 }
 
