@@ -1,12 +1,19 @@
 import React from 'react';
 import {API} from './Global';
 import LikeButton from './LikeButton';
+import ModalAllLikes from './ModalAllLikes';
+import ModalAllComments from './ModalAllComments';
 
 class PopulateData extends React.Component{
     
     constructor(props){
         super(props);
-        this.state = {  main_data : [], comment:'' };
+        this.state = {  
+                        main_data : [], 
+                        comment:'',
+                        LikesModalOpen : false,
+                        CommentModalOpen : false
+                    };
         this.foo = this.foo.bind(this);
     }
 
@@ -72,46 +79,12 @@ class PopulateData extends React.Component{
         }
     }
 
-    
-    async getAllLikes(id){
-        const url = API + 'getlikes/'+id;
-        var headers = new Headers();
-        headers.append('Authorization','Token '+localStorage.auth_token);
-        var request = new Request(url,  {  method:'GET',headers }   );
-        var resp = await fetch(request);
-        var data = await resp.json();
-        //this.likeModalPopup = true;
-        console.log(data);
-    }
-    
-    async getAllComments(id){
-        const url = API + 'getcomments/'+id;
-        var headers = new Headers();
-        headers.append('Authorization','Token '+localStorage.auth_token);
-        var request = new Request(url,  {  method:'GET',headers }   );
-        var resp = await fetch(request);
-        var data = await resp.json();
-        //this.likeModalPopup = true;
-        console.log(data);
-    }
-
-    async deleteComment(i){
-        const url = API + 'comment/delete/'+i.id;
-        var headers = new Headers();
-        headers.append('Authorization','Token '+localStorage.auth_token);
-        var request = new Request(url,  {  method:'DELETE',headers }   );
-        var resp = await fetch(request);
-        var data = await resp.json();
-        // remove from all_comments data
-        //var index = this.all_comments.indexOf(i);
-        //this.all_comments.splice(index, 1);
-    }
-
-
     render(){
         console.log('Rendering...');
         return (
                 <div>
+                    <ModalAllLikes isOpen={this.state.LikesModalOpen} onClose={e=>{this.setState({LikesModalOpen:false})}}/>
+                    <ModalAllComments isOpen={this.state.CommentModalOpen} onClose={e=>{this.setState({CommentModalOpen:false})}} />
                     {this.state.main_data.map(this.foo)}
                 </div>
                 );
@@ -154,9 +127,9 @@ class PopulateData extends React.Component{
                                         </button> 
                                     </div>
                                     <div className='right'>
-                                        <button onClick={this.getAllLikes.bind(this,t.id)}
+                                        <button onClick={e=>this.setState({LikesModalOpen:true, CommentModalOpen:false})}
                                                 className='btn'>All likes</button>
-                                        <button onClick={this.getAllComments.bind(this,t.id)}
+                                        <button onClick={e=>this.setState({CommentModalOpen:true, LikesModalOpen:false})}
                                                 className='btn'>All Comments</button>
                                     </div>
                                 </div>
