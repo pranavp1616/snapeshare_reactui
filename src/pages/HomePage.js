@@ -9,7 +9,7 @@ function Home(){
     return <div>
                 { localStorage.auth_token != undefined && 
                     <div>
-                        <NaivgationBar />
+                        <NaivgationBar />                            
                         <PopulateData url={home_url} pagetype='home'/>
                     </div>
                     ||

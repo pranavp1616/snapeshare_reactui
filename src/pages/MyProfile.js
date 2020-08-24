@@ -17,6 +17,9 @@ class MyProfile extends React.Component{
                     { localStorage.auth_token != undefined && 
                         <div>
                             <NaivgationBar />
+                            <div className='row center'>
+                                    <h5>My photos</h5>
+                            </div>
                             <UploadPost />
                             <PopulateData url={myprofile_url} pagetype='myprofile'/>
                         </div>
