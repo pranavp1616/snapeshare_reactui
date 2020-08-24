@@ -9,6 +9,7 @@ class ModalAllComments extends React.Component{
             all_comments : []
         }
         this.foo = this.foo.bind(this);
+        this.deleteCommentLogic = this.deleteCommentLogic.bind(this);
     }
     async componentDidMount(){
         var url = API + 'getcomments/'+this.props.post_id;
@@ -31,8 +32,9 @@ class ModalAllComments extends React.Component{
     }
 
     async deleteCommentLogic(id){
-        alert(id);
-        
+        // call delete comment api here
+        const temp_array = this.state.all_comments.filter(item => item.id !== id);
+        this.setState({all_comments:temp_array});
     }
 
     render() {
