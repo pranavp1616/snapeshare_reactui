@@ -10,7 +10,6 @@ class Login extends React.Component{
             loginPassword : '',
             errorMessage  : ''
         }        
-
         // bind loginLogic (userdefined func unlike render or constructor) Otherwise we cant use(READ) state variables
         // in non react functions(userdefined) like loginLogic,etc 
         this.loginLogic = this.loginLogic.bind(this); 
@@ -24,9 +23,7 @@ class Login extends React.Component{
         var request = new Request(url, {method:'POST',  body:formData}  );
         const resp = await fetch(request);
         const data = await resp.json();
-
         this.setState( { errorMessage: data.response });
-
         if(data.response === 'success'){
             localStorage.auth_token = data.token;
             localStorage.loggedinUser = this.state.loginUsername;
@@ -36,11 +33,31 @@ class Login extends React.Component{
 
     render(){
         return <div>
-                    <h1>Login</h1>
-                        <input onChange={e => this.setState({loginUsername:e.target.value}) } type='text' placeholder='username'/>
-                        <input onChange={e => this.setState({loginPassword:e.target.value}) }  type='password' placeholder='password'/>
-                    <button onClick={this.loginLogic}>Login</button>
-                    <p>{this.state.errorMessage}</p>
+                    <div className='container' style={{ marginTop: '100px', maxWidth:'350px' }}>
+                        <div className='card hoverable'>
+                                <div className='card-content center'>    
+                                    <div className="input-field">
+                                        <input  onChange={e => this.setState({loginUsername:e.target.value}) } 
+                                                type='text' 
+                                                id='username'/>
+                                        <label for='username'>username</label>
+                                    </div>
+                                    <div className="input-field">
+                                        <input  onChange={e => this.setState({loginPassword:e.target.value}) }  
+                                                type='password' 
+                                                id='password'/>
+                                        <label for='password'>password</label>
+                                    </div>
+                                    <button className="btn blue waves-effect waves-light"
+                                            onClick={this.loginLogic}>
+                                            login
+                                    </button>
+                                </div>                                
+                                <div className='card-action center'>
+                                    <p>{this.state.errorMessage}</p>
+                                </div>
+                        </div>
+                    </div>
                 </div>
     }
         
