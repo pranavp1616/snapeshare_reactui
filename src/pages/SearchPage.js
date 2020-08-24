@@ -30,7 +30,7 @@ class SearchPage extends React.Component{
                     { localStorage.auth_token != undefined && 
                         <div>
                             <NaivgationBar />
-                            <h1>Search result for {this.props.match.params.pattern}</h1>
+                            Search result for {this.props.match.params.pattern}
                             {this.state.search_result_data.map(this.foo)}
                         </div>
                     ||

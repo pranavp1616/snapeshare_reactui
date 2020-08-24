@@ -10,7 +10,6 @@ function Home(){
                 { localStorage.auth_token != undefined && 
                     <div>
                         <NaivgationBar />
-                        <h1>This is home page </h1>
                         <PopulateData url={temp_url} pagetype='home'/>
                     </div>
                     ||

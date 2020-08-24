@@ -13,7 +13,6 @@ class FriendPage extends React.Component{
                         { localStorage.auth_token != undefined && 
                             <div>
                                 <NaivgationBar />
-                                <h1>FriendPage page </h1>
                                 <PopulateData url={friend_url} pagetype='friend'/>
                             </div>
                         ||                        

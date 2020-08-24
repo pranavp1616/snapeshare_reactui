@@ -33,13 +33,34 @@ class MyProfile extends React.Component{
                     { localStorage.auth_token != undefined && 
                         <div>
                             <NaivgationBar />
-                            <h1>This is MyProfile page </h1>
-                            <div>
-                            <input type="text" id='upload_input_hashtag'/> 
-                            <input type="file" id='upload_input_file' accept='image/*'/> 
-                            <button onClick={this.uploadPostLogic}>Post</button>
+
+                            <div className='container center'>
+                                <div className='card hoverable'>
+                                    <div class="card-title">
+                                        New post
+                                    </div>
+                                    <div className='card-content'>
+                                        <div className="input-field">
+                                            <input type="text" id='upload_input_hashtag'/> 
+                                            <label for='upload_input_hashtag'>hashtags</label>           
+                                        </div>
+                                        <div className="file-field input-field">
+                                            <div className="btn indigo">
+                                                <span>browse</span>
+                                                <input type="file" id='upload_input_file' accept="image/*"/>
+                                            </div>
+                                            <div class = "file-path-wrapper">
+                                                <input class = "file-path validate" type = "text" placeholder = "Selected file" />
+                                            </div>
+                                        </div>
+                                        <button onClick={this.uploadPostLogic}
+                                                className='btn indigo'>
+                                            Post
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
-                            <br/>
+
                             <PopulateData url={myprofile_url} pagetype='myprofile'/>
                         </div>
                     ||
