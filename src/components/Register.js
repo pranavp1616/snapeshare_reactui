@@ -5,38 +5,61 @@ class Register extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            loginUsername : '',
-            loginEmail    : '',
-            loginPassword : '',
+            regUsername : '',
+            regEmail    : '',
+            regPassword : '',
             errorMessage  : ''
         };
         // bind registerLogic (userdefined func unlike render or constructor) Otherwise we cant use(READ) state variables
         // in non react functions(userdefined) like registerLogic,etc 
         this.registerLogic = this.registerLogic.bind(this); 
-
     }
 
     async registerLogic(){
         var url =   API+ 'user/register/';
         var formData = new FormData();  
-        formData.append('username',this.state.loginUsername);  
-        formData.append('email',this.state.loginEmail);  
-        formData.append('password',this.state.loginPassword);
+        formData.append('username',this.state.regUsername);  
+        formData.append('email',this.state.regEmail);  
+        formData.append('password',this.state.regPassword);
         var request = new Request(url, {method:'POST',  body:formData}  );
         const resp = await fetch(request);
         const data = await resp.json();
-
         this.setState( { errorMessage: data.response });
     }
 
     render(){
         return <div>
-                    <h1>Register</h1>
-                        <input onChange={(e) => this.setState({loginUsername:e.target.value})} type='text' placeholder='username'/>
-                        <input onChange={(e) => this.setState({loginEmail:e.target.value})} type='text' placeholder='email'/>
-                        <input onChange={(e) => this.setState({loginPassword:e.target.value})}type='password' placeholder='password'/>
-                    <button onClick={this.registerLogic}>Register</button>
-                    <p>{this.state.errorMessage}</p>
+                    <div className='container' style={{ marginTop: '100px', maxWidth:'350px' }}>
+                        <div className='card hoverable'>
+                            <div className='card-content center'>    
+                                    <div className="input-field">
+                                        <input  onChange={(e) => this.setState({regUsername:e.target.value})} 
+                                                type='text' 
+                                                id='username'/>
+                                        <label for='username'>username</label>
+                                    </div>
+                                    <div className="input-field">
+                                        <input  onChange={(e) => this.setState({regEmail:e.target.value})} 
+                                                type='text' 
+                                                id='email'/>
+                                        <label for='email'>email</label>
+                                    </div>
+                                    <div className="input-field">
+                                        <input  onChange={(e) => this.setState({regPassword:e.target.value})}
+                                                type='password' 
+                                                id='password'/>
+                                        <label for='password'>password</label>
+                                    </div>
+                                    <button className="btn blue waves-effect waves-light"
+                                            onClick={this.registerLogic}>
+                                            Register
+                                    </button>
+                            </div>
+                            <div className='card-action center'>
+                                <p>{this.state.errorMessage}</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
     }
 }
