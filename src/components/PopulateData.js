@@ -57,9 +57,7 @@ class PopulateData extends React.Component{
         var formData = new FormData();
         formData.append('comment',new_comment);
         var request = new Request(url, {method:'POST',headers, body:formData});
-        var resp = await fetch(request);
-        var data = await resp.json();
-        console.log(data);
+        await fetch(request);
     }
     
     async deleteLogic(id){
@@ -76,6 +74,15 @@ class PopulateData extends React.Component{
             const newMainData = this.state.main_data.filter( item => item.id !== id)
             this.setState( {main_data : newMainData }); 
         }
+    }
+
+    
+    async getAllLikes(id){
+        alert(id);
+    }
+    
+    async getAllComments(id){
+        alert('all comments of'+ id);
     }
 
     render(){
@@ -133,8 +140,10 @@ class PopulateData extends React.Component{
                                         </button> 
                                     </div>
                                     <div className='right'>
-                                        <button className='btn'>All likes</button>
-                                        <button className='btn'>All Comments</button>
+                                        <button onClick={this.getAllLikes.bind(this,t.id)}
+                                                className='btn'>All likes</button>
+                                        <button onClick={this.getAllComments.bind(this,t.id)}
+                                                className='btn'>All Comments</button>
                                     </div>
                                 </div>
                             </div>
