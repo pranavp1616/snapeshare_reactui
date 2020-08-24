@@ -19,8 +19,7 @@ class UploadPost extends React.Component{
         formData.append('image',image);  
         formData.append('hashtags',hashtags);
         var request = new Request(url, {method:'POST', headers, body:formData}  );
-        const resp = await fetch(request);
-        const data = await resp.json();
+        await fetch(request);
         window.location.reload();
     }
 

@@ -8,7 +8,7 @@ class FriendPage extends React.Component{
     render(){
             var friend_url = API + 'getuserposts/'+ this.props.match.params.username;
             return <div>
-                        { localStorage.auth_token != undefined && 
+                        { localStorage.auth_token !== undefined && 
                             <div>
                                 <NaivgationBar />
                                 <div className='row center'>

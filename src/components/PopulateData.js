@@ -25,8 +25,6 @@ class PopulateData extends React.Component{
         var request = new Request(this.props.url, {method:'GET', headers});
         const resp = await fetch(request);
         const data = await resp.json();
-        console.log(data);
-        console.log(this.state.main_data)
         this.setState(  {   main_data : data    }   );
     }   
     
@@ -40,16 +38,17 @@ class PopulateData extends React.Component{
         const n = this.state.main_data.length; 
         var i=0, index=-1;
         for(i=0;i<n;i++){
-            if(this.state.main_data[i].id == id)
+            if(this.state.main_data[i].id === id)
                 index = i;
         }
-        if(data.response == 'liked'){
-                    var newMainData = [...this.state.main_data];
+        var newMainData;
+        if(data.response === 'liked'){
+                    newMainData = [...this.state.main_data];
                     newMainData[index].is_liked = true;
                     this.setState({ main_data : newMainData });
         }
         else{
-                    var newMainData = [...this.state.main_data];
+                    newMainData = [...this.state.main_data];
                     newMainData[index].is_liked = false;
                     this.setState({ main_data : newMainData });
         }
@@ -85,12 +84,16 @@ class PopulateData extends React.Component{
         console.log('Rendering...');
         return (
                 <div>
-                    <ModalAllLikes  isOpen={this.state.LikesModalOpen} 
-                                    onClose={e=>{this.setState({LikesModalOpen:false})}}
-                                    post_id={this.state.LikesModalPostIdPassed}/>
-                    <ModalAllComments   isOpen={this.state.CommentModalOpen} 
-                                        onClose={e=>{this.setState({CommentModalOpen:false})}} 
-                                        post_id={this.state.CommentModalPostIdPassed}/>
+                    {this.state.LikesModalOpen === true
+                        &&
+                        <ModalAllLikes  onClose={e=>{this.setState({LikesModalOpen:false})}}
+                                        post_id={this.state.LikesModalPostIdPassed}/>
+                    }
+                    {this.state.CommentModalOpen === true
+                        &&
+                        <ModalAllComments   onClose={e=>{this.setState({CommentModalOpen:false})}} 
+                                            post_id={this.state.CommentModalPostIdPassed}/>
+                    }
                     {this.state.main_data.map(this.foo)}
                 </div>
                 );
@@ -105,7 +108,7 @@ class PopulateData extends React.Component{
                                 <div onClick={this.likeLogic.bind(this, t.id)}>
                                     <LikeButton is_liked={t.is_liked}/>
                                 </div>
-                                {   (this.props.pagetype == 'myprofile')
+                                {   (this.props.pagetype === 'myprofile')
                                     &&  
                                     <div onClick={this.deleteLogic.bind(this, t.id)} className="btn-floating halfway-fab hoverable red right">
                                             <i className="material-icons">delete_forever</i>

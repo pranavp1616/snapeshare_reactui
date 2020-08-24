@@ -27,7 +27,7 @@ class SearchPage extends React.Component{
     render() {
         return (
                 <div>
-                    { localStorage.auth_token != undefined && 
+                    { localStorage.auth_token !== undefined && 
                         <div>
                             
                             <NaivgationBar />
