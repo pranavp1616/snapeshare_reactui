@@ -12,7 +12,9 @@ class PopulateData extends React.Component{
                         main_data : [], 
                         comment:'',
                         LikesModalOpen : false,
-                        CommentModalOpen : false
+                        LikesModalPostIdPassed : 0,
+                        CommentModalOpen : false,
+                        CommentModalPostIdPassed : 0,
                     };
         this.foo = this.foo.bind(this);
     }
@@ -83,8 +85,12 @@ class PopulateData extends React.Component{
         console.log('Rendering...');
         return (
                 <div>
-                    <ModalAllLikes isOpen={this.state.LikesModalOpen} onClose={e=>{this.setState({LikesModalOpen:false})}}/>
-                    <ModalAllComments isOpen={this.state.CommentModalOpen} onClose={e=>{this.setState({CommentModalOpen:false})}} />
+                    <ModalAllLikes  isOpen={this.state.LikesModalOpen} 
+                                    onClose={e=>{this.setState({LikesModalOpen:false})}}
+                                    post_id={this.state.LikesModalPostIdPassed}/>
+                    <ModalAllComments   isOpen={this.state.CommentModalOpen} 
+                                        onClose={e=>{this.setState({CommentModalOpen:false})}} 
+                                        post_id={this.state.CommentModalPostIdPassed}/>
                     {this.state.main_data.map(this.foo)}
                 </div>
                 );
@@ -127,9 +133,15 @@ class PopulateData extends React.Component{
                                         </button> 
                                     </div>
                                     <div className='right'>
-                                        <button onClick={e=>this.setState({LikesModalOpen:true, CommentModalOpen:false})}
+                                        <button onClick={e=>this.setState({ LikesModalOpen:true,
+                                                                            LikesModalPostIdPassed:t.id, 
+                                                                            CommentModalOpen:false,
+                                                                            CommentModalPostIdPassed :0})}
                                                 className='btn'>All likes</button>
-                                        <button onClick={e=>this.setState({CommentModalOpen:true, LikesModalOpen:false})}
+                                        <button onClick={e=>this.setState({CommentModalOpen:true, 
+                                                                            CommentModalPostIdPassed : t.id,
+                                                                            LikesModalOpen:false,
+                                                                            LikesModalPostIdPassed:0})}
                                                 className='btn'>All Comments</button>
                                     </div>
                                 </div>
