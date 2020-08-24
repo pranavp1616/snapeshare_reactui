@@ -19,6 +19,7 @@ class NaivgationBar extends React.Component{
                             </div>
                             <ul class="right">
                             <li>    <input  onChange={  (e) => this.setState({search_box_value:e.target.value}) }
+                                            className='white-text'
                                             type='text'/>   </li>
                             <li>    <div 
                                     onClick={(e)=>{ window.location='/search/'+this.state.search_box_value; }   }>
