@@ -40,9 +40,9 @@ class SearchPage extends React.Component{
                 );
     }
     foo(t){
-        var temp_url = '/friend/'+t.username;
+        var search_url = '/friend/'+t.username;
         return <div>
-                    <a href={temp_url}>{t.username}</a>
+                    <a href={search_url}>{t.username}</a>
                     <br/>
             </div>
     }
