@@ -8,6 +8,7 @@ class ModalAllComments extends React.Component{
         this.state = {
             all_comments : []
         }
+        this.foo = this.foo.bind(this);
     }
     async componentDidMount(){
         var url = API + 'getcomments/'+this.props.post_id;
@@ -17,7 +18,9 @@ class ModalAllComments extends React.Component{
         var resp = await fetch(request);
         var data = await resp.json();
         var temp_array = data.map(  (e) => { 
-                                            var obj = { username:e.username,
+                                            var obj = {
+                                                    id:e.id, 
+                                                    username:e.username,
                                                     comment:e.comment,
                                                     date_created:e.date_created,
                                                 };
@@ -25,6 +28,11 @@ class ModalAllComments extends React.Component{
                                         });
         console.log(temp_array);
         this.setState({all_comments:temp_array});
+    }
+
+    async deleteCommentLogic(id){
+        alert(id);
+        
     }
 
     render() {
@@ -53,7 +61,7 @@ class ModalAllComments extends React.Component{
                         <i className='grey-text'>{t.date_created}</i>
                         { localStorage.loggedinUser === t.username
                             &&
-                            <div onClick={} className='right'>
+                            <div onClick={this.deleteCommentLogic.bind(this, t.id)} className='right'>
                                 <i class="material-icons">delete</i>
                             </div>
                         }
