@@ -2,7 +2,7 @@ import React from 'react';
 import PopulateData from '../components/PopulateData';
 import {API} from '../components/Global';
 import NaivgationBar from '../components/NavigationBar';
-import PleaseLoginPage from '../components/PleaseLoginPage';
+import LandingPage from '../pages/LandingPage';
 
 function Home(){
     var temp_url = API + 'home-feed/';
@@ -14,7 +14,7 @@ function Home(){
                         <PopulateData url={temp_url} pagetype='home'/>
                     </div>
                     ||
-                    <PleaseLoginPage />
+                    <LandingPage />
                 }
             </div>
 }

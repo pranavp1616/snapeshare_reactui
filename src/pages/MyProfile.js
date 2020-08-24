@@ -2,7 +2,7 @@ import React from 'react';
 import PopulateData from '../components/PopulateData';
 import NaivgationBar from '../components/NavigationBar';
 import {API} from '../components/Global';
-import PleaseLoginPage from '../components/PleaseLoginPage';
+import LandingPage from '../pages/LandingPage';
 
 class MyProfile extends React.Component{
     constructor(props){
@@ -43,7 +43,7 @@ class MyProfile extends React.Component{
                             <PopulateData url={myprofile_url} pagetype='myprofile'/>
                         </div>
                     ||
-                        <PleaseLoginPage />
+                        <LandingPage />
                     }
                 </div>;
     }

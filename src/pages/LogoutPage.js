@@ -1,5 +1,5 @@
 import React from 'react';
-import PleaseLoginPage from '../components/PleaseLoginPage';
+import LandingPage from '../pages/LandingPage';
 
 class LogoutPage extends React.Component {
     componentDidMount(){
@@ -14,7 +14,7 @@ class LogoutPage extends React.Component {
                             <a href='/login'>login</a>
                         </div>  
                         ||
-                        <PleaseLoginPage />
+                        <LandingPage />
                     }
                 </div>;
     }

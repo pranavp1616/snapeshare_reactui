@@ -1,12 +1,11 @@
 import React from 'react';
 
-import LoginPage from './pages/LoginPage';
-import RegisterPage from './pages/RegisterPage';
 import Home from './pages/HomePage';
 import MyProfile from './pages/MyProfile';
 import SearchPage from './pages/SearchPage';
 import FriendPage from './pages/FriendPage';
 import LogoutPage from './pages/LogoutPage';
+import LandingPage from './pages/LandingPage';
 
 import {Route,BrowserRouter as Router} from 'react-router-dom';
 
@@ -15,9 +14,8 @@ class App extends React.Component {
 
     render(){
         return (<Router>
-                        <Route exact path='/' component={Home}/>
-                        <Route path='/login' component={LoginPage}/>
-                        <Route path='/register' component={RegisterPage} />
+                        <Route exact path='/' component={LandingPage}/>
+                        <Route path='/login' component={LandingPage}/>
 
                         <Route path='/home' component={Home} />
                         <Route path='/myprofile' component={MyProfile} />

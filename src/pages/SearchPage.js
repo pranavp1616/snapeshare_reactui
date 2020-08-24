@@ -1,7 +1,7 @@
 import React from 'react';
 import {API} from '../components/Global';
 import NaivgationBar from '../components/NavigationBar';
-import PleaseLoginPage from '../components/PleaseLoginPage';
+import LandingPage from '../pages/LandingPage';
 
 class SearchPage extends React.Component{
 
@@ -34,7 +34,7 @@ class SearchPage extends React.Component{
                             {this.state.search_result_data.map(this.foo)}
                         </div>
                     ||
-                        <PleaseLoginPage/>
+                        <LandingPage/>
                     }
                 </div>
                 );

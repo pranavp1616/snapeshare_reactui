@@ -2,7 +2,7 @@ import React from 'react';
 import PopulateData from '../components/PopulateData';
 import {API} from '../components/Global';
 import NaivgationBar from '../components/NavigationBar';
-import PleaseLoginPage from '../components/PleaseLoginPage';
+import LandingPage from '../pages/LandingPage';
 
 class FriendPage extends React.Component{
     render(){
@@ -17,7 +17,7 @@ class FriendPage extends React.Component{
                                 <PopulateData url={friend_url} pagetype='friend'/>
                             </div>
                         ||                        
-                            <PleaseLoginPage />
+                            <LandingPage />
                         }
                     </div>;
         }

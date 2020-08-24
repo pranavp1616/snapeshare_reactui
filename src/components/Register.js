@@ -1,7 +1,7 @@
 import React from 'react';
-import {API} from '../components/Global';
+import {API} from './Global';
 
-class RegisterPage extends React.Component{
+class Register extends React.Component{
     constructor(props){
         super(props);
         this.state = {
@@ -37,9 +37,8 @@ class RegisterPage extends React.Component{
                         <input onChange={(e) => this.setState({loginPassword:e.target.value})}type='password' placeholder='password'/>
                     <button onClick={this.registerLogic}>Register</button>
                     <p>{this.state.errorMessage}</p>
-                    <a href='/login'>Login</a>
                 </div>
     }
 }
 
-export default RegisterPage;
+export default Register;
