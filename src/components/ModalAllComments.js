@@ -50,11 +50,16 @@ class ModalAllComments extends React.Component{
         return  <li className="collection-item">
                     <div>
                         <a href={'/friend/'+t.username}>    {t.username}    </a>
-                        <p>
-                            {t.comment}
-                            <div className='right'>
+                        <i className='grey-text'>{t.date_created}</i>
+                        { localStorage.loggedinUser === t.username
+                            &&
+                            <div onClick={} className='right'>
                                 <i class="material-icons">delete</i>
                             </div>
+                        }
+
+                        <p>
+                            {t.comment}
                         </p>
                     </div>
                 </li>
