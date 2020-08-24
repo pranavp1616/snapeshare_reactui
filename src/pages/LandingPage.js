@@ -4,10 +4,10 @@ import Register from '../components/Register';
 
 class LandingPage extends React.Component{
     render(){
-        return <div>
+        return  <div>
                     <Login />
-                    <Register />
-        </div>
+                    <a href='/register'>Register</a>
+                </div>
     }
 }
 

@@ -6,8 +6,10 @@ import SearchPage from './pages/SearchPage';
 import FriendPage from './pages/FriendPage';
 import LogoutPage from './pages/LogoutPage';
 import LandingPage from './pages/LandingPage';
+import RegisterPage from './pages/RegisterPage';
 
 import {Route,BrowserRouter as Router} from 'react-router-dom';
+import Register from './components/Register';
 
 
 class App extends React.Component {
@@ -16,7 +18,8 @@ class App extends React.Component {
         return (<Router>
                         <Route exact path='/' component={LandingPage}/>
                         <Route path='/login' component={LandingPage}/>
-
+                        
+                        <Route path='/register' component={RegisterPage}/>
                         <Route path='/home' component={Home} />
                         <Route path='/myprofile' component={MyProfile} />
                         <Route path='/search/:pattern' component={SearchPage} />
