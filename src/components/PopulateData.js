@@ -64,6 +64,7 @@ class PopulateData extends React.Component{
         formData.append('comment',new_comment);
         var request = new Request(url, {method:'POST',headers, body:formData});
         await fetch(request);
+        alert('Comment added');
     }
     
     async deleteLogic(id){
