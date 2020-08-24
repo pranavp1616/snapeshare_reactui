@@ -32,7 +32,11 @@ class ModalAllComments extends React.Component{
     }
 
     async deleteCommentLogic(id){
-        // call delete comment api here
+        var url = API + 'comment/delete/'+id;
+        var headers = new Headers();
+        headers.append('Authorization','Token '+localStorage.auth_token);
+        var request = new Request(url,  {  method:'DELETE',headers }   );
+        await fetch(request);
         const temp_array = this.state.all_comments.filter(item => item.id !== id);
         this.setState({all_comments:temp_array});
     }
