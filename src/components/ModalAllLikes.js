@@ -10,7 +10,6 @@ class ModalAllLikes extends React.Component{
         }
     }
     async componentDidMount(){
-        alert('BLAH BLAH');
         var url = API + 'getlikes/'+this.props.post_id;
         var headers = new Headers();
         headers.append('Authorization','Token '+localStorage.auth_token);
@@ -29,13 +28,22 @@ class ModalAllLikes extends React.Component{
                         <div className='card' style={{marginTop:'100px', marginLeft:'10%', marginRight:'10%'}}>
                             <div className='card-content'>
                                 <button onClick={this.props.onClose} className='btn'>x</button>
-                                All likes of {this.props.post_id}
-                                {this.state.all_likes[0]}
+                                    <ul class="collection  with-header">
+                                        <li class="collection-header">  
+                                            All likes of {this.props.post_id}
+                                        </li>
+                                        {this.state.all_likes.map(this.foo)}
+                                    </ul>
                             </div>
                         </div>
                     </div>
              </div>
         );
+    }
+    foo(t){
+        return <li>
+                    <a href={'/friend/'+t} className="collection-item" >{t}</a>        
+                </li>
     }
 }
 
