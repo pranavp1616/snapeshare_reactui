@@ -5,7 +5,7 @@ class PopulateData extends React.Component{
     
     constructor(props){
         super(props);
-        this.state = {  main_data : []  };
+        this.state = {  main_data : [], comment:'' };
         this.foo = this.foo.bind(this);
     }
 
@@ -48,8 +48,18 @@ class PopulateData extends React.Component{
         }
     }
 
-    commentLogic(id){
-        alert('comment id '+id);
+    async commentLogic(id){
+        const new_comment = this.state.comment;
+        this.setState({comment:''}); // otherwise for other posts it might call API with old comment
+        var url = API+'comment/'+id;
+        var headers = new Headers();
+        headers.append('Authorization','Token '+localStorage.auth_token);
+        var formData = new FormData();
+        formData.append('comment',new_comment);
+        var request = new Request(url, {method:'POST',headers, body:formData});
+        var resp = await fetch(request);
+        var data = await resp.json();
+        console.log(data);
     }
     
     async deleteLogic(id){
@@ -114,9 +124,9 @@ class PopulateData extends React.Component{
                                 </div>
                                 <div className='row'>
                                     <div className='col s3'>
-                                        <input type='text' placeholder="add comment..."/>
+                                        <input type='text' placeholder="add comment..." onChange={e=>this.setState({comment:e.target.value})}/>
                                     </div>
-                                    <div class="col s1">
+                                    <div className="col s1">
                                         <button onClick={this.commentLogic.bind(this, t.id)}
                                                 className="btn-floating waves-effect waves-light hoverable">
                                                 <i className="material-icons grey">send</i>

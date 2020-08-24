@@ -11,13 +11,13 @@ class NaivgationBar extends React.Component{
 
     render(){
         return <div> 
-                <div class="navbar-fixed">
-                    <nav class="nav-wrapper indigo">
-                        <div class="container">
-                            <div class="left">  
+                <div className="navbar-fixed">
+                    <nav className="nav-wrapper indigo">
+                        <div className="container">
+                            <div className="left">  
                                 Snapshare   
                             </div>
-                            <ul class="right">
+                            <ul className="right">
                             <li>    <input  onChange={  (e) => this.setState({search_box_value:e.target.value}) }
                                             className='white-text'
                                             type='text'/>   </li>
