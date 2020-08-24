@@ -1,5 +1,6 @@
 import React from 'react';
 import {API} from './Global';
+import LikeButton from './LikeButton';
 
 class PopulateData extends React.Component{
     
@@ -13,7 +14,6 @@ class PopulateData extends React.Component{
         var headers = new Headers();
         headers.append('Authorization','Token '+localStorage.auth_token);
         var request = new Request(this.props.url, {method:'GET', headers});
-        
         const resp = await fetch(request);
         const data = await resp.json();
         console.log(data);
@@ -28,14 +28,12 @@ class PopulateData extends React.Component{
         var request = new Request(url, {method:'POST',headers});
         var resp = await fetch(request);
         var data = await resp.json();
-
         const n = this.state.main_data.length; 
         var i=0, index=-1;
         for(i=0;i<n;i++){
             if(this.state.main_data[i].id == id)
                 index = i;
         }
-
         if(data.response == 'liked'){
                     var newMainData = [...this.state.main_data];
                     newMainData[index].is_liked = true;
@@ -66,11 +64,9 @@ class PopulateData extends React.Component{
         var headers = new Headers();
         headers.append('Authorization','Token '+localStorage.auth_token);
         var request = new Request(url, {method:'DELETE', headers});
-        
         const resp = await fetch(request);
         const data = await resp.json();
         if(data.response === 'deleted'){
-            // delete from state.main_data
             const newMainData = this.state.main_data.filter( item => item.id !== id)
             this.setState( {main_data : newMainData }); 
         }
@@ -128,16 +124,7 @@ class PopulateData extends React.Component{
                             <div className="card-image">
                                 <img src={t.image} alt=''/>                                    
                                 <div onClick={this.likeLogic.bind(this, t.id)}>
-                                    {   (t.is_liked == true)
-                                    &&         
-                                        <div className="btn-floating halfway-fab hoverable left">
-                                            <i className="material-icons red">favorite</i>   
-                                        </div>
-                                    ||
-                                        <div className="btn-floating halfway-fab hoverable left">
-                                                <i className="material-icons grey">favorite</i>   
-                                        </div>
-                                    }
+                                    <LikeButton is_liked={t.is_liked}/>
                                 </div>
                                 {   (this.props.pagetype == 'myprofile')
                                     &&  
