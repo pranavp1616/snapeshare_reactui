@@ -1,13 +1,10 @@
 import React from 'react';
 import Register from '../components/Register';
+import Logo from '../components/Logo';
 
 function RegisterPage(){
     return  <div>
-                <div className='row'>
-                    <div className='container center'>
-                        Snapeshare and logo
-                    </div>
-                </div>
+                <Logo />
                 <div className='row'>
                     <Register />
                 </div>

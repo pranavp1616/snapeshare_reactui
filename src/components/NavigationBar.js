@@ -20,10 +20,10 @@ class NaivgationBar extends React.Component{
                             <ul class="right">
                             <li>    <input  onChange={  (e) => this.setState({search_box_value:e.target.value}) }
                                             type='text'/>   </li>
-                            <li>    <button 
+                            <li>    <div 
                                     onClick={(e)=>{ window.location='/search/'+this.state.search_box_value; }   }>
-                                    search
-                                    </button>
+                                    <i className="material-icons indigo">search</i>
+                                    </div>
                                     </li>
                             <li>    <a href='/home'>home</a>    </li>
                             <li>    <a href='/myprofile'> hi {localStorage.loggedinUser}! </a> </li>

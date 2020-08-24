@@ -1,14 +1,11 @@
 import React from 'react';
 import Login from '../components/Login';
+import Logo from '../components/Logo';
 
 class LandingPage extends React.Component{
     render(){
         return  <div>
-                    <div className='row'>
-                        <div className='container center'>
-                            Snapeshare and logo
-                        </div>
-                    </div>
+                    <Logo />
                     <div className='row'>
                         <Login />
                     </div>

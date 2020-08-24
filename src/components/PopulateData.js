@@ -87,11 +87,11 @@ class PopulateData extends React.Component{
                                     {   (t.is_liked == true)
                                     &&         
                                         <div className="btn-floating halfway-fab hoverable left">
-                                            <i className="material-icons red">L</i>   
+                                            <i className="material-icons red">favorite</i>   
                                         </div>
                                     ||
                                         <div className="btn-floating halfway-fab hoverable left">
-                                                <i className="material-icons grey">L</i>   
+                                                <i className="material-icons grey">favorite</i>   
                                         </div>
                                     }
                                 </div>
@@ -119,8 +119,12 @@ class PopulateData extends React.Component{
                                     <div class="col s1">
                                         <button onClick={this.commentLogic.bind(this, t.id)}
                                                 className="btn-floating waves-effect waves-light hoverable">
-                                                comment
+                                                <i className="material-icons grey">send</i>
                                         </button> 
+                                    </div>
+                                    <div className='right'>
+                                        <button className='btn'>All likes</button>
+                                        <button className='btn'>All Comments</button>
                                     </div>
                                 </div>
                             </div>

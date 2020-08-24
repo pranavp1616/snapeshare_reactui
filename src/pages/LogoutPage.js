@@ -1,5 +1,6 @@
 import React from 'react';
 import LandingPage from '../pages/LandingPage';
+import Logo from '../components/Logo';
 
 class LogoutPage extends React.Component {
     componentDidMount(){
@@ -10,9 +11,14 @@ class LogoutPage extends React.Component {
         return <div>
                     { localStorage.auth_token != undefined && 
                         <div>
-                            <h1>Log out successful</h1>
-                            <a href='/login'>login</a>
-                        </div>  
+                            <Logo />
+                            <div className='container'>
+                                
+                                Log out successful
+                                
+                                <a href='/login'>login</a>
+                            </div>  
+                        </div>
                         ||
                         <LandingPage />
                     }
