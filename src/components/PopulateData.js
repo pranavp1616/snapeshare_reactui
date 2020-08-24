@@ -72,35 +72,60 @@ class PopulateData extends React.Component{
         console.log('Rendering...');
         return (
                 <div>
-                    Populated posts from <b>{this.props.url}</b> and pagetype is <b>{this.props.pagetype}</b>
-                    <br/>
-                    <br/>
                     {this.state.main_data.map(this.foo)}
-                    <br/>
                 </div>
-        );
+                );
     }
     foo(t){
         var friend_url = '/friend/'+t.uploaded_by; 
         return <div>
-                    Uploaded by <a href={friend_url}>{t.uploaded_by}</a>
-                    <br/>
-                    <img src={t.image} alt=''/>            
-                    <br/>
-                    {t.hashtags}
-                    Posted on {t.date_created}
-                    <br/>
-                    {(t.is_liked == true) && <b>Liked</b> || <b>NOT LIKED</b>} 
-                    <button onClick={this.likeLogic.bind(this, t.id)}>.</button> 
-                    <br/>
-                    <button onClick={this.commentLogic.bind(this, t.id)}>comment</button> 
-
-                    {this.props.pagetype == 'myprofile' &&  
-                        <button onClick={this.deleteLogic.bind(this, t.id)}>Delete</button> 
-                    }
-
-                    <br/>
-                    <br/>
+                    <div className="container">
+                        <div className="card hoverable z-depth-2">
+                            <div className="card-image">
+                                <img src={t.image} alt=''/>                                    
+                                <div onClick={this.likeLogic.bind(this, t.id)}>
+                                    {   (t.is_liked == true)
+                                    &&         
+                                        <div className="btn-floating halfway-fab hoverable left">
+                                            <i className="material-icons red">L</i>   
+                                        </div>
+                                    ||
+                                        <div className="btn-floating halfway-fab hoverable left">
+                                                <i className="material-icons grey">L</i>   
+                                        </div>
+                                    }
+                                </div>
+                                {   (this.props.pagetype == 'myprofile')
+                                    &&  
+                                    <div onClick={this.deleteLogic.bind(this, t.id)} className="btn-floating halfway-fab hoverable red right">
+                                            <i className="material-icons">delete_forever</i>
+                                    </div>
+                                }
+                            </div>
+                            <div className="card-content">
+                                <div className="row">
+                                    <div className='col left'>
+                                        <b><a href={friend_url}>{t.uploaded_by}</a></b>
+                                        <i> {t.hashtags}</i>
+                                    </div>
+                                    <div className='col right'>
+                                        <i className="grey-text">Posted on {t.date_created}</i>
+                                    </div>
+                                </div>
+                                <div className='row'>
+                                    <div className='col s3'>
+                                        <input type='text' placeholder="add comment..."/>
+                                    </div>
+                                    <div class="col s1">
+                                        <button onClick={this.commentLogic.bind(this, t.id)}
+                                                className="btn-floating waves-effect waves-light hoverable">
+                                                comment
+                                        </button> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>;
     }    
 
