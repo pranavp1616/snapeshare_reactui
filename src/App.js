@@ -9,7 +9,6 @@ import LandingPage from './pages/LandingPage';
 import RegisterPage from './pages/RegisterPage';
 
 import {Route,BrowserRouter as Router} from 'react-router-dom';
-import Register from './components/Register';
 
 
 class App extends React.Component {

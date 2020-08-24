@@ -79,7 +79,7 @@ class PopulateData extends React.Component{
     foo(t){
         var friend_url = '/friend/'+t.uploaded_by; 
         return <div>
-                    <div className="container">
+                    <div className="container" style={{maxWidth: '700px'}}>
                         <div className="card hoverable z-depth-2">
                             <div className="card-image">
                                 <img src={t.image} alt=''/>                                    

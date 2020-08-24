@@ -26,7 +26,7 @@ class UploadPost extends React.Component{
 
     render(){
         return (
-                <div className='container center'>
+                <div className='container center' style={{maxWidth: '700px'}}>
                     <div className='card hoverable'>
                         <div class="card-title">
                             New post
