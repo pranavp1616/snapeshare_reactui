@@ -10,8 +10,6 @@ class Login extends React.Component{
             loginPassword : '',
             errorMessage  : ''
         }        
-        // bind loginLogic (userdefined func unlike render or constructor) Otherwise we cant use(READ) state variables
-        // in non react functions(userdefined) like loginLogic,etc 
         this.loginLogic = this.loginLogic.bind(this); 
     }
 
@@ -23,8 +21,10 @@ class Login extends React.Component{
         var request = new Request(url, {method:'POST',  body:formData}  );
         const resp = await fetch(request);
         const data = await resp.json();
-        this.setState( { errorMessage: data.response });
+        if(data.response === 'error')
+            this.setState( { errorMessage: data.message });
         if(data.response === 'success'){
+            this.setState( { errorMessage: data.message });
             localStorage.auth_token = data.token;
             localStorage.loggedinUser = this.state.loginUsername;
             window.location = '/home';
