@@ -12,16 +12,16 @@ class SearchPage extends React.Component{
     }
 
     async componentDidMount(){
-        var headers = new Headers();
-        headers.append('Authorization','Token '+localStorage.auth_token);
-        var url = API + 'search/'+this.props.match.params.pattern;
-        var request = new Request(url, {method:'GET', headers});
-        
-        const resp = await fetch(request);
-        const data = await resp.json();
-        console.log(data);
-        console.log(this.state.main_data)
-        this.setState(  {   search_result_data : data    }   );
+        if(this.props.match.params.pattern !== 'null'){
+            var headers = new Headers();
+            headers.append('Authorization','Token '+localStorage.auth_token);
+            var search_pattern = this.props.match.params.pattern;
+            var url = API + 'search/'+this.props.match.params.pattern;
+            var request = new Request(url, {method:'GET', headers});
+            const resp = await fetch(request);
+            const data = await resp.json();
+            this.setState(  {   search_result_data : data    }   );            
+        }
     }
 
     render() {
@@ -29,9 +29,7 @@ class SearchPage extends React.Component{
                 <div>
                     { localStorage.auth_token !== undefined && 
                         <div>
-                            
                             <NaivgationBar />
-                            
                             <div class="row" style={{marginLeft: '10%',  marginRight: '10%'}}>
                                 <div class="container">
                                     <div class="card z-depth-3">
