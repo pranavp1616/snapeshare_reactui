@@ -42,7 +42,7 @@ class PopulateData extends React.Component{
                 index = i;
         }
         var newMainData;
-        if(data.response === 'liked'){
+        if(data.message === 'liked'){
                     newMainData = [...this.state.main_data];
                     newMainData[index].is_liked = true;
                     this.setState({ main_data : newMainData });
@@ -75,7 +75,7 @@ class PopulateData extends React.Component{
         var request = new Request(url, {method:'DELETE', headers});
         const resp = await fetch(request);
         const data = await resp.json();
-        if(data.response === 'deleted'){
+        if(data.response === 'success'){
             const newMainData = this.state.main_data.filter( item => item.id !== id)
             this.setState( {main_data : newMainData }); 
         }
