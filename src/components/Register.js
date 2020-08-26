@@ -24,7 +24,11 @@ class Register extends React.Component{
         var request = new Request(url, {method:'POST',  body:formData}  );
         const resp = await fetch(request);
         const data = await resp.json();
-        this.setState( { errorMessage: data.response });
+        if(data.response==='error')
+            this.setState( { errorMessage: data.message });
+        if(data.response === 'success')
+            this.setState( { errorMessage: data.message });            
+            //window.location = '/login';
     }
 
     render(){
