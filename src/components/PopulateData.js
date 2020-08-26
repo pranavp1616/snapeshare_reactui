@@ -133,7 +133,7 @@ class PopulateData extends React.Component{
                                     <div className="col s1">
                                         <button onClick={this.commentLogic.bind(this, t.id)}
                                                 className="btn-floating waves-effect waves-light hoverable">
-                                                <i className="material-icons grey">send</i>
+                                                <i className="material-icons blue">send</i>
                                         </button> 
                                     </div>
                                     <div className='right'>
@@ -141,12 +141,12 @@ class PopulateData extends React.Component{
                                                                             LikesModalPostIdPassed:t.id, 
                                                                             CommentModalOpen:false,
                                                                             CommentModalPostIdPassed :0})}
-                                                className='btn'>All likes</button>
+                                                className='btn hoverable blue'>All likes</button>
                                         <button onClick={e=>this.setState({CommentModalOpen:true, 
                                                                             CommentModalPostIdPassed : t.id,
                                                                             LikesModalOpen:false,
                                                                             LikesModalPostIdPassed:0})}
-                                                className='btn'>All Comments</button>
+                                                className='btn hoverable blue'>All Comments</button>
                                     </div>
                                 </div>
                             </div>
