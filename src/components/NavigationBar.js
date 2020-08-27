@@ -15,7 +15,7 @@ class NaivgationBar extends React.Component{
                         <nav className="nav-wrapper indigo">
                             <div className="container">
                                 <div className="left">  
-                                    Snapshare   
+                                    <b>Snapshare</b>
                                 </div>
                                 <ul className="right">
                                     <li>    <input  onChange={  (e) => this.setState({search_box_value:e.target.value}) }

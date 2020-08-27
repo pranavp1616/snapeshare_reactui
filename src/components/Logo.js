@@ -2,10 +2,12 @@ import React from 'react';
 
 class Logo extends React.Component{
     render(){
-        return  <div className='row'>
-                    <div className='container center'>
-                        <h2>Snapshare</h2>
-                    </div>
+        return  <div  className="navbar-fixed">
+                    <nav className="nav-wrapper indigo">
+                        <div className='container center'>
+                            <b>Snapshare</b>
+                        </div>
+                    </nav>
                 </div>
     }
 }
