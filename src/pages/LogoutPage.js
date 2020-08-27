@@ -14,9 +14,9 @@ class LogoutPage extends React.Component {
                             <Logo />
                             <br/>
                             <div className='container center'>
-                                Log out successful
+                                <h5>log out successful</h5>
                                 <br/>                                
-                                <a href='/login'>login</a>
+                                <h5><a href='/login'>login</a></h5>
                             </div>  
                         </div>
                         ||

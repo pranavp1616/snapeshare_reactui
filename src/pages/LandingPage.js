@@ -11,7 +11,7 @@ class LandingPage extends React.Component{
                     </div>
                     <div className='row'>
                         <div className='container center'>
-                            <a href='/register'>Create a new account?</a>
+                            <h5><a href='/register'>Create a new account?</a></h5>
                         </div>
                     </div>
 
@@ -22,9 +22,6 @@ class LandingPage extends React.Component{
                             </div>
                             <div className='row'>
                                <b>Frontend</b> <a href='https://github.com/pranavp1616/snapeshare_reactui'>React (JS) github</a>
-                            </div>
-                            <div className='row'>
-                                (Deployed on Amazon AWS S3,RDS and Heroku) 
                             </div>
                         </div>
                     </div>
