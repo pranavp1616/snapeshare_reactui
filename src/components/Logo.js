@@ -4,7 +4,7 @@ class Logo extends React.Component{
     render(){
         return  <div className='row'>
                     <div className='container center'>
-                        Snapeshare + logo
+                        <h2>Snapshare</h2>
                     </div>
                 </div>
     }

@@ -14,17 +14,18 @@ class LandingPage extends React.Component{
                             <a href='/register'>Create a new account?</a>
                         </div>
                     </div>
+
                     <div className='row'>
-                        <div className='container center'>
-                            Tech stack
-                            <br/>
-                            <a href='https://github.com/pranavp1616/snapeshare_reactui'>React JS code</a>
-                            <br/>
-                            <a href='https://github.com/pranavp1616/snapshare_api/'>Python Django code</a>
-                            <br/>
-                            Deployed on Amazon AWS and heroku 
-                            <br/>
-                            <h1>Insert wallpaper in this landing page</h1>
+                        <div className='container center' style={{marginTop:'50px'}}>
+                            <div className='row'>
+                               Backend <a href='https://github.com/pranavp1616/snapshare_api/'>Django(python) github</a>
+                            </div>
+                            <div className='row'>
+                               Frontend <a href='https://github.com/pranavp1616/snapeshare_reactui'>React (JS) github</a>
+                            </div>
+                            <div className='row'>
+                                (Deployed on Amazon AWS S3,RDS and Heroku) 
+                            </div>
                         </div>
                     </div>
                 </div>
