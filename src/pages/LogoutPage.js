@@ -12,10 +12,9 @@ class LogoutPage extends React.Component {
                     { localStorage.auth_token !== undefined && 
                         <div>
                             <Logo />
-                            <div className='container'>
-                                
+                            <div className='container center'>
                                 Log out successful
-                                
+                                <br/>                                
                                 <a href='/login'>login</a>
                             </div>  
                         </div>
