@@ -40,19 +40,19 @@ class Register extends React.Component{
                                         <input  onChange={(e) => this.setState({regUsername:e.target.value})} 
                                                 type='text' 
                                                 id='username'/>
-                                        <label for='username'>username</label>
+                                        <label htmlFor='username'>username</label>
                                     </div>
                                     <div className="input-field">
                                         <input  onChange={(e) => this.setState({regEmail:e.target.value})} 
                                                 type='text' 
                                                 id='email'/>
-                                        <label for='email'>email</label>
+                                        <label htmlFor='email'>email</label>
                                     </div>
                                     <div className="input-field">
                                         <input  onChange={(e) => this.setState({regPassword:e.target.value})}
                                                 type='password' 
                                                 id='password'/>
-                                        <label for='password'>password</label>
+                                        <label htmlFor='password'>password</label>
                                     </div>
                                     <button className="btn blue waves-effect waves-light"
                                             onClick={this.registerLogic}>

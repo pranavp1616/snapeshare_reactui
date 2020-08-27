@@ -40,13 +40,13 @@ class Login extends React.Component{
                                         <input  onChange={e => this.setState({loginUsername:e.target.value}) } 
                                                 type='text' 
                                                 id='username'/>
-                                        <label for='username'>username</label>
+                                        <label htmlFor='username'>username</label>
                                     </div>
                                     <div className="input-field">
                                         <input  onChange={e => this.setState({loginPassword:e.target.value}) }  
                                                 type='password' 
                                                 id='password'/>
-                                        <label for='password'>password</label>
+                                        <label htmlFor='password'>password</label>
                                     </div>
                                     <button className="btn blue waves-effect waves-light"
                                             onClick={this.loginLogic}>

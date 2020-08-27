@@ -15,7 +15,6 @@ class SearchPage extends React.Component{
         if(this.props.match.params.pattern !== 'null'){
             var headers = new Headers();
             headers.append('Authorization','Token '+localStorage.auth_token);
-            var search_pattern = this.props.match.params.pattern;
             var url = API + 'search/'+this.props.match.params.pattern;
             var request = new Request(url, {method:'GET', headers});
             const resp = await fetch(request);
@@ -27,7 +26,7 @@ class SearchPage extends React.Component{
     render() {
         return (
                 <div>
-                    { localStorage.auth_token !== undefined && 
+                    { (localStorage.auth_token !== undefined && 
                         <div>
                             <NaivgationBar />
                             <div class="row" style={{marginLeft: '10%',  marginRight: '10%'}}>
@@ -43,7 +42,7 @@ class SearchPage extends React.Component{
                                 </div>
                             </div>
 
-                        </div>
+                        </div>)
                     ||
                         <LandingPage/>
                     }

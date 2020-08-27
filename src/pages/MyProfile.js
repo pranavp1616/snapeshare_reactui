@@ -6,15 +6,10 @@ import LandingPage from '../pages/LandingPage';
 import UploadPost from '../components/UploadPost';
 
 class MyProfile extends React.Component{
-    constructor(props){
-        super(props);
-    }
-
-
     render(){
         var myprofile_url = API+ 'getuserposts/'+localStorage.loggedinUser;
         return <div>
-                    { localStorage.auth_token != undefined && 
+                    { (localStorage.auth_token !== undefined && 
                         <div>
                             <NaivgationBar />
                             <div className='row center'>
@@ -22,7 +17,7 @@ class MyProfile extends React.Component{
                             </div>
                             <UploadPost />
                             <PopulateData url={myprofile_url} pagetype='myprofile'/>
-                        </div>
+                        </div>)
                     ||
                         <LandingPage />
                     }

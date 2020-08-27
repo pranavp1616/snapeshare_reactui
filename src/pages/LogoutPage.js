@@ -9,7 +9,7 @@ class LogoutPage extends React.Component {
     }
     render(){
         return <div>
-                    { localStorage.auth_token !== undefined && 
+                    { (localStorage.auth_token !== undefined && 
                         <div>
                             <Logo />
                             <br/>
@@ -18,7 +18,7 @@ class LogoutPage extends React.Component {
                                 <br/>                                
                                 <h5><a href='/login'>login</a></h5>
                             </div>  
-                        </div>
+                        </div>)
                         ||
                         <LandingPage />
                     }
