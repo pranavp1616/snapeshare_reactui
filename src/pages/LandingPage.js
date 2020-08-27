@@ -18,10 +18,10 @@ class LandingPage extends React.Component{
                     <div className='row'>
                         <div className='container center' style={{marginTop:'50px'}}>
                             <div className='row'>
-                               <b>Backend</b> <a href='https://github.com/pranavp1616/snapshare_api/'>Django(python) github</a>
+                               <b>REST API</b> <a href='https://github.com/pranavp1616/snapshare_api/'>Django (python) github</a>
                             </div>
                             <div className='row'>
-                               <b>Frontend</b> <a href='https://github.com/pranavp1616/snapeshare_reactui'>React (JS) github</a>
+                               <b>UI</b> <a href='https://github.com/pranavp1616/snapeshare_reactui'>React (JS) github</a>
                             </div>
                         </div>
                     </div>
