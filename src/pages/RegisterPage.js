@@ -10,7 +10,7 @@ function RegisterPage(){
                 </div>
                 <div className='row'>
                     <div className='container center'>
-                        <h5><a href='/login'>Login</a></h5>
+                        <h5><a href='/login'>Login?</a></h5>
                     </div>
                 </div>
             </div>

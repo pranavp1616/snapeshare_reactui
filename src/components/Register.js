@@ -54,7 +54,7 @@ class Register extends React.Component{
                                                 id='password'/>
                                         <label htmlFor='password'>password</label>
                                     </div>
-                                    <button className="btn blue waves-effect waves-light"
+                                    <button className="btn indigo waves-effect waves-light"
                                             onClick={this.registerLogic}>
                                             Register
                                     </button>

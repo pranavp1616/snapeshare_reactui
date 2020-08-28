@@ -12,7 +12,7 @@ class NaivgationBar extends React.Component{
     render(){
         return <div> 
                     <div className="navbar-fixed">
-                        <nav className="nav-wrapper indigo">
+                        <nav className="nav-wrapper snapshare_color">
                             <div className="container">
                                 <div className="left">  
                                     <b>Snapshare</b>
@@ -30,7 +30,7 @@ class NaivgationBar extends React.Component{
                                                                 window.location='/search/'+this.state.search_box_value;                                                        
                                                         }
                                                     }>
-                                            <i className="material-icons indigo">search</i>
+                                            <i className="material-icons my_navbar_color">search</i>
                                             </div>
                                             </li>
                                     <li>    <a href='/home'>home</a>    </li>

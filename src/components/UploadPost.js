@@ -36,7 +36,7 @@ class UploadPost extends React.Component{
                                 <label for='upload_input_hashtag'>hashtags</label>           
                             </div>
                             <div className="file-field input-field">
-                                <div className="btn blue">
+                                <div className="btn indigo">
                                     <span>browse</span>
                                     <input type="file" id='upload_input_file' accept="image/*"/>
                                 </div>
@@ -45,7 +45,7 @@ class UploadPost extends React.Component{
                                 </div>
                             </div>
                             <button onClick={this.uploadPostLogic}
-                                            className='btn blue'>
+                                            className='btn indigo'>
                                             Post
                             </button>
                         </div>

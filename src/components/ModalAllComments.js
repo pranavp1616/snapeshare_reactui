@@ -48,7 +48,7 @@ class ModalAllComments extends React.Component{
                         <div className='card' style={{marginTop:'100px', marginLeft:'10%', marginRight:'10%'}}>
                             <div className='card-content'>
                                 <div className='center'>
-                                    <button onClick={this.props.onClose} className='btn'>x</button>
+                                    <button onClick={this.props.onClose} className='btn indigo'>x</button>
                                 </div>
                                     <ul className="collection with-header">
                                         {this.state.all_comments.map(this.foo)}
