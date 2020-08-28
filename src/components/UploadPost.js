@@ -27,14 +27,7 @@ class UploadPost extends React.Component{
         return (
                 <div className='container center' style={{maxWidth: '700px'}}>
                     <div className='card hoverable'>
-                        <div class="card-title">
-                            New post
-                        </div>
                         <div className='card-content'>
-                            <div className="input-field">
-                                <input type="text" id='upload_input_hashtag'/> 
-                                <label for='upload_input_hashtag'>hashtags</label>           
-                            </div>
                             <div className="file-field input-field">
                                 <div className="btn indigo">
                                     <span>browse</span>
@@ -44,6 +37,7 @@ class UploadPost extends React.Component{
                                     <input class = "file-path validate" type = "text" placeholder = "Selected file" />
                                 </div>
                             </div>
+                            <input type="text" id='upload_input_hashtag' placeholder='hashtags?'/> 
                             <button onClick={this.uploadPostLogic}
                                             className='btn indigo'>
                                             Post

@@ -103,7 +103,7 @@ class PopulateData extends React.Component{
         var friend_url = '/friend/'+t.uploaded_by; 
         return <div>
                     <div className="container" style={{maxWidth: '700px'}}>
-                        <div className="card hoverable z-depth-2">
+                        <div className="card z-depth-4">
                             <div className="card-image">
                                 <img src={t.image} alt=''/>                                    
                                 <div onClick={this.likeLogic.bind(this, t.id)}>
