@@ -134,7 +134,10 @@ class PopulateData extends React.Component{
                         && this.props.pagetype !== 'myprofile' 
                         &&<div className='container center'><h3>You're all caught up</h3></div>
                     }
-                    {this.state.main_data.map(this.foo)}
+
+                    <div className='row'>
+                        {this.state.main_data.map(this.foo)}
+                    </div>
 
                     <div className='container center'>
                         <button onClick={this.onPrevPageBtnClick} className='btn indigo hoverable'  style={{'margin':'10px'}}>
@@ -149,10 +152,9 @@ class PopulateData extends React.Component{
                 );
     }
     foo(t){
-        var friend_url = '/friend/'+t.uploaded_by; 
         return <div>
-                    <div className="container" style={{maxWidth: '700px'}}>
-                        <div className="card z-depth-4">
+                    <div className="col">
+                        <div className="card z-depth-4" style={{maxWidth: '500px'}}>
                             <div className="card-image">
                                 <img src={t.image} alt=''/>                                    
                                 <div onClick={this.likeLogic.bind(this, t.id)}>
@@ -168,7 +170,7 @@ class PopulateData extends React.Component{
                             <div className="card-content">
                                 <div className="row">
                                     <div className='col left'>
-                                        <b><a href={friend_url}>{t.uploaded_by}</a></b>
+                                        <b><a href={'/friend/'+t.uploaded_by}>{t.uploaded_by}</a></b>
                                         <i> {t.hashtags}</i>
                                     </div>
                                     <div className='col right'>
