@@ -154,7 +154,7 @@ class PopulateData extends React.Component{
     foo(t){
         return <div>
                     <div className="col">
-                        <div className="card z-depth-4" style={{maxWidth: '500px'}}>
+                        <div className="card hoverable" style={{maxWidth: '350px'}}>
                             <div className="card-image">
                                 <img src={t.image} alt=''/>                                    
                                 <div onClick={this.likeLogic.bind(this, t.id)}>
@@ -169,39 +169,49 @@ class PopulateData extends React.Component{
                             </div>
                             <div className="card-content">
                                 <div className="row">
-                                    <div className='col left'>
-                                        <b><a href={'/friend/'+t.uploaded_by}>{t.uploaded_by}</a></b>
-                                        <i> {t.hashtags}</i>
+                                    <div className='col'>
+                                        <b><a href={'/friend/'+t.uploaded_by}>{t.uploaded_by}</a></b>                            
                                     </div>
-                                    <div className='col right'>
-                                        <i className="grey-text">Posted on {t.date_created}</i>
+                                    <div className='col right'>   
+                                        <i className="grey-text">{t.date_created}</i>                                         
                                     </div>
+                                </div>                                
+                                <div className='row'>   
+                                    <i> {t.hashtags}</i>
                                 </div>
+                                <div class="card-action center">
+                                    <a onClick={e=>this.setState({  LikesModalOpen:true,
+                                                                    LikesModalPostIdPassed:t.id, 
+                                                                    CommentModalOpen:false,
+                                                                    CommentModalPostIdPassed :0})}>
+                                        {t.totalLikes} Likes
+                                    </a>
+                                    <a onClick={e=>this.setState({CommentModalOpen:true, 
+                                                                    CommentModalPostIdPassed : t.id,
+                                                                    LikesModalOpen:false,
+                                                                    LikesModalPostIdPassed:0})}>
+                                        {t.totalComments} Comments
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div className='card'>
+                            <div className='card-content'>
                                 <div className='row'>
-                                    <div className='col s3'>
-                                        <input type='text' placeholder="add comment..." onChange={e=>this.setState({comment:e.target.value})}/>
-                                    </div>
-                                    <div className="col s1">
-                                        <button onClick={this.commentLogic.bind(this, t.id)}
-                                                className="btn-floating waves-effect waves-light hoverable">
-                                                <i className="material-icons blue">send</i>
-                                        </button> 
-                                    </div>
-                                    <div className='right'>
-                                        <button onClick={e=>this.setState({ LikesModalOpen:true,
-                                                                            LikesModalPostIdPassed:t.id, 
-                                                                            CommentModalOpen:false,
-                                                                            CommentModalPostIdPassed :0})}
-                                                className='btn hoverable indigo'>{t.totalLikes} Likes</button>
-                                        <button onClick={e=>this.setState({CommentModalOpen:true, 
-                                                                            CommentModalPostIdPassed : t.id,
-                                                                            LikesModalOpen:false,
-                                                                            LikesModalPostIdPassed:0})}
-                                                className='btn hoverable indigo'>{t.totalComments} Comments</button>
+                                    <div class="input-field col s10">
+                                        <input  type='text' placeholder="add comment..." 
+                                                onChange={e=>this.setState({comment:e.target.value})}>
+                                        </input>
+                                        <i  onClick={this.commentLogic.bind(this, t.id)} 
+                                            className='material-icons hoverable prefix'>
+                                            send
+                                        </i>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>;
     }    
