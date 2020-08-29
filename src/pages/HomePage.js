@@ -1,5 +1,5 @@
 import React from 'react';
-import PopulateDataPage from '../pages/PopulateDataPage';
+import PopulateData from '../components/PopulateData';
 import {API} from '../components/Global';
 import NaivgationBar from '../components/NavigationBar';
 import LandingPage from '../pages/LandingPage';
@@ -10,7 +10,7 @@ function Home(){
                 { (localStorage.auth_token !== undefined && 
                     <div>
                         <NaivgationBar />                            
-                        <PopulateDataPage url={home_url} pagetype='home'/>
+                        <PopulateData url={home_url} pagetype='home'/>
                     </div>)
                     ||
                     <LandingPage />

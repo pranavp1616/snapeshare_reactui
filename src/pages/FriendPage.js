@@ -1,5 +1,5 @@
 import React from 'react';
-import PopulateDataPage from '../pages/PopulateDataPage';
+import PopulateData from '../components/PopulateData';
 import {API} from '../components/Global';
 import NaivgationBar from '../components/NavigationBar';
 import LandingPage from '../pages/LandingPage';
@@ -14,7 +14,7 @@ class FriendPage extends React.Component{
                                 <div className='row center'>
                                     <h5>Photos of {this.props.match.params.username}</h5>
                                 </div>
-                                <PopulateDataPage url={friend_url} pagetype='friend'/>
+                                <PopulateData url={friend_url} pagetype='friend'/>
                             </div>)
                         ||                        
                             <LandingPage />

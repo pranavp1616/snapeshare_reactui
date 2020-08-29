@@ -1,5 +1,5 @@
 import React from 'react';
-import PopulateDataPage from '../pages/PopulateDataPage';
+import PopulateData from '../components/PopulateData';
 import NaivgationBar from '../components/NavigationBar';
 import {API} from '../components/Global';
 import LandingPage from '../pages/LandingPage';
@@ -16,7 +16,7 @@ class MyProfile extends React.Component{
                                     <h5>My photos</h5>
                             </div>
                             <UploadPost />
-                            <PopulateDataPage url={myprofile_url} pagetype='myprofile'/>
+                            <PopulateData url={myprofile_url} pagetype='myprofile'/>
                         </div>)
                     ||
                         <LandingPage />
