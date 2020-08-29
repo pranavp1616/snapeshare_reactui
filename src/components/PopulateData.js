@@ -141,12 +141,12 @@ class PopulateData extends React.Component{
                                                                             LikesModalPostIdPassed:t.id, 
                                                                             CommentModalOpen:false,
                                                                             CommentModalPostIdPassed :0})}
-                                                className='btn hoverable indigo'>All likes</button>
+                                                className='btn hoverable indigo'>All likes {t.totalLikes}</button>
                                         <button onClick={e=>this.setState({CommentModalOpen:true, 
                                                                             CommentModalPostIdPassed : t.id,
                                                                             LikesModalOpen:false,
                                                                             LikesModalPostIdPassed:0})}
-                                                className='btn hoverable indigo'>All Comments</button>
+                                                className='btn hoverable indigo'>All Comments {t.totalComments}</button>
                                     </div>
                                 </div>
                             </div>
