@@ -17,17 +17,36 @@ class PopulateData extends React.Component{
                         CommentModalPostIdPassed : 0,
                     };
         this.foo = this.foo.bind(this);
+        this.onNextPageBtnClick = this.onNextPageBtnClick.bind(this);
+        this.onPrevPageBtnClick = this.onPrevPageBtnClick.bind(this);
+        this.pageNumber = 1;
     }
 
     async componentDidMount(){
+        this.pageNumber = 1;
+        this.fetchMainData();
+    }   
+    
+    onNextPageBtnClick(){
+        this.pageNumber++;
+        this.fetchMainData();
+    }
+
+    onPrevPageBtnClick(){
+        this.pageNumber--;
+        this.fetchMainData();
+    }
+
+    async fetchMainData(){
+//        alert('test');
         var headers = new Headers();
         headers.append('Authorization','Token '+localStorage.auth_token);
-        var request = new Request(this.props.url, {method:'GET', headers});
+        var request = new Request(this.props.url+'page/'+this.pageNumber, {method:'GET', headers});
         const resp = await fetch(request);
         const data = await resp.json();
         this.setState(  {   main_data : data    }   );
-    }   
-    
+    }
+
     async likeLogic(id){
         var url = API+'like/'+id;
         var headers = new Headers();
@@ -95,7 +114,13 @@ class PopulateData extends React.Component{
                         <ModalAllComments   onClose={e=>{this.setState({CommentModalOpen:false})}} 
                                             post_id={this.state.CommentModalPostIdPassed}/>
                     }
+                    
                     {this.state.main_data.map(this.foo)}
+
+                    <div className='container center' style={{'padding':'20px'}}>
+                        <button onClick={this.onPrevPageBtnClick} className='btn indigo hoverable'>Prev</button>
+                        <button onClick={this.onNextPageBtnClick} className='btn indigo hoverable'>Next</button>
+                    </div>
                 </div>
                 );
     }
