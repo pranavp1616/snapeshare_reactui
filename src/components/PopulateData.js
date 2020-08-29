@@ -40,7 +40,6 @@ class PopulateData extends React.Component{
     }
 
     async fetchMainData(){
-//        alert('test');
         var headers = new Headers();
         headers.append('Authorization','Token '+localStorage.auth_token);
         var request = new Request(this.props.url+'page/'+this.pageNumber, {method:'GET', headers});
@@ -66,11 +65,13 @@ class PopulateData extends React.Component{
         if(data.message === 'liked'){
                     newMainData = [...this.state.main_data];
                     newMainData[index].is_liked = true;
+                    newMainData[index].totalLikes++;
                     this.setState({ main_data : newMainData });
         }
         else{
                     newMainData = [...this.state.main_data];
                     newMainData[index].is_liked = false;
+                    newMainData[index].totalLikes--;
                     this.setState({ main_data : newMainData });
         }
     }
@@ -84,8 +85,20 @@ class PopulateData extends React.Component{
         var formData = new FormData();
         formData.append('comment',new_comment);
         var request = new Request(url, {method:'POST',headers, body:formData});
-        await fetch(request);
-        alert('Comment added');
+        var resp = await fetch(request);
+        var data = await resp.json();
+        if(data.response === 'success'){
+            alert('Comment added');
+            const n = this.state.main_data.length; 
+            var i=0, index=-1;
+            for(i=0;i<n;i++){
+                if(this.state.main_data[i].id === id)
+                    index = i;
+            }
+            var newMainData = [...this.state.main_data];
+            newMainData[index].totalComments++;
+            this.setState({ main_data : newMainData });
+        }
     }
     
     async deleteLogic(id){
