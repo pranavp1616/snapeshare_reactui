@@ -136,9 +136,13 @@ class PopulateData extends React.Component{
                     }
                     {this.state.main_data.map(this.foo)}
 
-                    <div className='container center' style={{'padding':'20px'}}>
-                        <button onClick={this.onPrevPageBtnClick} className='btn indigo hoverable'>Prev</button>
-                        <button onClick={this.onNextPageBtnClick} className='btn indigo hoverable'>Next</button>
+                    <div className='container center'>
+                        <button onClick={this.onPrevPageBtnClick} className='btn indigo hoverable'  style={{'margin':'10px'}}>
+                                <i className="material-icons">navigate_before</i>
+                            </button>
+                        <button onClick={this.onNextPageBtnClick} className='btn indigo hoverable'  style={{'margin':'10px'}}>
+                                <i className="material-icons">navigate_next</i>
+                            </button>
                     </div>
 
                 </div>
