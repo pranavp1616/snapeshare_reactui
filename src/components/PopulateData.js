@@ -34,6 +34,8 @@ class PopulateData extends React.Component{
 
     onPrevPageBtnClick(){
         this.pageNumber--;
+        if(this.pageNumber <= 0) 
+            this.pageNumber = 1;
         this.fetchMainData();
     }
 
@@ -101,7 +103,6 @@ class PopulateData extends React.Component{
     }
 
     render(){
-        console.log('Rendering...');
         return (
                 <div>
                     {this.state.LikesModalOpen === true
@@ -109,18 +110,24 @@ class PopulateData extends React.Component{
                         <ModalAllLikes  onClose={e=>{this.setState({LikesModalOpen:false})}}
                                         post_id={this.state.LikesModalPostIdPassed}/>
                     }
+
                     {this.state.CommentModalOpen === true
                         &&
                         <ModalAllComments   onClose={e=>{this.setState({CommentModalOpen:false})}} 
                                             post_id={this.state.CommentModalPostIdPassed}/>
                     }
                     
+                    {this.state.main_data.length ===0 
+                        && this.props.pagetype !== 'myprofile' 
+                        &&<div className='container center'><h3>You're all caught up</h3></div>
+                    }
                     {this.state.main_data.map(this.foo)}
 
                     <div className='container center' style={{'padding':'20px'}}>
                         <button onClick={this.onPrevPageBtnClick} className='btn indigo hoverable'>Prev</button>
                         <button onClick={this.onNextPageBtnClick} className='btn indigo hoverable'>Next</button>
                     </div>
+
                 </div>
                 );
     }
@@ -166,12 +173,12 @@ class PopulateData extends React.Component{
                                                                             LikesModalPostIdPassed:t.id, 
                                                                             CommentModalOpen:false,
                                                                             CommentModalPostIdPassed :0})}
-                                                className='btn hoverable indigo'>All likes {t.totalLikes}</button>
+                                                className='btn hoverable indigo'>{t.totalLikes} Likes</button>
                                         <button onClick={e=>this.setState({CommentModalOpen:true, 
                                                                             CommentModalPostIdPassed : t.id,
                                                                             LikesModalOpen:false,
                                                                             LikesModalPostIdPassed:0})}
-                                                className='btn hoverable indigo'>All Comments {t.totalComments}</button>
+                                                className='btn hoverable indigo'>{t.totalComments} Comments</button>
                                     </div>
                                 </div>
                             </div>
