@@ -143,9 +143,12 @@ class PopulateData extends React.Component{
                         <button onClick={this.onPrevPageBtnClick} className='btn indigo hoverable'  style={{'margin':'10px'}}>
                                 <i className="material-icons">navigate_before</i>
                             </button>
+                        {this.state.main_data.length !== 0
+                        &&
                         <button onClick={this.onNextPageBtnClick} className='btn indigo hoverable'  style={{'margin':'10px'}}>
                                 <i className="material-icons">navigate_next</i>
                             </button>
+                        }
                     </div>
 
                 </div>

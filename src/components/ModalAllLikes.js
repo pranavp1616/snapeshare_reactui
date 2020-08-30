@@ -28,9 +28,10 @@ class ModalAllLikes extends React.Component{
                         <div className='card' style={{marginTop:'100px', marginLeft:'10%', marginRight:'10%'}}>
                             <div className='card-content'>
                                 <button onClick={this.props.onClose} className='btn indigo'>x</button>
-                                    <ul class="collection  with-header">
-                                        {this.state.all_likes.map(this.foo)}
-                                    </ul>
+                                <p><b>All likes</b></p>
+                                <ul class="collection  with-header">
+                                    {this.state.all_likes.map(this.foo)}
+                                </ul>
                             </div>
                         </div>
                     </div>
