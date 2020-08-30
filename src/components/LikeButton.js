@@ -5,9 +5,9 @@ function LikeButton(props){
                 <div className="btn-floating halfway-fab hoverable left">
                     {  ( (props.is_liked === true)
                         &&
-                        <i className="material-icons red">favorite</i>  ) 
+                        <i className="material-icons red">thumb_up</i>  ) 
                         ||
-                        <i className="material-icons grey">favorite</i>   
+                        <i className="material-icons grey">thumb_up</i>   
                     }
             </div>
         </div>

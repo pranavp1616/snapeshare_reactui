@@ -134,7 +134,7 @@ class PopulateData extends React.Component{
                         && this.props.pagetype !== 'myprofile' 
                         &&<div className='container center'><h3>You're all caught up</h3></div>
                     }
-
+                    <br/>
                     <div className='row'>
                         {this.state.main_data.map(this.foo)}
                     </div>
@@ -153,8 +153,8 @@ class PopulateData extends React.Component{
     }
     foo(t){
         return <div>
-                    <div className="col">
-                        <div className="card hoverable" style={{maxWidth: '350px'}}>
+                    <div className="col" style={{marginLeft:'10px'}}>
+                        <div className="card hoverable" style={{maxWidth: '300px', marginLeft:'0px'}}>
                             <div className="card-image">
                                 <img src={t.image} alt=''/>                                    
                                 <div onClick={this.likeLogic.bind(this, t.id)}>
@@ -175,43 +175,50 @@ class PopulateData extends React.Component{
                                     <div className='col right'>   
                                         <i className="grey-text">{t.date_created}</i>                                         
                                     </div>
-                                </div>                                
-                                <div className='row'>   
-                                    <i> {t.hashtags}</i>
+                                </div>      
+
+                                <div className='row'>
+                                    <div className='col s12'>
+                                        <i> {t.hashtags}</i>
+                                    </div>   
                                 </div>
-                                <div class="card-action center">
-                                    <a onClick={e=>this.setState({  LikesModalOpen:true,
+
+                                <div className='row'>
+                                    <div className='container'>
+                                        <div className='input-field'>
+                                            <input  type='text' placeholder='comment????' 
+                                                    onChange={e=>this.setState({comment:e.target.value})}>
+                                            </input>
+                                            <i  onClick={this.commentLogic.bind(this, t.id)}
+                                                style={{ verticalAlign: 'bottom'}} 
+                                                className='material-icons hoverable prefix'>
+                                                done
+                                            </i>
+                                        </div>     
+                                    </div>
+                                </div>
+
+                                <div className='row'>
+                                    <div className='container center'>
+                                        <a href='#' onClick={e=>this.setState({  LikesModalOpen:true,
                                                                     LikesModalPostIdPassed:t.id, 
                                                                     CommentModalOpen:false,
                                                                     CommentModalPostIdPassed :0})}>
-                                        {t.totalLikes} Likes
-                                    </a>
-                                    <a onClick={e=>this.setState({CommentModalOpen:true, 
+                                            <i className='material-icons' style={{ verticalAlign: 'bottom'}}>thumb_up</i>
+                                            <b>{t.totalLikes}</b> 
+                                        </a>
+                                        <a href='#' onClick={e=>this.setState({CommentModalOpen:true, 
                                                                     CommentModalPostIdPassed : t.id,
                                                                     LikesModalOpen:false,
                                                                     LikesModalPostIdPassed:0})}>
-                                        {t.totalComments} Comments
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div className='card'>
-                            <div className='card-content'>
-                                <div className='row'>
-                                    <div class="input-field col s10">
-                                        <input  type='text' placeholder="add comment..." 
-                                                onChange={e=>this.setState({comment:e.target.value})}>
-                                        </input>
-                                        <i  onClick={this.commentLogic.bind(this, t.id)} 
-                                            className='material-icons hoverable prefix'>
-                                            send
-                                        </i>
+                                            <i className='material-icons' style={{ verticalAlign: 'bottom'}}>comment</i>
+                                        <b>{t.totalComments}</b> 
+                                        </a>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
-
                     </div>
                 </div>;
     }    

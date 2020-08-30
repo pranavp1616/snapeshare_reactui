@@ -36,7 +36,7 @@ class UploadPost extends React.Component{
  
     render(){        
         // react-image-crop 
-        const { crop, profile_pic, src } = this.state;
+        const { crop, src } = this.state;
 
         return (
                 <div className='container center' style={{maxWidth: '700px'}}>
