@@ -132,21 +132,20 @@ class PopulateData extends React.Component{
                     
                     {this.state.main_data.length ===0 
                         && this.props.pagetype !== 'myprofile' 
-                        &&<div className='container center'><h3>You're all caught up</h3></div>
+                        &&<div><h3>You're all caught up</h3></div>
                     }
-                    <br/>
-                    <div className='row'>
+                    <div>
                         {this.state.main_data.map(this.foo)}
                     </div>
 
-                    <div className='container center'>
-                        <button onClick={this.onPrevPageBtnClick} className='btn indigo hoverable'  style={{'margin':'10px'}}>
-                                <i className="material-icons">navigate_before</i>
+                    <div>
+                        <button onClick={this.onPrevPageBtnClick}>
+                                prev page
                             </button>
                         {this.state.main_data.length !== 0
                         &&
-                        <button onClick={this.onNextPageBtnClick} className='btn indigo hoverable'  style={{'margin':'10px'}}>
-                                <i className="material-icons">navigate_next</i>
+                        <button onClick={this.onNextPageBtnClick}>
+                                next page
                             </button>
                         }
                     </div>
@@ -156,73 +155,43 @@ class PopulateData extends React.Component{
     }
     foo(t){
         return <div>
-                    <div className="col" style={{marginLeft:'10px'}}>
-                        <div className="card hoverable" style={{maxWidth: '300px', marginLeft:'0px'}}>
-                            <div className="card-image">
-                                <img src={t.image} alt=''/>                                    
-                                <div onClick={this.likeLogic.bind(this, t.id)}>
-                                    <LikeButton is_liked={t.is_liked}/>
-                                </div>
-                                {   (this.props.pagetype === 'myprofile')
-                                    &&  
-                                    <div onClick={this.deleteLogic.bind(this, t.id)} className="btn-floating halfway-fab hoverable red right">
-                                            <i className="material-icons">delete_forever</i>
-                                    </div>
-                                }
-                            </div>
-                            <div className="card-content">
-                                <div className="row">
-                                    <div className='col'>
-                                        <b><a href={'/friend/'+t.uploaded_by}>{t.uploaded_by}</a></b>                            
-                                    </div>
-                                    <div className='col right'>   
-                                        <i className="grey-text">{t.date_created}</i>                                         
-                                    </div>
-                                </div>      
-
-                                <div className='row'>
-                                    <div className='col s12'>
-                                        <i> {t.hashtags}</i>
-                                    </div>   
-                                </div>
-
-                                <div className='row'>
-                                    <div className='container'>
-                                        <div className='input-field'>
-                                            <input  type='text' placeholder='comment????' 
-                                                    onChange={e=>this.setState({comment:e.target.value})}>
-                                            </input>
-                                            <i  onClick={this.commentLogic.bind(this, t.id)}
-                                                style={{ verticalAlign: 'bottom'}} 
-                                                className='material-icons hoverable prefix'>
-                                                done
-                                            </i>
-                                        </div>     
-                                    </div>
-                                </div>
-
-                                <div className='row'>
-                                    <div className='container center'>
-                                        <a href='#' onClick={e=>this.setState({  LikesModalOpen:true,
-                                                                    LikesModalPostIdPassed:t.id, 
-                                                                    CommentModalOpen:false,
-                                                                    CommentModalPostIdPassed :0})}>
-                                            <i className='material-icons' style={{ verticalAlign: 'bottom'}}>thumb_up</i>
-                                            <b>{t.totalLikes}</b> 
-                                        </a>
-                                        <a href='#' onClick={e=>this.setState({CommentModalOpen:true, 
-                                                                    CommentModalPostIdPassed : t.id,
-                                                                    LikesModalOpen:false,
-                                                                    LikesModalPostIdPassed:0})}>
-                                            <i className='material-icons' style={{ verticalAlign: 'bottom'}}>comment</i>
-                                        <b>{t.totalComments}</b> 
-                                        </a>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
+                    <img src={t.image} alt='image'/>                                    
+                    
+                    <div onClick={this.likeLogic.bind(this, t.id)}>
+                        <LikeButton is_liked={t.is_liked}/>
                     </div>
+                    
+                    {   (this.props.pagetype === 'myprofile')
+                        &&  
+                        <div onClick={this.deleteLogic.bind(this, t.id)}>
+                            delete
+                        </div>
+                    }
+                    
+                    <b><a href={'/friend/'+t.uploaded_by}>{t.uploaded_by}</a></b>                            
+                    {t.date_created}                                    
+                    {t.hashtags}
+
+                    <input  type='text' placeholder='comment?' 
+                            onChange={e=>this.setState({comment:e.target.value})}>
+                    </input>
+                    
+                    <button onClick={this.commentLogic.bind(this, t.id)}>post comment</button>
+
+                    <a href='#' onClick={e=>this.setState({  LikesModalOpen:true,
+                            LikesModalPostIdPassed:t.id, 
+                            CommentModalOpen:false,
+                            CommentModalPostIdPassed :0})}>
+                            total likes(<b>0</b>) 
+                    </a>
+                    
+                    <a href='#' onClick={e=>this.setState({CommentModalOpen:true, 
+                                CommentModalPostIdPassed : t.id,
+                                LikesModalOpen:false,
+                                LikesModalPostIdPassed:0})}>
+                                total comments<b>0</b> 
+                    </a>
+                    
                 </div>;
     }    
 

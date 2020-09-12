@@ -2,12 +2,12 @@ import React from 'react';
 
 function LikeButton(props){
     return <div>
-                <div className="btn-floating halfway-fab hoverable left">
+                <div>
                     {  ( (props.is_liked === true)
                         &&
-                        <i className="material-icons red">thumb_up</i>  ) 
+                        <i>AlreadLiked</i>  ) 
                         ||
-                        <i className="material-icons grey">thumb_up</i>   
+                        <i>Like</i>   
                     }
             </div>
         </div>
