@@ -11,9 +11,7 @@ class FriendPage extends React.Component{
                         { (localStorage.auth_token !== undefined && 
                             <div>
                                 <NaivgationBar />
-                                <div className='row center'>
-                                    <h5>Photos of {this.props.match.params.username}</h5>
-                                </div>
+                                <h5>Photos of {this.props.match.params.username}</h5>
                                 <PopulateData url={friend_url} pagetype='friend'/>
                             </div>)
                         ||                        

@@ -11,35 +11,30 @@ class NaivgationBar extends React.Component{
 
     render(){
         return <div> 
-                    <div className="navbar-fixed">
-                        <nav className="nav-wrapper snapshare_color">
-                            <div className="container">
-                                <div className="left">  
-                                    <b>Snapshare</b>
-                                </div>
-                                <ul className="right">
-                                    <li>    <input  onChange={  (e) => this.setState({search_box_value:e.target.value}) }
-                                                    className='white-text'
-                                                    type='text'/>   </li>
-                                    <li>    <div 
-                                            onClick={(e)=>{
-                                                            if(this.state.search_box_value===''){
-                                                                window.location='/search/null';
-                                                            }
-                                                            else
-                                                                window.location='/search/'+this.state.search_box_value;                                                        
-                                                        }
-                                                    }>
-                                            <i className="material-icons my_navbar_color">search</i>
-                                            </div>
-                                            </li>
-                                    <li>    <a href='/home'>home</a>    </li>
-                                    <li>    <a href='/myprofile'> hi {localStorage.loggedinUser}! </a> </li>
-                                    <li>    <a href='/logout'>logout</a>    </li>                            
-                                </ul>
-                            </div>
-                        </nav>
+                    <div>  
+                        <b>Snapshare</b>
                     </div>
+                    <ul>
+                        <li>    <input  onChange={  (e) => this.setState({search_box_value:e.target.value}) }
+                            type='text'/>   
+                        </li>
+                        <li>
+                            <div 
+                                onClick={(e)=>{
+                                if(this.state.search_box_value===''){
+                                window.location='/search/null';
+                                }
+                                else
+                                window.location='/search/'+this.state.search_box_value;                                                        
+                                }
+                                }>
+                                <i>search</i>
+                            </div>
+                        </li>
+                        <li>    <a href='/home'>home</a>    </li>
+                        <li>    <a href='/myprofile'> hi {localStorage.loggedinUser}! </a> </li>
+                        <li>    <a href='/logout'>logout</a>    </li>
+                    </ul>
                 </div>
     }
 }

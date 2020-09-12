@@ -39,36 +39,19 @@ class UploadPost extends React.Component{
         const { crop, src } = this.state;
 
         return (
-                <div className='container center' style={{maxWidth: '700px'}}>
-                    <div className='card hoverable'>
-                        <div className='card-content'>
-                            <div className="file-field input-field">
-                                <div className="btn indigo">
-                                    <span>browse</span>
-                                    <input type="file" onChange={this.handleInputFileChange} accept="image/*"/>
-                                </div>
-                                <div class = "file-path-wrapper">
-                                    <input class = "file-path validate" type = "text" placeholder = "Selected file" />
-                                </div>
-                            </div>
-                            <input type="text" onChange={ e => this.setState({ hashtags : e.target.value})} placeholder='hashtags?'/> 
-                            <button onClick={this.uploadPostLogic}
-                                            className='btn indigo'>
-                                            Post
-                            </button>
-                        </div>
-                    </div>
-                    <div>   
-                        <div>
-                            <ReactCrop
+                <div>
+                    <input type="file" onChange={this.handleInputFileChange} accept="image/*"/>
+                    <input type="text" onChange={ e => this.setState({ hashtags : e.target.value})} placeholder='hashtags?'/> 
+                    <button onClick={this.uploadPostLogic}>
+                        Post
+                    </button>
+                    <ReactCrop
                                 src={src}
                                 crop={crop}
                                 onImageLoaded={this.onImageLoaded}
                                 onComplete={this.onCropComplete}
                                 onChange={this.onCropChange}
                             /> 
-                        </div>
-                    </div>
                 </div>
         );
     }

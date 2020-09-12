@@ -28,20 +28,13 @@ class SearchPage extends React.Component{
                 <div>
                     { (localStorage.auth_token !== undefined && 
                         <div>
-                            <NaivgationBar />
-                            <div class="row" style={{marginLeft: '10%',  marginRight: '10%'}}>
-                                <div class="container">
-                                    <div class="card z-depth-3">
-                                        <ul class="collection  with-header">
-                                            <li class="collection-header">  
+                                        <NaivgationBar />
+                                        <ul>
+                                            <li>  
                                                 Search results for <b>{this.props.match.params.pattern}</b> 
                                             </li>
                                             {this.state.search_result_data.map(this.foo)}
                                         </ul>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>)
                     ||
                         <LandingPage/>
@@ -50,8 +43,8 @@ class SearchPage extends React.Component{
                 );
     }
     foo(t){
-        return <li className="collection-item">
-                    <a href={'/friend/'+t.username} className="collection-item" >{t.username}</a>        
+        return <li>
+                    <a href={'/friend/'+t.username}>{t.username}</a>        
                 </li>
     }
 }
