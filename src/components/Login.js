@@ -25,7 +25,7 @@ class Login extends React.Component{
             this.setState( { errorMessage: data.message });
         if(data.response === 'success'){
             this.setState( { errorMessage: data.message });
-            localStorage.auth_token = data.token;
+            localStorage.auth_token = data.auth_token;
             localStorage.loggedinUser = this.state.loginUsername;
             window.location = '/home';
         }
