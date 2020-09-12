@@ -32,38 +32,20 @@ class Register extends React.Component{
     }
 
     render(){
-        return <div>
-                    <div className='container' style={{ marginTop: '100px', maxWidth:'350px' }}>
-                        <div className='card hoverable'>
-                            <div className='card-content center'>    
-                                    <div className="input-field">
-                                        <input  onChange={(e) => this.setState({regUsername:e.target.value})} 
-                                                type='text' 
-                                                id='username'/>
-                                        <label htmlFor='username'>username</label>
-                                    </div>
-                                    <div className="input-field">
-                                        <input  onChange={(e) => this.setState({regEmail:e.target.value})} 
-                                                type='text' 
-                                                id='email'/>
-                                        <label htmlFor='email'>email</label>
-                                    </div>
-                                    <div className="input-field">
-                                        <input  onChange={(e) => this.setState({regPassword:e.target.value})}
-                                                type='password' 
-                                                id='password'/>
-                                        <label htmlFor='password'>password</label>
-                                    </div>
-                                    <button className="btn indigo waves-effect waves-light"
-                                            onClick={this.registerLogic}>
-                                            Register
-                                    </button>
-                            </div>
-                            <div className='card-action center'>
-                                <p>{this.state.errorMessage}</p>
-                            </div>
-                        </div>
-                    </div>
+        return  <div>
+                    <input  onChange={(e) => this.setState({regUsername:e.target.value})} 
+                    type='text' 
+                    id='username'/>
+                    <input  onChange={(e) => this.setState({regEmail:e.target.value})} 
+                    type='text' 
+                    id='email'/>
+                    <input  onChange={(e) => this.setState({regPassword:e.target.value})}
+                    type='password' 
+                    id='password'/>
+                    <button onClick={this.registerLogic}>
+                    Register
+                    </button>
+                    <p>{this.state.errorMessage}</p>
                 </div>
     }
 }

@@ -33,31 +33,16 @@ class Login extends React.Component{
 
     render(){
         return <div>
-                    <div className='container' style={{ marginTop: '100px', maxWidth:'350px' }}>
-                        <div className='card hoverable'>
-                                <div className='card-content center'>    
-                                    <div className="input-field">
-                                        <input  onChange={e => this.setState({loginUsername:e.target.value}) } 
-                                                type='text' 
-                                                id='username'/>
-                                        <label htmlFor='username'>username</label>
-                                    </div>
-                                    <div className="input-field">
-                                        <input  onChange={e => this.setState({loginPassword:e.target.value}) }  
-                                                type='password' 
-                                                id='password'/>
-                                        <label htmlFor='password'>password</label>
-                                    </div>
-                                    <button className="btn indigo waves-effect waves-light"
-                                            onClick={this.loginLogic}>
-                                            login
-                                    </button>
-                                </div>                                
-                                <div className='card-action center'>
-                                    <p>{this.state.errorMessage}</p>
-                                </div>
-                        </div>
-                    </div>
+                    <input  onChange={e => this.setState({loginUsername:e.target.value}) } 
+                    type='text' 
+                    id='username'/>
+                    <input  onChange={e => this.setState({loginPassword:e.target.value}) }  
+                    type='password' 
+                    id='password'/>
+                    <button onClick={this.loginLogic}>
+                    login
+                    </button>                                     
+                    <p>{this.state.errorMessage}</p>
                 </div>
     }
         
