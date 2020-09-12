@@ -6,6 +6,7 @@ class Register extends React.Component{
         super(props);
         this.state = {
             regUsername : '',
+            regFirstname : '',
             regEmail    : '',
             regPassword : '',
             errorMessage  : ''
@@ -21,6 +22,7 @@ class Register extends React.Component{
         formData.append('username',this.state.regUsername);  
         formData.append('email',this.state.regEmail);  
         formData.append('password',this.state.regPassword);
+        formData.append('firstname',this.state.regFirstname);
         var request = new Request(url, {method:'POST',  body:formData}  );
         const resp = await fetch(request);
         const data = await resp.json();
@@ -36,6 +38,9 @@ class Register extends React.Component{
                     <input  onChange={(e) => this.setState({regUsername:e.target.value})} 
                     type='text' 
                     id='username'/>
+                    <input  onChange={(e) => this.setState({regFirstname:e.target.value})}
+                    type='firstname' 
+                    id='firstname'/>
                     <input  onChange={(e) => this.setState({regEmail:e.target.value})} 
                     type='text' 
                     id='email'/>
