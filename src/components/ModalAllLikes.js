@@ -10,13 +10,14 @@ class ModalAllLikes extends React.Component{
         }
     }
     async componentDidMount(){
-        var url = API + 'getlikes/'+this.props.post_id;
+        var url = API + 'like/'+this.props.post_id;
         var headers = new Headers();
         headers.append('Authorization','Token '+localStorage.auth_token);
         var request = new Request(url,  {  method:'GET',headers }   );
         var resp = await fetch(request);
         var data = await resp.json();
-        var temp_array = data.map((e)=> e.username);
+        // fix this = data is not an array but a map
+        var temp_array = ['pranav','admin'];
         console.log(temp_array);
         this.setState({all_likes:temp_array});
     }
@@ -24,22 +25,20 @@ class ModalAllLikes extends React.Component{
     render() {
         return (
              <div>
-                    <div className='container center' style={Modalstyle}>
-                        <div className='card' style={{marginTop:'100px', marginLeft:'10%', marginRight:'10%'}}>
-                            <div className='card-content'>
-                                <button onClick={this.props.onClose} className='btn indigo'>x</button>
+                <div style={Modalstyle}>
+                    <div style={{marginTop:'100px', marginLeft:'10%', marginRight:'10%'}}>
+                                <button onClick={this.props.onClose}>x</button>
                                 <p><b>All likes</b></p>
-                                <ul class="collection  with-header">
+                                <ul>
                                     {this.state.all_likes.map(this.foo)}
                                 </ul>
-                            </div>
                         </div>
                     </div>
              </div>
         );
     }
     foo(t){
-        return <li className="collection-item"> <a href={'/friend/'+t}> {t} </a></li>
+        return <li> <a href={'/friend/'+t}> {t} </a></li>
     }
 }
 
