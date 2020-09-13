@@ -3,6 +3,7 @@ import {API} from './Global';
 import LikeButton from './LikeButton';
 import ModalAllLikes from './ModalAllLikes';
 import ModalAllComments from './ModalAllComments';
+import {img_css} from './Global';
 
 class PopulateData extends React.Component{
     
@@ -145,7 +146,7 @@ class PopulateData extends React.Component{
     
     foo(t){
         return <div>
-                    <img src={t.image} alt='image'/>                                    
+                    <img src={t.image} alt='image'style={img_css}/>                                    
                     <div onClick={this.likeLogic.bind(this, t.id)}>
                         <LikeButton is_liked={t.is_liked}/>
                     </div>

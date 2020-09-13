@@ -15,5 +15,13 @@ const Modalstyle = {
     zIndex: '999'
 }
 
+/* photo grid css*/
+const img_css = {
+    height:'200px',
+    width:'200px'
+}
+  
+
 export {API}
+export {img_css}
 export {Modalstyle}
