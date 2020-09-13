@@ -10,14 +10,11 @@ import RegisterPage from './pages/RegisterPage';
 
 import {Route,BrowserRouter as Router} from 'react-router-dom';
 
-
 class App extends React.Component {
-
     render(){
         return (<Router>
                         <Route exact path='/' component={LandingPage}/>
-                        <Route path='/login' component={LandingPage}/>
-                        
+                        <Route path='/login' component={LandingPage}/>                   
                         <Route path='/register' component={RegisterPage}/>
                         <Route path='/home' component={Home} />
                         <Route path='/myprofile' component={MyProfile} />
@@ -26,7 +23,6 @@ class App extends React.Component {
                         <Route path='/logout' component={LogoutPage}/>
                 </Router>);
     }
-
 }
 
 export default App;

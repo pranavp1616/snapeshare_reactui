@@ -6,20 +6,20 @@ import LandingPage from '../pages/LandingPage';
 
 class FriendPage extends React.Component{
     render(){
-            var friend_url = API + 'friend/'+ this.props.match.params.username+'/';
+            const FRIEND_API = API + 'friend/'+ this.props.match.params.username+'/';
+            const PAGE_TYPE = 'friend';
             return <div>
-                        { (localStorage.auth_token !== undefined && 
+                        {   (localStorage.auth_token !== undefined && 
                             <div>
                                 <NaivgationBar />
                                 <h5>Photos of {this.props.match.params.username}</h5>
-                                <PopulateData url={friend_url} pagetype='friend'/>
+                                <PopulateData url={FRIEND_API} pagetype={PAGE_TYPE}/>
                             </div>)
-                        ||                        
+                            ||                        
                             <LandingPage />
                         }
                     </div>;
-        }
-
+    }
 }
 
 export default FriendPage;

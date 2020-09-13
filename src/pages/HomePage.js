@@ -5,12 +5,13 @@ import NaivgationBar from '../components/NavigationBar';
 import LandingPage from '../pages/LandingPage';
 
 function Home(){
-    var home_url = API + 'home-feed/';
+    const HOME_API = API + 'home-feed/';
+    const PAGE_TYPE = 'home';
     return <div>
-                { (localStorage.auth_token !== undefined && 
+                {   (localStorage.auth_token !== undefined && 
                     <div>
                         <NaivgationBar />                            
-                        <PopulateData url={home_url} pagetype='home'/>
+                        <PopulateData url={HOME_API} pagetype={PAGE_TYPE}/>
                     </div>)
                     ||
                     <LandingPage />

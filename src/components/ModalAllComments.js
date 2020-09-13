@@ -3,6 +3,7 @@ import {Modalstyle} from './Global'
 import {API} from './Global';
 
 class ModalAllComments extends React.Component{
+    
     constructor(props){
         super(props);
         this.state = {
@@ -11,50 +12,49 @@ class ModalAllComments extends React.Component{
         this.foo = this.foo.bind(this);
         this.deleteCommentLogic = this.deleteCommentLogic.bind(this);
     }
+
     async componentDidMount(){
-        var url = API + 'comment/'+this.props.post_id;
         var headers = new Headers();
         headers.append('Authorization','Token '+localStorage.auth_token);
-        var request = new Request(url,  {  method:'GET',headers }   );
+        
+        var request = new Request(API + 'comment/'+this.props.post_id,  {  method:'GET',headers }   );
         var resp = await fetch(request);
         var data = await resp.json();
+
         var temp_array = [{'id':'12','username':'pranav','comment':'abcd','date_created':'10/10/10'}]
         this.setState({all_comments:temp_array});
     }
 
     async deleteCommentLogic(id){
-        var url = API + 'comment/delete/'+id;
         var headers = new Headers();
         headers.append('Authorization','Token '+localStorage.auth_token);
-        var request = new Request(url,  {  method:'DELETE',headers }   );
+
+        var request = new Request(API + 'comment/delete/'+id,  {  method:'DELETE',headers }   );
         await fetch(request);
+
         const temp_array = this.state.all_comments.filter(item => item.id !== id);
         this.setState({all_comments:temp_array});
     }
 
     render() {
-        return (
-             <div>
+        return  <div>
                     <div style={Modalstyle}>
                         <div style={{marginTop:'100px', marginLeft:'10%', marginRight:'10%'}}>
                             <button onClick={this.props.onClose} className='btn indigo'>x</button>
-                            <p><b>All comments</b></p>
+                            <b>All comments</b>
+                            <ul>{this.state.all_comments.map(this.foo)}</ul>
                         </div>
-                        <ul>
-                            {this.state.all_comments.map(this.foo)}
-                        </ul>
                     </div>
-             </div>
-        );
+                </div>
     }
     
     foo(t){
         return  <li>
                     <a href={'/friend/'+t.username}>{t.username}</a>
                     {t.date_created}
-                    { localStorage.loggedinUser === t.username
+                    {   localStorage.loggedinUser === t.username
                         &&
-                        <div onClick={this.deleteCommentLogic.bind(this, t.id)} className='right'>delete</div>
+                        <div onClick={this.deleteCommentLogic.bind(this, t.id)}>delete</div>
                     }
                     {t.comment}
                 </li>

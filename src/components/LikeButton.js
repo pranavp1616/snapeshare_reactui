@@ -1,13 +1,14 @@
 import React from 'react';
 
 function LikeButton(props){
-    return <div>
-                    {  ( (props.is_liked === true)
+    return  <div>
+                    {   ((props.is_liked === true)
                         &&
-                        <i>AlreadLiked</i>  ) 
+                        <i>AlreadLiked</i>) 
                         ||
                         <i>Like</i>   
                     }
-        </div>
+            </div>
 }
+
 export default LikeButton;

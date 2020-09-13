@@ -7,16 +7,17 @@ import UploadPost from '../components/UploadPost';
 
 class MyProfile extends React.Component{
     render(){
-        var myprofile_url = API+ 'myprofile/';
+        const MYPROFILE_API = API+ 'myprofile/';
+        const PAGE_TYPE = 'myprofile';
         return <div>
-                    { (localStorage.auth_token !== undefined && 
+                    {   (localStorage.auth_token !== undefined && 
                         <div>
                             <NaivgationBar />
                             My photos
                             <UploadPost />
-                            <PopulateData url={myprofile_url} pagetype='myprofile'/>
+                            <PopulateData url={MYPROFILE_API} pagetype={PAGE_TYPE}/>
                         </div>)
-                    ||
+                        ||
                         <LandingPage />
                     }
                 </div>;

@@ -4,6 +4,7 @@ import ReactCrop from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
 
 class UploadPost extends React.Component{
+
     constructor(props){
         super(props);
         this.state = {
@@ -22,41 +23,35 @@ class UploadPost extends React.Component{
     }
 
     async uploadPostLogic(){
-        var url = API +'photopost/create/';
         var headers = new Headers();
         headers.append('Authorization','Token '+localStorage.auth_token);
+
         var formData = new FormData();  
         formData.append('image',this.state.croppedImage);  
         formData.append('hashtags',this.state.hashtags);
-        var request = new Request(url, {method:'POST', headers, body:formData}  );
+
+        var request = new Request(API +'photopost/create/', {method:'POST', headers, body:formData}  );
         await fetch(request);
         window.location.reload();
     }
-
  
     render(){        
         // react-image-crop 
         const { crop, src } = this.state;
 
-        return (
-                <div>
+        return  <div>
                     <input type="file" onChange={this.handleInputFileChange} accept="image/*"/>
                     <input type="text" onChange={ e => this.setState({ hashtags : e.target.value})} placeholder='hashtags?'/> 
-                    <button onClick={this.uploadPostLogic}>
-                        Post
-                    </button>
-                    <ReactCrop
-                                src={src}
+                    <button onClick={this.uploadPostLogic}>Post</button>
+                    <ReactCrop  src={src}
                                 crop={crop}
                                 onImageLoaded={this.onImageLoaded}
                                 onComplete={this.onCropComplete}
-                                onChange={this.onCropChange}
-                            /> 
+                                onChange={this.onCropChange}/> 
                 </div>
-        );
     }
 
-        // react-image-crop - CROP logic functions
+    // react-image-crop - CROP logic functions
     handleInputFileChange(e){
         const fileReader = new FileReader()
         fileReader.onloadend = () => {  this.setState({src: fileReader.result })    }   
@@ -112,7 +107,6 @@ class UploadPost extends React.Component{
         let croppedImage = new File([u8arr], filename, {type:mime});
         this.setState({croppedImage: croppedImage }) 
     }
-
 
 }
 

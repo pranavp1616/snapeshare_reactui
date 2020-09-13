@@ -9,4 +9,5 @@ function RegisterPage(){
                 <h5><a href='/login'>Login?</a></h5>
             </div>
 }
+
 export default RegisterPage;
