@@ -3,7 +3,7 @@ import Register from '../components/Register';
 import Logo from '../components/Logo';
 
 function RegisterPage(){
-    return  <div>
+    return  <div className='container'>
                 <Logo />
                 <Register />
                 <h5><a href='/login'>Login?</a></h5>

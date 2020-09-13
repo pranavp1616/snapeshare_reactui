@@ -36,17 +36,22 @@ class Register extends React.Component{
         return  <div>
                     <input  onChange={(e) => this.setState({regUsername:e.target.value})} 
                             type='text' 
-                            id='username'/>
+                            id='username' placeholder='username'
+                            className='form-control' style={{margin:'5px'}}/>
                     <input  onChange={(e) => this.setState({regFirstname:e.target.value})}
                             type='firstname' 
-                            id='firstname'/>
+                            id='firstname' placeholder='first name'
+                            className='form-control' style={{margin:'5px'}}/>
                     <input  onChange={(e) => this.setState({regEmail:e.target.value})} 
                             type='text' 
-                            id='email'/>
+                            id='email'placeholder='email'
+                            className='form-control' style={{margin:'5px'}}/>
                     <input  onChange={(e) => this.setState({regPassword:e.target.value})}
                             type='password' 
-                            id='password'/>
-                    <button onClick={this.registerLogic}>Register</button>
+                            id='password'placeholder='password'
+                            className='form-control' style={{margin:'5px'}}/>
+                    <button className='btn btn-primary' style={{margin:'5px'}}
+                            onClick={this.registerLogic}>register</button>
                     <p>{this.state.errorMessage}</p>
                 </div>
     }

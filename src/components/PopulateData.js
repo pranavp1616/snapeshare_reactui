@@ -137,9 +137,11 @@ class PopulateData extends React.Component{
                         </div>
                     </div>
                     <div className='container mt-3'>
-                        <button onClick={this.onPrevPageBtnClick}>prev page</button>
+                        <button className='btn btn-primary' style={{margin:'4px'}} 
+                                onClick={this.onPrevPageBtnClick}>prev</button>
                         {   this.state.main_data.length !== 0  
-                            && <button onClick={this.onNextPageBtnClick}>next page</button>
+                            && <button className='btn btn-primary' style={{margin:'4px'}} 
+                                onClick={this.onNextPageBtnClick}>next</button>
                         }
                     </div>
                 </div>
