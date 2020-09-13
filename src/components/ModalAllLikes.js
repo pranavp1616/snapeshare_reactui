@@ -1,6 +1,6 @@
 import React from 'react';
-import {Modalstyle} from './Global'
 import {API} from './Global';
+import '../App.css';
 
 class ModalAllLikes extends React.Component{
     
@@ -27,7 +27,7 @@ class ModalAllLikes extends React.Component{
     render() {
         return (
              <div>
-                <div style={Modalstyle}>
+                <div className='modalstyle'>
                     <div style={{marginTop:'100px', marginLeft:'10%', marginRight:'10%'}}>
                         <button onClick={this.props.onClose}>x</button>
                         <b>All likes</b>

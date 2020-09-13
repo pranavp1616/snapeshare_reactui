@@ -3,6 +3,7 @@ import {API} from './Global';
 import LikeButton from './LikeButton';
 import ModalAllLikes from './ModalAllLikes';
 import ModalAllComments from './ModalAllComments';
+import '../App.css';
 
 class PopulateData extends React.Component{
     
@@ -146,10 +147,10 @@ class PopulateData extends React.Component{
     }
     
     foo(t){
-        return <div className='col-lg-3 col-md-4 col-sm-6' style={col_padding}>
+        return <div className='col-lg-3 col-md-4 col-sm-6 photo_col_padding'>
                 <div className='card card-block'>
                     
-                    <img src={t.image} alt='image'style={img_css}/>                                    
+                    <img src={t.image} alt='image'/>                                    
                     
                     <div onClick={this.likeLogic.bind(this, t.id)}>
                         <LikeButton is_liked={t.is_liked}/>
@@ -183,12 +184,6 @@ class PopulateData extends React.Component{
     }    
 }
 
-// CSS
-const img_css = {
-    height:'100%',
-    width:'100%'
-}
-
-const col_padding = {paddingLeft:'10px', paddingRight:'10px'};
+// CSS  
 
 export default PopulateData;
