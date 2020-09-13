@@ -123,78 +123,56 @@ class PopulateData extends React.Component{
                         <ModalAllLikes  onClose={e=>{this.setState({LikesModalOpen:false})}}
                                         post_id={this.state.LikesModalPostIdPassed}/>
                     }
-
                     {this.state.CommentModalOpen === true
                         &&
                         <ModalAllComments   onClose={e=>{this.setState({CommentModalOpen:false})}} 
                                             post_id={this.state.CommentModalPostIdPassed}/>
                     }
-                    
                     {this.state.main_data.length ===0 
-                        && this.props.pagetype !== 'myprofile' 
-                        &&<div><h3>You're all caught up</h3></div>
+                        && this.props.pagetype !== 'myprofile' &&<div><h3>You're all caught up</h3></div>
                     }
                     <div>
                         {this.state.main_data.map(this.foo)}
                     </div>
-
                     <div>
-                        <button onClick={this.onPrevPageBtnClick}>
-                                prev page
-                            </button>
-                        {this.state.main_data.length !== 0
-                        &&
-                        <button onClick={this.onNextPageBtnClick}>
-                                next page
-                            </button>
+                        <button onClick={this.onPrevPageBtnClick}>prev page</button>
+                        {this.state.main_data.length !== 0  &&  
+                            <button onClick={this.onNextPageBtnClick}>next page</button>
                         }
                     </div>
-
                 </div>
                 );
     }
     foo(t){
         return <div>
                     <img src={t.image} alt='image'/>                                    
-                    
                     <div onClick={this.likeLogic.bind(this, t.id)}>
                         <LikeButton is_liked={t.is_liked}/>
                     </div>
-                    
                     {   (this.props.pagetype === 'myprofile')
                         &&  
-                        <div onClick={this.deleteLogic.bind(this, t.id)}>
-                            delete
-                        </div>
+                        <div onClick={this.deleteLogic.bind(this, t.id)}>delete</div>
                     }
-                    
                     <b><a href={'/friend/'+t.uploaded_by}>{t.uploaded_by}</a></b>                            
                     {t.date_created}                                    
                     {t.hashtags}
-
-                    <input  type='text' placeholder='comment?' 
-                            onChange={e=>this.setState({comment:e.target.value})}>
+                    <input  type='text' placeholder='comment?' onChange={e=>this.setState({comment:e.target.value})}>
                     </input>
-                    
                     <button onClick={this.commentLogic.bind(this, t.id)}>post comment</button>
-
                     <a href='#' onClick={e=>this.setState({  LikesModalOpen:true,
                             LikesModalPostIdPassed:t.id, 
                             CommentModalOpen:false,
                             CommentModalPostIdPassed :0})}>
                             total likes(<b>0</b>) 
                     </a>
-                    
                     <a href='#' onClick={e=>this.setState({CommentModalOpen:true, 
                                 CommentModalPostIdPassed : t.id,
                                 LikesModalOpen:false,
                                 LikesModalPostIdPassed:0})}>
                                 total comments<b>0</b> 
                     </a>
-                    
                 </div>;
     }    
-
 }
 
 export default PopulateData;
