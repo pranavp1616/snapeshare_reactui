@@ -7,7 +7,7 @@ import UploadPost from '../components/UploadPost';
 
 class MyProfile extends React.Component{
     render(){
-        var myprofile_url = API+ 'getuserposts/'+localStorage.loggedinUser+'/';
+        var myprofile_url = API+ 'myprofile/';
         return <div>
                     { (localStorage.auth_token !== undefined && 
                         <div>

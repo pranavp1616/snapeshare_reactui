@@ -15,7 +15,7 @@ class SearchPage extends React.Component{
         if(this.props.match.params.pattern !== 'null'){
             var headers = new Headers();
             headers.append('Authorization','Token '+localStorage.auth_token);
-            var url = API + 'search/'+this.props.match.params.pattern;
+            var url = API + 'search/'+this.props.match.params.pattern+'/page/1';
             var request = new Request(url, {method:'GET', headers});
             const resp = await fetch(request);
             const data = await resp.json();
@@ -44,7 +44,7 @@ class SearchPage extends React.Component{
     }
     foo(t){
         return <li>
-                    <a href={'/friend/'+t.username}>{t.username}</a>        
+                    <a href={'/friend/'+t}>{t}</a>        
                 </li>
     }
 }
