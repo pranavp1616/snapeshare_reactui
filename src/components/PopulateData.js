@@ -165,19 +165,21 @@ class PopulateData extends React.Component{
                     {t.date_created}                                    
                     
                     {t.hashtags}
-                    <input  type='text' placeholder='comment?' onChange={e=>this.setState({comment:e.target.value})} />
-                    <button onClick={this.commentLogic.bind(this, t.id)}>post</button>
+                    <input  className='form-control' type='text' placeholder='comment?' 
+                            onChange={e=>this.setState({comment:e.target.value})} />
+                    <button className='btn btn-primary' 
+                            onClick={this.commentLogic.bind(this, t.id)}>post</button>
                     <a  href='#' onClick={e=>this.setState({  LikesModalOpen:true,
                                     LikesModalPostIdPassed:t.id, 
                                     CommentModalOpen:false,
                                     CommentModalPostIdPassed :0})}>
-                        total likes(<b>{t.total_likes}</b>) 
+                        (<b>{t.total_likes}</b>) likes
                     </a>
                     <a href='#' onClick={e=>this.setState({CommentModalOpen:true, 
                                     CommentModalPostIdPassed : t.id,
                                     LikesModalOpen:false,
                                     LikesModalPostIdPassed:0})}>
-                        total comment <b>{t.total_comments}</b> 
+                        (<b>{t.total_comments}</b>) comments
                     </a>
                 </div>
                 </div>;

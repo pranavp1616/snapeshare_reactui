@@ -26,7 +26,9 @@ class NaivgationBar extends React.Component{
                                                 else
                                                     window.location='/search/'+this.state.search_box_value;                                                        
                                             }
-                            } class='btn'>search</button>
+                            } class='btn'>
+                                <span className='fa fa-search fa-lg' aria-hidden='true'></span>
+                            </button>
                         </li>
                         <li className='nav-item'><a href='/home' class='nav-link'>home</a></li>
                         <li className='nav-item'><a href='/myprofile' class='nav-link'> hi {localStorage.loggedinUser}!</a></li>
