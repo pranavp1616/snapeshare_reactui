@@ -4,9 +4,9 @@ function LikeButton(props){
     return  <div>
                     {   ((props.is_liked === true)
                         &&
-                        <i>AlreadLiked</i>) 
+                        <i className='fa fa-gratipay fa-2x' style={{color:'red'}} aria-hidden='true'></i>)
                         ||
-                        <i>Like</i>   
+                        <i className='fa fa-gratipay fa-2x' aria-hidden='true'></i>
                     }
             </div>
 }
