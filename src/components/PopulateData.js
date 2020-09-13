@@ -65,13 +65,13 @@ class PopulateData extends React.Component{
         if(data.message === 'liked'){
                     newMainData = [...this.state.main_data];
                     newMainData[index].is_liked = true;
-                    newMainData[index].totalLikes++;
+                    newMainData[index].total_likes++;
                     this.setState({ main_data : newMainData });
         }
         else{
                     newMainData = [...this.state.main_data];
                     newMainData[index].is_liked = false;
-                    newMainData[index].totalLikes--;
+                    newMainData[index].total_likes--;
                     this.setState({ main_data : newMainData });
         }
     }
@@ -96,7 +96,7 @@ class PopulateData extends React.Component{
                     index = i;
             }
             var newMainData = [...this.state.main_data];
-            newMainData[index].totalComments++;
+            newMainData[index].total_comments++;
             this.setState({ main_data : newMainData });
         }
     }

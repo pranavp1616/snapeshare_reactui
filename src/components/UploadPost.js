@@ -96,7 +96,7 @@ class UploadPost extends React.Component{
         canvas.toBlob(blob => {
             reader.readAsDataURL(blob)
             reader.onloadend = () => {
-                this.dataURLtoFile(reader.result, 'cropped.jpg')
+                this.dataURLtoFile(reader.result, 'img'+Date.now()+'.jpg')
             }
         })
     }
