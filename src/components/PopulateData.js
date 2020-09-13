@@ -135,7 +135,7 @@ class PopulateData extends React.Component{
                             {this.state.main_data.map(this.foo)}
                         </div>
                     </div>
-                    <div>
+                    <div className='container mt-3'>
                         <button onClick={this.onPrevPageBtnClick}>prev page</button>
                         {   this.state.main_data.length !== 0  
                             && <button onClick={this.onNextPageBtnClick}>next page</button>
@@ -146,17 +146,23 @@ class PopulateData extends React.Component{
     }
     
     foo(t){
-        return <div className='col-md-3 col-sm-6' style={col_padding}>
+        return <div className='col-lg-3 col-md-4 col-sm-6' style={col_padding}>
                 <div className='card card-block'>
+                    
                     <img src={t.image} alt='image'style={img_css}/>                                    
+                    
                     <div onClick={this.likeLogic.bind(this, t.id)}>
                         <LikeButton is_liked={t.is_liked}/>
                     </div>
+                    
                     {   (this.props.pagetype === 'myprofile')
                         &&  <div onClick={this.deleteLogic.bind(this, t.id)}>delete</div>
                     }
-                    <b><a href={'/friend/'+t.uploaded_by}>{t.uploaded_by}</a></b>                            
+                    
+                    <h6><b><a href={'/friend/'+t.uploaded_by}>{t.uploaded_by}</a></b></h6>                            
+                    
                     {t.date_created}                                    
+                    
                     {t.hashtags}
                     <input  type='text' placeholder='comment?' onChange={e=>this.setState({comment:e.target.value})} />
                     <button onClick={this.commentLogic.bind(this, t.id)}>post</button>
