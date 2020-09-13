@@ -40,7 +40,7 @@ class ModalAllComments extends React.Component{
         return  <div>
                     <div className='modalstyle'>
                         <div style={{marginTop:'100px', marginLeft:'10%', marginRight:'10%'}}>
-                            <button onClick={this.props.onClose} className='btn indigo'>x</button>
+                            <button onClick={this.props.onClose} className='btn btn-primary'>x</button>
                             <b>All comments</b>
                             <ul>{this.state.all_comments.map(this.foo)}</ul>
                         </div>

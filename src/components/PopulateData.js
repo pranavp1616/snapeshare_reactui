@@ -131,12 +131,12 @@ class PopulateData extends React.Component{
                         &&  this.props.pagetype !== 'myprofile' 
                         &&  <div><h3>You're all caught up</h3></div>
                     }
-                    <div className='container mt-2'>
+                    <div className='container'>
                         <div className='row'>
                             {this.state.main_data.map(this.foo)}
                         </div>
                     </div>
-                    <div className='container mt-3'>
+                    <div className='container'>
                         <button className='btn btn-primary' style={{margin:'4px'}} 
                                 onClick={this.onPrevPageBtnClick}>prev</button>
                         {   this.state.main_data.length !== 0  
@@ -159,7 +159,9 @@ class PopulateData extends React.Component{
                     </div>
                     
                     {   (this.props.pagetype === 'myprofile')
-                        &&  <div onClick={this.deleteLogic.bind(this, t.id)}>delete</div>
+                        &&  <button onClick={this.deleteLogic.bind(this, t.id)}>
+                                <i className='fa fa-trash-o fa-lg'></i>
+                            </button>
                     }
                     
                     <h6><b><a href={'/friend/'+t.uploaded_by}>{t.uploaded_by}</a></b></h6>                            

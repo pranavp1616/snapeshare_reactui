@@ -29,7 +29,7 @@ class ModalAllLikes extends React.Component{
              <div>
                 <div className='modalstyle'>
                     <div style={{marginTop:'100px', marginLeft:'10%', marginRight:'10%'}}>
-                        <button onClick={this.props.onClose}>x</button>
+                        <button onClick={this.props.onClose} className='btn btn-primary'>x</button>
                         <b>All likes</b>
                         <ul>{this.state.all_likes.map(this.foo)}</ul>
                     </div>

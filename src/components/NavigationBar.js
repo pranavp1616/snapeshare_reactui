@@ -10,7 +10,8 @@ class NaivgationBar extends React.Component{
     }
 
     render(){
-        return <nav className='navbar navbar-expand-sm bg-light fixed-top'> 
+        return <div>
+                <nav className='navbar navbar-expand-sm bg-light fixed-top'> 
                     <ul className='navbar-nav'>
                         <a class="navbar-brand" href="#">snapshare</a>
                         <li className='nav-item form-inline'>
@@ -36,6 +37,8 @@ class NaivgationBar extends React.Component{
                     </ul>
 
                 </nav>
+                <div  style={{marginTop:'80px'}}></div>                         
+                </div>
     }
 }
 

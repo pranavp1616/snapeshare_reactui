@@ -39,10 +39,10 @@ class UploadPost extends React.Component{
         // react-image-crop 
         const { crop, src } = this.state;
 
-        return  <div>
+        return  <div className='container'>
                     <input type="file" onChange={this.handleInputFileChange} accept="image/*"/>
-                    <input type="text" onChange={ e => this.setState({ hashtags : e.target.value})} placeholder='hashtags?'/> 
-                    <button onClick={this.uploadPostLogic}>Post</button>
+                    <input className='form-control' type="text" onChange={ e => this.setState({ hashtags : e.target.value})} placeholder='hashtags?'/> 
+                    <button className='btn btn-success' onClick={this.uploadPostLogic}>Post</button>
                     <ReactCrop  src={src}
                                 crop={crop}
                                 onImageLoaded={this.onImageLoaded}
