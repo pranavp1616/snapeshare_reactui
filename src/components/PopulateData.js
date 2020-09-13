@@ -3,7 +3,6 @@ import {API} from './Global';
 import LikeButton from './LikeButton';
 import ModalAllLikes from './ModalAllLikes';
 import ModalAllComments from './ModalAllComments';
-import {img_css} from './Global';
 
 class PopulateData extends React.Component{
     
@@ -131,8 +130,10 @@ class PopulateData extends React.Component{
                         &&  this.props.pagetype !== 'myprofile' 
                         &&  <div><h3>You're all caught up</h3></div>
                     }
-                    <div>
-                        {this.state.main_data.map(this.foo)}
+                    <div className='container mt-2'>
+                        <div className='row'>
+                            {this.state.main_data.map(this.foo)}
+                        </div>
                     </div>
                     <div>
                         <button onClick={this.onPrevPageBtnClick}>prev page</button>
@@ -145,7 +146,8 @@ class PopulateData extends React.Component{
     }
     
     foo(t){
-        return <div>
+        return <div className='col-md-3 col-sm-6' style={col_padding}>
+                <div className='card card-block'>
                     <img src={t.image} alt='image'style={img_css}/>                                    
                     <div onClick={this.likeLogic.bind(this, t.id)}>
                         <LikeButton is_liked={t.is_liked}/>
@@ -170,8 +172,17 @@ class PopulateData extends React.Component{
                                     LikesModalPostIdPassed:0})}>
                         total comment <b>{t.total_comments}</b> 
                     </a>
+                </div>
                 </div>;
     }    
 }
+
+// CSS
+const img_css = {
+    height:'100%',
+    width:'100%'
+}
+
+const col_padding = {paddingLeft:'10px', paddingRight:'10px'};
 
 export default PopulateData;
