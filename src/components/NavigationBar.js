@@ -10,16 +10,15 @@ class NaivgationBar extends React.Component{
     }
 
     render(){
-        return <div> 
-                    <div>  
-                        <b>Snapshare</b>
-                    </div>
-                    <ul>
-                        <li>
+        return <nav className='navbar navbar-expand-sm bg-light fixed-top'> 
+                    <ul className='navbar-nav'>
+                        <a class="navbar-brand" href="#">snapshare</a>
+                        <li className='nav-item form-inline'>
                             <input  onChange={ (e) => this.setState({search_box_value:e.target.value}) }
-                            type='text'/>   
+                                    type='text'
+                                    className='form-control mr-sm-2'/>   
                         </li>
-                        <li>
+                        <li className='nav-item form-inline'>
                             <button onClick={(e)=>{
                                                 if(this.state.search_box_value===''){
                                                     window.location='/search/null';
@@ -27,13 +26,14 @@ class NaivgationBar extends React.Component{
                                                 else
                                                     window.location='/search/'+this.state.search_box_value;                                                        
                                             }
-                            }>search</button>
+                            } class='btn'>search</button>
                         </li>
-                        <li><a href='/home'>home</a></li>
-                        <li><a href='/myprofile'> hi {localStorage.loggedinUser}!</a></li>
-                        <li><a href='/logout'>logout</a></li>
+                        <li className='nav-item'><a href='/home' class='nav-link'>home</a></li>
+                        <li className='nav-item'><a href='/myprofile' class='nav-link'> hi {localStorage.loggedinUser}!</a></li>
+                        <li className='nav-item'><a href='/logout' class='nav-link'>logout</a></li>
                     </ul>
-                </div>
+
+                </nav>
     }
 }
 
