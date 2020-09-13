@@ -163,13 +163,13 @@ class PopulateData extends React.Component{
                             LikesModalPostIdPassed:t.id, 
                             CommentModalOpen:false,
                             CommentModalPostIdPassed :0})}>
-                            total likes(<b>0</b>) 
+                            total likes(<b>{t.total_likes}</b>) 
                     </a>
                     <a href='#' onClick={e=>this.setState({CommentModalOpen:true, 
                                 CommentModalPostIdPassed : t.id,
                                 LikesModalOpen:false,
                                 LikesModalPostIdPassed:0})}>
-                                total comments<b>0</b> 
+                                total comment <b>{t.total_comments}</b> 
                     </a>
                 </div>;
     }    
