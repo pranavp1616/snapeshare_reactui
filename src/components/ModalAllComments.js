@@ -12,22 +12,13 @@ class ModalAllComments extends React.Component{
         this.deleteCommentLogic = this.deleteCommentLogic.bind(this);
     }
     async componentDidMount(){
-        var url = API + 'getcomments/'+this.props.post_id;
+        var url = API + 'comment/'+this.props.post_id;
         var headers = new Headers();
         headers.append('Authorization','Token '+localStorage.auth_token);
         var request = new Request(url,  {  method:'GET',headers }   );
         var resp = await fetch(request);
         var data = await resp.json();
-        var temp_array = data.map(  (e) => { 
-                                            var obj = {
-                                                    id:e.id, 
-                                                    username:e.username,
-                                                    comment:e.comment,
-                                                    date_created:e.date_created,
-                                                };
-                                            return obj;
-                                        });
-        console.log(temp_array);
+        var temp_array = [{'id':'12','username':'pranav','comment':'abcd','date_created':'10/10/10'}]
         this.setState({all_comments:temp_array});
     }
 
@@ -44,39 +35,28 @@ class ModalAllComments extends React.Component{
     render() {
         return (
              <div>
-                    <div className='container' style={Modalstyle}>
-                        <div className='card' style={{marginTop:'100px', marginLeft:'10%', marginRight:'10%'}}>
-                            <div className='card-content'>
-                                <div className='center'>
-                                    <button onClick={this.props.onClose} className='btn indigo'>x</button>
-                                    <p><b>All comments</b></p>
-                                </div>
-                                    <ul className="collection with-header">
-                                        {this.state.all_comments.map(this.foo)}
-                                    </ul>
-                            </div>
+                    <div style={Modalstyle}>
+                        <div style={{marginTop:'100px', marginLeft:'10%', marginRight:'10%'}}>
+                            <button onClick={this.props.onClose} className='btn indigo'>x</button>
+                            <p><b>All comments</b></p>
                         </div>
+                        <ul>
+                            {this.state.all_comments.map(this.foo)}
+                        </ul>
                     </div>
              </div>
         );
     }
     
     foo(t){
-        return  <li className="collection-item">
-                    <div>
-                        <a href={'/friend/'+t.username}>    {t.username}    </a>
-                        <i className='grey-text'>{t.date_created}</i>
-                        { localStorage.loggedinUser === t.username
-                            &&
-                            <div onClick={this.deleteCommentLogic.bind(this, t.id)} className='right'>
-                                <i class="material-icons">delete</i>
-                            </div>
-                        }
-
-                        <p>
-                            {t.comment}
-                        </p>
-                    </div>
+        return  <li>
+                    <a href={'/friend/'+t.username}>{t.username}</a>
+                    {t.date_created}
+                    { localStorage.loggedinUser === t.username
+                        &&
+                        <div onClick={this.deleteCommentLogic.bind(this, t.id)} className='right'>delete</div>
+                    }
+                    {t.comment}
                 </li>
         }
 }
