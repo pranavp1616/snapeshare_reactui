@@ -69,14 +69,16 @@ class ModalAllComments extends React.Component{
         const date = d.getDate()+'-'+(d.getMonth()+1)+'-'+d.getFullYear();
         return  <li>
                     <div className='row'>
-                        <div className='col'>
+                        <div className='col-lg-2'>
                             <b><a href={'/friend/'+t.value.username}>{t.value.username}</a></b>
                         </div>
-                        <div className='col'>
+                        <div className='col-lg-2'>
+                            <i style={{color:'grey'}}>{date}</i>
+                        </div>
+                        <div className='col-lg-4'>
                             {t.value.comment}
                         </div>
-                        <div className='col'>
-                            <i style={{color:'grey'}}>{date}</i>
+                        <div className='col-lg-1'>
                             {   localStorage.loggedinUser === t.value.username
                                 &&
                                 <div onClick={this.deleteCommentLogic.bind(this, t.key)}>
