@@ -46,7 +46,7 @@ class Login extends React.Component{
                                 type='password' 
                                 className='form-control' style={{margin:'5px'}}
                                 id='password' placeholder='password' />
-                        <button className='btn btn-primary' style={{margin:'5px'}} 
+                        <button className='btn btn-success' style={{margin:'5px'}} 
                                 onClick={this.loginLogic}>login</button>                                     
                         <p>{this.state.errorMessage}</p>
                     </div>

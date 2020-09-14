@@ -52,7 +52,7 @@ class Register extends React.Component{
                                 type='password' 
                                 id='password'placeholder='password'
                                 className='form-control' style={{margin:'5px'}}/>
-                        <button className='btn btn-primary' style={{margin:'5px'}}
+                        <button className='btn btn-success' style={{margin:'5px'}}
                                 onClick={this.registerLogic}>register</button>
                         <p>{this.state.errorMessage}</p>
                     </div>
