@@ -1,4 +1,5 @@
 import React from 'react';
+import '../App.css';
 
 class NaivgationBar extends React.Component{
 
@@ -11,7 +12,7 @@ class NaivgationBar extends React.Component{
 
     render(){
         return <div>
-                <nav className='navbar navbar-expand-sm bg-light fixed-top'> 
+                <nav className='navbar navbar-custom navbar-expand-sm fixed-top'> 
                     <ul className='navbar-nav'>
                         <a class="navbar-brand" href="#">snapshare</a>
                         <li className='nav-item form-inline'>
@@ -28,7 +29,7 @@ class NaivgationBar extends React.Component{
                                                     window.location='/search/'+this.state.search_box_value;                                                        
                                             }
                             } class='btn'>
-                                <span className='fa fa-search fa-lg' aria-hidden='true'></span>
+                                <span className='fa fa-search fa-lg' style={{color:'white'}} aria-hidden='true'></span>
                             </button>
                         </li>
                         <li className='nav-item'><a href='/home' class='nav-link'>home</a></li>

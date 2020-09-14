@@ -11,6 +11,23 @@ img {
     padding:10px;
 }
 
+.navbar-custom{
+    background-color: #4267B2;
+}
+.navbar-custom .nav-item .nav-link {
+    color: #ffffff;
+}
+.navbar-custom .nav-item:hover .nav-link {
+    color: #afc8ff;
+}
+
+.navbar-brand {
+    color: #ffffff;
+}
+.navbar-brand:hover{
+    color: #afc8ff;    
+}
+
 .card {
     box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
 }
