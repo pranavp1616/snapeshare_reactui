@@ -13,9 +13,8 @@ class NaivgationBar extends React.Component{
     render(){
         return <div>
                 <nav className='navbar navbar-custom navbar-expand-sm fixed-top'> 
-                    <a class="navbar-brand" href="#">snapshare</a>
+                    <div class="navbar-brand"><h2>snapshare</h2></div>
                     <ul className='navbar-nav mx-auto'>
-                        <li className='nav-item'><a href='/home' class='nav-link'>home</a></li>
                         <li className='nav-item form-inline'>
                             <input  onChange={ (e) => this.setState({search_box_value:e.target.value}) }
                                     type='text'
@@ -33,8 +32,9 @@ class NaivgationBar extends React.Component{
                                 <span className='fa fa-search fa-lg' style={{color:'white'}} aria-hidden='true'></span>
                             </button>
                         </li>
-                        <li className='nav-item'><a href='/myprofile' class='nav-link'> hi {localStorage.loggedinUser}!</a></li>
-                        <li className='nav-item'><a href='/logout' class='nav-link'>logout</a></li>
+                        <li className='nav-item'><a href='/home' class='nav-link'><b>home</b></a></li>
+                        <li className='nav-item'><a href='/myprofile' class='nav-link'><b>hi {localStorage.loggedinUser}</b></a></li>
+                        <li className='nav-item'><a href='/logout' class='nav-link'><b>logout</b></a></li>
                     </ul>
 
                 </nav>
