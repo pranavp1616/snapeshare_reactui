@@ -149,42 +149,41 @@ class PopulateData extends React.Component{
     }
     
     foo(t){
-        return <div className='col-lg-3 col-md-4 col-sm-6 photo_col_padding'>
-                <div className='card card-block'>
-                    
-                    <img src={t.image} alt='image'/>                                    
-                    
-                    <div>
-                            <div onClick={this.likeLogic.bind(this, t.id)}>
-                                <LikeButton is_liked={t.is_liked}/>
+        return  <div className='col-lg-3 col-md-4 col-sm-6 photo_col_padding'>
+                    <div className='card card-block'>        
+                        <img src={t.image} alt='image'/>                                    
+                        <div className='card-body'>
+                            <div>
+                                    <div onClick={this.likeLogic.bind(this, t.id)}>
+                                        <LikeButton is_liked={t.is_liked}/>
+                                    </div>
+                                    {   (this.props.pagetype === 'myprofile')
+                                        &&  <i onClick={this.deleteLogic.bind(this, t.id)} className='fa fa-trash-o fa-lg'></i>
+                                    }
                             </div>
-                            {   (this.props.pagetype === 'myprofile')
-                                &&  <i onClick={this.deleteLogic.bind(this, t.id)} className='fa fa-trash-o fa-lg'></i>
-                            }
+                            <b><a href={'/friend/'+t.uploaded_by}>{t.uploaded_by}</a></b>                    
+                            <i style={{color:'grey'}}>{t.date_created}</i> 
+                            <i style={{color:'grey'}}>{t.hashtags}</i>
+                            <input  className='form-control' type='text' placeholder='comment?' 
+                                    onChange={e=>this.setState({comment:e.target.value})} />
+                            <button className='btn btn-primary' 
+                                    onClick={this.commentLogic.bind(this, t.id)}>post</button>
+                            <footer>
+                                <a  href='#' onClick={e=>this.setState({  LikesModalOpen:true,
+                                                LikesModalPostIdPassed:t.id, 
+                                                CommentModalOpen:false,
+                                                CommentModalPostIdPassed :0})}>
+                                    (<b>{t.total_likes}</b>) likes
+                                </a>
+                                <a href='#' onClick={e=>this.setState({CommentModalOpen:true, 
+                                                CommentModalPostIdPassed : t.id,
+                                                LikesModalOpen:false,
+                                                LikesModalPostIdPassed:0})}>
+                                    (<b>{t.total_comments}</b>) comments
+                                </a>
+                            </footer>
+                        </div>
                     </div>
-                    
-                    <h6><b><a href={'/friend/'+t.uploaded_by}>{t.uploaded_by}</a></b></h6>                            
-                    
-                    {t.date_created}                                    
-                    
-                    {t.hashtags}
-                    <input  className='form-control' type='text' placeholder='comment?' 
-                            onChange={e=>this.setState({comment:e.target.value})} />
-                    <button className='btn btn-primary' 
-                            onClick={this.commentLogic.bind(this, t.id)}>post</button>
-                    <a  href='#' onClick={e=>this.setState({  LikesModalOpen:true,
-                                    LikesModalPostIdPassed:t.id, 
-                                    CommentModalOpen:false,
-                                    CommentModalPostIdPassed :0})}>
-                        (<b>{t.total_likes}</b>) likes
-                    </a>
-                    <a href='#' onClick={e=>this.setState({CommentModalOpen:true, 
-                                    CommentModalPostIdPassed : t.id,
-                                    LikesModalOpen:false,
-                                    LikesModalPostIdPassed:0})}>
-                        (<b>{t.total_comments}</b>) comments
-                    </a>
-                </div>
                 </div>;
     }    
 }
