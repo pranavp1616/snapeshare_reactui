@@ -156,7 +156,7 @@ class PopulateData extends React.Component{
         var d = new Date(t.date_created);
         const date = d.getDate()+'-'+(d.getMonth()+1)+'-'+d.getFullYear();
         return  <div className='col-lg-4 col-md-5 col-sm-6 photo_col_padding'>
-                    <div className='mycard'>        
+                    <div className='myphotocard'>        
                         <div>
                             <img src={t.image} alt='image'/>                                    
                         </div>
