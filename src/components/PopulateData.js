@@ -152,20 +152,34 @@ class PopulateData extends React.Component{
         var d = new Date(t.date_created);
         const date = d.getDate()+'-'+(d.getMonth()+1)+'-'+d.getFullYear();
         return  <div className='col-lg-4 col-md-5 col-sm-6 photo_col_padding'>
-                    <div className='card card-block'>        
-                        <img src={t.image} alt='image'/>                                    
-                        <div className='card-body'>
-                            <div>
+                    <div className='mycard'>        
+                        <div>
+                            <img src={t.image} alt='image'/>                                    
+                        </div>
+                        <div style={{marginRight:'20px',marginLeft:'20px'}}>
+                            <div className='row'>
+                                <div className='col-lg-10'>
                                     <div onClick={this.likeLogic.bind(this, t.id)}>
                                         <LikeButton is_liked={t.is_liked}/>
                                     </div>
+                                </div>
+                                <div className='col'>
                                     {   (this.props.pagetype === 'myprofile')
                                         &&  <i onClick={this.deleteLogic.bind(this, t.id)} className='fa fa-trash-o fa-lg'></i>
                                     }
+                                </div>
                             </div>
-                            <b><a href={'/friend/'+t.uploaded_by}>{t.uploaded_by}</a></b>                    
-                            <i style={{color:'grey'}}>posted on {date}</i> 
-                            <i style={{color:'grey'}}>{t.hashtags}</i>
+                            <div className='row'>
+                                <div className='col'>
+                                    <b><a href={'/friend/'+t.uploaded_by}>{t.uploaded_by}</a></b>                    
+                                    <i style={{color:'grey'}}>  posted on {date}</i> 
+                                </div>
+                            </div>
+                            <div className='row'>
+                                <div className='col'>
+                                    <i style={{color:'grey'}}>{t.hashtags}</i>
+                                </div>
+                            </div>
                             <div class="input-group" style={{marginTop:'20px'}}>
                                 <input  className='form-control' 
                                         type='text' placeholder='comment?' 
