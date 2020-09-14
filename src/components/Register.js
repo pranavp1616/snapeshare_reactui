@@ -10,12 +10,27 @@ class Register extends React.Component{
             regFirstname : '',
             regEmail    : '',
             regPassword : '',
+            regConfirmPassword : '',
             errorMessage  : ''
         };
         this.registerLogic = this.registerLogic.bind(this); 
     }
 
     async registerLogic(){
+        // form validation 
+        if( this.state.regUsername.length <1 || 
+            this.state.regFirstname.length <1 || 
+            this.state.regEmail.length <1 ||
+            this.state.regPassword <1
+            ){
+            this.setState({errorMessage: 'all fields are mandatory'})
+            return;
+        }
+        if(this.state.regConfirmPassword != this.state.regPassword){
+            this.setState({errorMessage: 'password mismatch'})
+            return;
+        }
+        
         var formData = new FormData();  
         formData.append('username',this.state.regUsername);  
         formData.append('email',this.state.regEmail);  
@@ -51,6 +66,10 @@ class Register extends React.Component{
                         <input  onChange={(e) => this.setState({regPassword:e.target.value})}
                                 type='password' 
                                 id='password'placeholder='password'
+                                className='form-control' style={{margin:'5px'}}/>
+                        <input  onChange={(e) => this.setState({regConfirmPassword:e.target.value})}
+                                type='password' 
+                                id='password2' placeholder='confirm password'
                                 className='form-control' style={{margin:'5px'}}/>
                         <button className='btn btn-success' style={{margin:'5px'}}
                                 onClick={this.registerLogic}>register</button>
