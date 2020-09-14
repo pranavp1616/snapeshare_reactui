@@ -6,6 +6,9 @@ img {
     height:100%;
     width:100%;
 }
+img:hover{
+    opacity: 90%;
+}
 
 .photo_col_padding { 
     padding:10px;
@@ -32,13 +35,12 @@ img {
     box-shadow: 0 10px 10px rgba(0,0,0,0.3);
     border-radius: 7px;
 }
-.myphotocard:hover {
-    transition: transform .3s ease-out 0s;
-    box-shadow: 0 10px 10px rgba(0,0,0,0.5);
-}
 
 .card {
-    box-shadow: 0 10px 5px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+}
+.card:hover{
+    box-shadow: 0 10px 10px rgba(0,0,0,0.3);
 }
 
 .modalstyle {
