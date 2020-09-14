@@ -28,11 +28,25 @@ class ModalAllLikes extends React.Component{
         return (
              <div>
                 <div className='modalstyle'>
-                    <div style={{marginTop:'100px', marginLeft:'10%', marginRight:'10%'}}>
+                    <div style={{marginTop:'100px', width:'500px'}}>
                         <div className='card'>
-                            <button onClick={this.props.onClose} className='btn btn-primary'>x</button>
-                            <b>All likes</b>
-                            <ul>{this.state.all_likes.map(this.foo)}</ul>
+                            <div className='container text-center'>
+                            <div className='row'>
+                                    <div className='col'>
+                                        <button onClick={this.props.onClose} className='btn btn-primary'>x</button>
+                                    </div>
+                                </div>
+                                <div className='row'>
+                                    <div className='col'>
+                                        <b>All likes</b>
+                                    </div>
+                                </div>
+                                <div className='row'>
+                                    <div className='col'>
+                                        <ul>{this.state.all_likes.map(this.foo)}</ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

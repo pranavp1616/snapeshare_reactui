@@ -21,7 +21,9 @@ class ModalAllComments extends React.Component{
         var resp = await fetch(request);
         var data = await resp.json();
 
-        var temp_array = [{'id':'12','username':'pranav','comment':'abcd','date_created':'10/10/10'}]
+        var temp_array = [{'id':'1','username':'pranav','comment':'abcd','date_created':'10/10/10'},
+        {'id':'2','username':'pranav2','comment':'abcd3','date_created':'10/10/10'},
+        {'id':'3','username':'pranav3','comment':'abcd3','date_created':'10/10/10'}]
         this.setState({all_comments:temp_array});
     }
 
@@ -39,24 +41,52 @@ class ModalAllComments extends React.Component{
     render() {
         return  <div>
                     <div className='modalstyle'>
-                        <div style={{marginTop:'100px', marginLeft:'10%', marginRight:'10%'}}>
-                            <button onClick={this.props.onClose} className='btn btn-primary'>x</button>
-                            <b>All comments</b>
-                            <ul>{this.state.all_comments.map(this.foo)}</ul>
+                        <div style={{marginTop:'100px', width:'1000px'}}>
+                            <div className='card'>
+                                <div className='container text-center'>
+                                <div className='row'>
+                                        <div className='col'>
+                                            <button onClick={this.props.onClose} className='btn btn-primary'>x</button>
+                                        </div>
+                                    </div>
+                                    <div className='row'>
+                                        <div className='col'>
+                                            <b>All comments</b>
+                                        </div>
+                                    </div>
+                                    <div className='row'>
+                                        <div className='col'>
+                                            <ul>{this.state.all_comments.map(this.foo)}</ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
     }
-    
+
+
     foo(t){
         return  <li>
-                    <a href={'/friend/'+t.username}>{t.username}</a>
-                    {t.date_created}
-                    {   localStorage.loggedinUser === t.username
-                        &&
-                        <div onClick={this.deleteCommentLogic.bind(this, t.id)}>delete</div>
-                    }
-                    {t.comment}
+                    <div className='row'>
+                        <div className='col'>
+                            <b><a href={'/friend/'+t.username}>{t.username}</a></b>
+                        </div>
+                        <div className='col'>
+                            {t.comment}
+                        </div>
+                        <div className='col'>
+                            <i style={{color:'grey'}}>{t.date_created}</i>
+                            {   localStorage.loggedinUser === t.username
+                                &&
+                                <div onClick={this.deleteCommentLogic.bind(this, t.id)}>
+                                    <i  style={{color:'red'}} className='fa fa-trash-o fa-lg'></i>
+                                </div>
+                            }
+                        </div>
+                    </div>
                 </li>
         }
 }
