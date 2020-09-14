@@ -20,13 +20,7 @@ class ModalAllComments extends React.Component{
         var request = new Request(API + 'comment/'+this.props.post_id,  {  method:'GET',headers }   );
         var resp = await fetch(request);
         var data = await resp.json();
-
-/*        var temp_array = [{'id':'1','username':'pranav','comment':'abcd','date_created':'10/10/10'},
-        {'id':'2','username':'pranav2','comment':'abcd3','date_created':'10/10/10'},
-        {'id':'3','username':'pranav3','comment':'abcd3','date_created':'10/10/10'}]
-        */
-       var temp_array = data;
-        this.setState({all_comments:temp_array});
+        this.setState({all_comments:data});
     }
 
     async deleteCommentLogic(id){
@@ -71,6 +65,8 @@ class ModalAllComments extends React.Component{
 
 
     foo(t){
+        var d = new Date(t.value.date_created);
+        const date = d.getDate()+'-'+(d.getMonth()+1)+'-'+d.getFullYear();
         return  <li>
                     <div className='row'>
                         <div className='col'>
@@ -80,7 +76,7 @@ class ModalAllComments extends React.Component{
                             {t.value.comment}
                         </div>
                         <div className='col'>
-                            <i style={{color:'grey'}}>{t.value.date_created}</i>
+                            <i style={{color:'grey'}}>{date}</i>
                             {   localStorage.loggedinUser === t.value.username
                                 &&
                                 <div onClick={this.deleteCommentLogic.bind(this, t.key)}>

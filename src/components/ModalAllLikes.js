@@ -18,10 +18,7 @@ class ModalAllLikes extends React.Component{
         var request = new Request(API + 'like/'+this.props.post_id,  {  method:'GET',headers }   );
         var resp = await fetch(request);
         var data = await resp.json();
-
-        // fix this = data is not an array but a map
-        var temp_array = ['dummydata-1','dummydata-2'];
-        this.setState({all_likes:temp_array});
+        this.setState({all_likes:data});
     }
 
     render() {
@@ -55,7 +52,7 @@ class ModalAllLikes extends React.Component{
     }
 
     foo(t){
-        return <li><a href={'/friend/'+t}>{t}</a></li>
+        return <li><a href={'/friend/'+t.key}>{t.key}</a></li>
     }
 }
 
