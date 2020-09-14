@@ -129,7 +129,7 @@ class PopulateData extends React.Component{
                     }
                     {   this.state.main_data.length ===0 
                         &&  this.props.pagetype !== 'myprofile' 
-                        &&  <div><h3>You're all caught up</h3></div>
+                        &&  <div className='text-center'><h3>You're all caught up</h3></div>
                     }
                     <div className='container'>
                         <div className='row'>
