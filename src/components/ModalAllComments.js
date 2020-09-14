@@ -21,9 +21,11 @@ class ModalAllComments extends React.Component{
         var resp = await fetch(request);
         var data = await resp.json();
 
-        var temp_array = [{'id':'1','username':'pranav','comment':'abcd','date_created':'10/10/10'},
+/*        var temp_array = [{'id':'1','username':'pranav','comment':'abcd','date_created':'10/10/10'},
         {'id':'2','username':'pranav2','comment':'abcd3','date_created':'10/10/10'},
         {'id':'3','username':'pranav3','comment':'abcd3','date_created':'10/10/10'}]
+        */
+       var temp_array = data;
         this.setState({all_comments:temp_array});
     }
 
@@ -72,16 +74,16 @@ class ModalAllComments extends React.Component{
         return  <li>
                     <div className='row'>
                         <div className='col'>
-                            <b><a href={'/friend/'+t.username}>{t.username}</a></b>
+                            <b><a href={'/friend/'+t.value.username}>{t.value.username}</a></b>
                         </div>
                         <div className='col'>
-                            {t.comment}
+                            {t.value.comment}
                         </div>
                         <div className='col'>
-                            <i style={{color:'grey'}}>{t.date_created}</i>
-                            {   localStorage.loggedinUser === t.username
+                            <i style={{color:'grey'}}>{t.value.date_created}</i>
+                            {   localStorage.loggedinUser === t.value.username
                                 &&
-                                <div onClick={this.deleteCommentLogic.bind(this, t.id)}>
+                                <div onClick={this.deleteCommentLogic.bind(this, t.key)}>
                                     <i  style={{color:'red'}} className='fa fa-trash-o fa-lg'></i>
                                 </div>
                             }
