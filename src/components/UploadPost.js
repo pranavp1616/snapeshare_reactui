@@ -41,7 +41,9 @@ class UploadPost extends React.Component{
 
         return  <div className='container' style={{maxWidth:'500px'}}>
                         <div className='card' style={{padding:'20px'}}>
-                            <input type="file" onChange={this.handleInputFileChange} accept="image/*"/>
+                            <label class="btn btn-success">
+                                Upload<input type="file" onChange={this.handleInputFileChange} accept="image/*" hidden/>
+                            </label>
                             <div class="input-group" style={{marginTop:'20px'}}>
                                 <input  className='form-control' 
                                         type="text" placeholder='hashtags?'
