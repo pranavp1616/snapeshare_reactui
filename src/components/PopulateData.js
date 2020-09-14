@@ -155,12 +155,12 @@ class PopulateData extends React.Component{
                     <img src={t.image} alt='image'/>                                    
                     
                     <div>
-                        <div onClick={this.likeLogic.bind(this, t.id)}>
-                            <LikeButton is_liked={t.is_liked}/>
-                        </div>
-                        {   (this.props.pagetype === 'myprofile')
-                            &&  <i onClick={this.deleteLogic.bind(this, t.id)} className='fa fa-trash-o fa-lg'></i>
-                        }
+                            <div onClick={this.likeLogic.bind(this, t.id)}>
+                                <LikeButton is_liked={t.is_liked}/>
+                            </div>
+                            {   (this.props.pagetype === 'myprofile')
+                                &&  <i onClick={this.deleteLogic.bind(this, t.id)} className='fa fa-trash-o fa-lg'></i>
+                            }
                     </div>
                     
                     <h6><b><a href={'/friend/'+t.uploaded_by}>{t.uploaded_by}</a></b></h6>                            
