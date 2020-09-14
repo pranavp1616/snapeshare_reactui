@@ -30,6 +30,7 @@ img {
 
 .mycard {
     box-shadow: 0 10px 10px rgba(0,0,0,0.3);
+    border-radius: 7px;
 }
 .mycard:hover {
     transition: transform .3s ease-out 0s;

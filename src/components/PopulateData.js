@@ -137,12 +137,16 @@ class PopulateData extends React.Component{
                         </div>
                     </div>
                     <div className='container'>
-                        <button className='btn btn-primary' style={{margin:'4px'}} 
-                                onClick={this.onPrevPageBtnClick}>prev</button>
-                        {   this.state.main_data.length !== 0  
-                            && <button className='btn btn-primary' style={{margin:'4px'}} 
-                                onClick={this.onNextPageBtnClick}>next</button>
-                        }
+                        <div className='row'>
+                            <div className='col text-center'>
+                                <button className='btn btn-primary' style={{margin:'4px'}} 
+                                        onClick={this.onPrevPageBtnClick}>prev</button>
+                                {   this.state.main_data.length !== 0  
+                                    && <button className='btn btn-primary' style={{margin:'4px'}} 
+                                        onClick={this.onNextPageBtnClick}>next</button>
+                                }
+                            </div>
+                        </div>
                     </div>
                 </div>
                 );
@@ -165,7 +169,8 @@ class PopulateData extends React.Component{
                                 </div>
                                 <div className='col'>
                                     {   (this.props.pagetype === 'myprofile')
-                                        &&  <i onClick={this.deleteLogic.bind(this, t.id)} className='fa fa-trash-o fa-lg'></i>
+                                        &&  <i  onClick={this.deleteLogic.bind(this, t.id)} style={{color:'red'}} 
+                                                className='fa fa-trash-o fa-lg'></i>
                                     }
                                 </div>
                             </div>
@@ -197,7 +202,7 @@ class PopulateData extends React.Component{
                                 </div>
                             </div>
                             <div className='row'>
-                                <div className='col'>
+                                <div className='col text-center'>
                                     <footer style={{marginBottom:'20px'}}>
                                     <a  href='#' onClick={e=>this.setState({  LikesModalOpen:true,
                                                     LikesModalPostIdPassed:t.id, 
