@@ -206,15 +206,11 @@ class PopulateData extends React.Component{
                             <div className='row'>
                                 <div className='col text-center' style={{marginTop:'10px', marginBottom:'15px'}}>
                                     <a  href='#' onClick={e=>this.setState({  LikesModalOpen:true,
-                                                    LikesModalPostIdPassed:t.id, 
-                                                    CommentModalOpen:false,
-                                                    CommentModalPostIdPassed :0})}>
+                                                    LikesModalPostIdPassed:t.id})}>
                                         (<b>{t.total_likes}</b>)likes 
                                     </a>
                                     <a href='#' onClick={e=>this.setState({CommentModalOpen:true, 
-                                                    CommentModalPostIdPassed : t.id,
-                                                    LikesModalOpen:false,
-                                                    LikesModalPostIdPassed:0})}>
+                                                    CommentModalPostIdPassed : t.id})}>
                                         (<b>{t.total_comments}</b>)comments
                                     </a>
                                 </div>
