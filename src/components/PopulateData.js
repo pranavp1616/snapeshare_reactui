@@ -175,14 +175,16 @@ class PopulateData extends React.Component{
                                 </div>
                             </div>
                             <div className='row'>
-                                <div className='col'>
+                                <div className='col-lg-6'>
                                     <b><a href={'/friend/'+t.uploaded_by}>{t.uploaded_by}</a></b>                    
+                                </div>
+                                <div className='col'>
                                     <i style={{color:'grey'}}>  posted on {date}</i> 
                                 </div>
                             </div>
                             <div className='row'>
                                 <div className='col'>
-                                    <i style={{color:'grey'}}>{t.hashtags}</i>
+                                    <i>{t.hashtags}</i>
                                 </div>
                             </div>
 
@@ -202,21 +204,19 @@ class PopulateData extends React.Component{
                                 </div>
                             </div>
                             <div className='row'>
-                                <div className='col text-center'>
-                                    <footer style={{marginBottom:'20px'}}>
+                                <div className='col text-center' style={{marginTop:'10px', marginBottom:'15px'}}>
                                     <a  href='#' onClick={e=>this.setState({  LikesModalOpen:true,
                                                     LikesModalPostIdPassed:t.id, 
                                                     CommentModalOpen:false,
                                                     CommentModalPostIdPassed :0})}>
-                                        (<b>{t.total_likes}</b>) likes
+                                        (<b>{t.total_likes}</b>)likes 
                                     </a>
                                     <a href='#' onClick={e=>this.setState({CommentModalOpen:true, 
                                                     CommentModalPostIdPassed : t.id,
                                                     LikesModalOpen:false,
                                                     LikesModalPostIdPassed:0})}>
-                                        (<b>{t.total_comments}</b>) comments
+                                        (<b>{t.total_comments}</b>)comments
                                     </a>
-                                    </footer>
                                 </div>
                             </div>
                         </div>
