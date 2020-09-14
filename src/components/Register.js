@@ -33,26 +33,28 @@ class Register extends React.Component{
     }
 
     render(){
-        return  <div>
-                    <input  onChange={(e) => this.setState({regUsername:e.target.value})} 
-                            type='text' 
-                            id='username' placeholder='username'
-                            className='form-control' style={{margin:'5px'}}/>
-                    <input  onChange={(e) => this.setState({regFirstname:e.target.value})}
-                            type='firstname' 
-                            id='firstname' placeholder='first name'
-                            className='form-control' style={{margin:'5px'}}/>
-                    <input  onChange={(e) => this.setState({regEmail:e.target.value})} 
-                            type='text' 
-                            id='email'placeholder='email'
-                            className='form-control' style={{margin:'5px'}}/>
-                    <input  onChange={(e) => this.setState({regPassword:e.target.value})}
-                            type='password' 
-                            id='password'placeholder='password'
-                            className='form-control' style={{margin:'5px'}}/>
-                    <button className='btn btn-primary' style={{margin:'5px'}}
-                            onClick={this.registerLogic}>register</button>
-                    <p>{this.state.errorMessage}</p>
+        return  <div className='card mx-auto' style={{width:'400px'}}>
+                    <div className='card-body'>
+                        <input  onChange={(e) => this.setState({regUsername:e.target.value})} 
+                                type='text' 
+                                id='username' placeholder='username'
+                                className='form-control' style={{margin:'5px'}}/>
+                        <input  onChange={(e) => this.setState({regFirstname:e.target.value})}
+                                type='firstname' 
+                                id='firstname' placeholder='first name'
+                                className='form-control' style={{margin:'5px'}}/>
+                        <input  onChange={(e) => this.setState({regEmail:e.target.value})} 
+                                type='text' 
+                                id='email'placeholder='email'
+                                className='form-control' style={{margin:'5px'}}/>
+                        <input  onChange={(e) => this.setState({regPassword:e.target.value})}
+                                type='password' 
+                                id='password'placeholder='password'
+                                className='form-control' style={{margin:'5px'}}/>
+                        <button className='btn btn-primary' style={{margin:'5px'}}
+                                onClick={this.registerLogic}>register</button>
+                        <p>{this.state.errorMessage}</p>
+                    </div>
                 </div>
     }
 }

@@ -4,9 +4,13 @@ import Logo from '../components/Logo';
 
 function RegisterPage(){
     return  <div className='container'>
-                <Logo />
-                <Register />
-                <h5><a href='/login'>Login?</a></h5>
+                <div className='text-center'>   
+                    <Logo />
+                    <Register />
+                    <div style={{margin:'20px'}}>
+                        <h5><a href='/login'>Login?</a></h5>
+                    </div>
+                </div>
             </div>
 }
 
