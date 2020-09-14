@@ -37,7 +37,7 @@ class ModalAllComments extends React.Component{
     render() {
         return  <div>
                     <div className='modalstyle'>
-                        <div style={{marginTop:'100px', width:'1000px'}}>
+                        <div style={{marginTop:'100px', maxWidth:'1000px'}}>
                             <div className='card'>
                                 <div className='container text-center'>
                                 <div className='row' style={{marginTop:'20px'}}>
@@ -68,7 +68,7 @@ class ModalAllComments extends React.Component{
         var d = new Date(t.value.date_created);
         const date = d.getDate()+'-'+(d.getMonth()+1)+'-'+d.getFullYear();
         return  <li>
-                    <div className='row'>
+                    <div className='row' style={{marginTop:'20px'}}>
                         <div className='col-lg-2'>
                             <b><a href={'/friend/'+t.value.username}>{t.value.username}</a></b>
                         </div>

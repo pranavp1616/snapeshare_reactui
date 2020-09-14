@@ -25,7 +25,7 @@ class ModalAllLikes extends React.Component{
         return (
              <div>
                 <div className='modalstyle'>
-                    <div style={{marginTop:'100px', width:'500px'}}>
+                    <div style={{marginTop:'100px', maxWidth:'500px'}}>
                         <div className='card'>
                             <div className='container text-center'>
                             <div className='row'  style={{marginTop:'20px'}}>
