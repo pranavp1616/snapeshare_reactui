@@ -40,12 +40,12 @@ class ModalAllComments extends React.Component{
                         <div style={{marginTop:'100px', width:'1000px'}}>
                             <div className='card'>
                                 <div className='container text-center'>
-                                <div className='row'>
+                                <div className='row' style={{marginTop:'20px'}}>
                                         <div className='col'>
-                                            <button onClick={this.props.onClose} className='btn btn-primary'>x</button>
+                                            <button onClick={this.props.onClose} className='btn btn-danger'>x</button>
                                         </div>
                                     </div>
-                                    <div className='row'>
+                                    <div className='row' style={{marginTop:'10px'}}>
                                         <div className='col'>
                                             <b>All comments</b>
                                         </div>
