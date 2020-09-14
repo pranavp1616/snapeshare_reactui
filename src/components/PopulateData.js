@@ -180,31 +180,40 @@ class PopulateData extends React.Component{
                                     <i style={{color:'grey'}}>{t.hashtags}</i>
                                 </div>
                             </div>
-                            <div class="input-group" style={{marginTop:'20px'}}>
-                                <input  className='form-control' 
-                                        type='text' placeholder='comment?' 
-                                        onChange={e=>this.setState({comment:e.target.value})} />                            
-                                <span class="input-group-btn">
-                                    <button className='btn btn-primary' 
-                                            onClick={this.commentLogic.bind(this, t.id)}>
-                                                <span className='fa fa-comment fa-lg' style={{color:'white'}} aria-hidden='true'></span>
-                                            </button>
-                                </span>
+
+                            <div className='row'>
+                                <div className='col'>
+                                    <div class="input-group" style={{marginTop:'20px'}}>
+                                        <input  className='form-control' 
+                                                type='text' placeholder='comment?' 
+                                                onChange={e=>this.setState({comment:e.target.value})} />                            
+                                        <span class="input-group-btn">
+                                            <button className='btn btn-primary' 
+                                                    onClick={this.commentLogic.bind(this, t.id)}>
+                                                        <span className='fa fa-comment fa-lg' style={{color:'white'}} aria-hidden='true'></span>
+                                                    </button>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
-                            <footer>
-                                <a  href='#' onClick={e=>this.setState({  LikesModalOpen:true,
-                                                LikesModalPostIdPassed:t.id, 
-                                                CommentModalOpen:false,
-                                                CommentModalPostIdPassed :0})}>
-                                    (<b>{t.total_likes}</b>) likes
-                                </a>
-                                <a href='#' onClick={e=>this.setState({CommentModalOpen:true, 
-                                                CommentModalPostIdPassed : t.id,
-                                                LikesModalOpen:false,
-                                                LikesModalPostIdPassed:0})}>
-                                    (<b>{t.total_comments}</b>) comments
-                                </a>
-                            </footer>
+                            <div className='row'>
+                                <div className='col'>
+                                    <footer style={{marginBottom:'20px'}}>
+                                    <a  href='#' onClick={e=>this.setState({  LikesModalOpen:true,
+                                                    LikesModalPostIdPassed:t.id, 
+                                                    CommentModalOpen:false,
+                                                    CommentModalPostIdPassed :0})}>
+                                        (<b>{t.total_likes}</b>) likes
+                                    </a>
+                                    <a href='#' onClick={e=>this.setState({CommentModalOpen:true, 
+                                                    CommentModalPostIdPassed : t.id,
+                                                    LikesModalOpen:false,
+                                                    LikesModalPostIdPassed:0})}>
+                                        (<b>{t.total_comments}</b>) comments
+                                    </a>
+                                    </footer>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>;
