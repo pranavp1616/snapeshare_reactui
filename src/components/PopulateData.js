@@ -164,10 +164,15 @@ class PopulateData extends React.Component{
                             <b><a href={'/friend/'+t.uploaded_by}>{t.uploaded_by}</a></b>                    
                             <i style={{color:'grey'}}>{t.date_created}</i> 
                             <i style={{color:'grey'}}>{t.hashtags}</i>
-                            <input  className='form-control' type='text' placeholder='comment?' 
-                                    onChange={e=>this.setState({comment:e.target.value})} />
-                            <button className='btn btn-primary' 
-                                    onClick={this.commentLogic.bind(this, t.id)}>post</button>
+                            <div class="input-group">
+                                <input  className='form-control' 
+                                        type='text' placeholder='comment?' 
+                                        onChange={e=>this.setState({comment:e.target.value})} />                            
+                                <span class="input-group-btn">
+                                    <button className='btn btn-primary' 
+                                            onClick={this.commentLogic.bind(this, t.id)}>post</button>
+                                </span>
+                            </div>
                             <footer>
                                 <a  href='#' onClick={e=>this.setState({  LikesModalOpen:true,
                                                 LikesModalPostIdPassed:t.id, 
