@@ -15,6 +15,15 @@ class Login extends React.Component{
     }
 
     async loginLogic(){
+        if( this.state.loginUsername.length <1){
+            this.setState({errorMessage: 'please enter username'})
+            return;
+        }
+        if( this.state.loginPassword.length <1){
+            this.setState({errorMessage: 'please enter password'})
+            return;
+        }
+
         var formData = new FormData();  
         formData.append('username',this.state.loginUsername);  
         formData.append('password',this.state.loginPassword);
