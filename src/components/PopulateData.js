@@ -149,7 +149,9 @@ class PopulateData extends React.Component{
     }
     
     foo(t){
-        return  <div className='col-lg-3 col-md-4 col-sm-6 photo_col_padding'>
+        var d = new Date(t.date_created);
+        const date = d.getDate()+'-'+(d.getMonth()+1)+'-'+d.getFullYear();
+        return  <div className='col-lg-4 col-md-5 col-sm-6 photo_col_padding'>
                     <div className='card card-block'>        
                         <img src={t.image} alt='image'/>                                    
                         <div className='card-body'>
@@ -162,7 +164,7 @@ class PopulateData extends React.Component{
                                     }
                             </div>
                             <b><a href={'/friend/'+t.uploaded_by}>{t.uploaded_by}</a></b>                    
-                            <i style={{color:'grey'}}>{t.date_created}</i> 
+                            <i style={{color:'grey'}}>posted on {date}</i> 
                             <i style={{color:'grey'}}>{t.hashtags}</i>
                             <div class="input-group" style={{marginTop:'20px'}}>
                                 <input  className='form-control' 
