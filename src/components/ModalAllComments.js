@@ -38,9 +38,9 @@ class ModalAllComments extends React.Component{
         return  <div>
                     <div className='modalstyle'>
                         <div style={{marginTop:'100px', maxWidth:'1000px'}}>
-                            <div className='card'>
-                                <div className='container text-center'>
-                                <div className='row' style={{marginTop:'20px'}}>
+                            <div className='container text-center'>
+                                <div className='card mx-auto'>
+                                    <div className='row' style={{marginTop:'20px'}}>
                                         <div className='col'>
                                             <button onClick={this.props.onClose} className='btn btn-danger'>x</button>
                                         </div>
