@@ -33,7 +33,8 @@ class Register extends React.Component{
     }
 
     render(){
-        return  <div className='card mx-auto' style={{width:'400px'}}>
+        return  <div className='container text-center'>
+                    <div className='card mx-auto' style={{width:'400px'}}>
                     <div className='card-body'>
                         <input  onChange={(e) => this.setState({regUsername:e.target.value})} 
                                 type='text' 
@@ -55,6 +56,7 @@ class Register extends React.Component{
                                 onClick={this.registerLogic}>register</button>
                         <p>{this.state.errorMessage}</p>
                     </div>
+                </div>
                 </div>
     }
 }

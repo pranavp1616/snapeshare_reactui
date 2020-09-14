@@ -34,21 +34,23 @@ class Login extends React.Component{
     }
 
     render(){
-        return <div className='card mx-auto' style={{width:'400px'}}>
-                <div className='card-body'>
-                    <input  onChange={e => this.setState({loginUsername:e.target.value}) } 
-                            type='text' 
-                            id='username' placeholder='username'
-                            className='form-control' style={{margin:'5px'}}
-                            />
-                    <input  onChange={e => this.setState({loginPassword:e.target.value}) }  
-                            type='password' 
-                            className='form-control' style={{margin:'5px'}}
-                            id='password' placeholder='password' />
-                    <button className='btn btn-primary' style={{margin:'5px'}} 
-                            onClick={this.loginLogic}>login</button>                                     
-                    <p>{this.state.errorMessage}</p>
-                </div>
+        return <div className='container text-center'>
+                    <div className='card mx-auto' style={{width:'400px'}}>
+                    <div className='card-body'>
+                        <input  onChange={e => this.setState({loginUsername:e.target.value}) } 
+                                type='text' 
+                                id='username' placeholder='username'
+                                className='form-control' style={{margin:'5px'}}
+                                />
+                        <input  onChange={e => this.setState({loginPassword:e.target.value}) }  
+                                type='password' 
+                                className='form-control' style={{margin:'5px'}}
+                                id='password' placeholder='password' />
+                        <button className='btn btn-primary' style={{margin:'5px'}} 
+                                onClick={this.loginLogic}>login</button>                                     
+                        <p>{this.state.errorMessage}</p>
+                    </div>
+                    </div>
                 </div>
     }
         

@@ -31,12 +31,12 @@ class SearchPage extends React.Component{
                     {   (localStorage.auth_token !== undefined && 
                         <div>
                             <NaivgationBar />
-                            <ul>
-                                <li>  
-                                    Search results for <b>{this.props.match.params.pattern}</b> 
-                                </li>
-                                {this.state.search_result_data.map(this.foo)}
-                            </ul>
+                            <div className='container text-center'>
+                                <h5>search results for <i>{this.props.match.params.pattern}</i></h5> 
+                                <ul>
+                                    {this.state.search_result_data.map(this.foo)}
+                                </ul>
+                            </div>
                         </div>)
                         ||
                         <LandingPage/>
