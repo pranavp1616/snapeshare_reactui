@@ -78,6 +78,9 @@ class PopulateData extends React.Component{
     }
 
     async commentLogic(id){
+        if(this.state.comment.length <1)
+            return;
+
         var headers = new Headers();
         headers.append('Authorization','Token '+localStorage.auth_token);
         var formData = new FormData();
@@ -195,9 +198,9 @@ class PopulateData extends React.Component{
                                                 type='text' placeholder='comment?' 
                                                 onChange={e=>this.setState({comment:e.target.value})} />                            
                                         <span class="input-group-btn">
-                                            <button className='btn btn-primary' 
+                                            <button className='btn' 
                                                     onClick={this.commentLogic.bind(this, t.id)}>
-                                                        <span className='fa fa-comment fa-lg' style={{color:'white'}} aria-hidden='true'></span>
+                                                        <span className='fa fa-paper-plane fa-lg' style={{color:'#4267B2'}} aria-hidden='true'></span>
                                                     </button>
                                         </span>
                                     </div>
@@ -207,11 +210,13 @@ class PopulateData extends React.Component{
                                 <div className='col text-center' style={{marginTop:'10px', marginBottom:'15px'}}>
                                     <a  href='#' onClick={e=>this.setState({  LikesModalOpen:true,
                                                     LikesModalPostIdPassed:t.id})}>
-                                        (<b>{t.total_likes}</b>)likes 
+                                        <i class="fa fa-heart fa-lg" aria-hidden="true"></i> <b>{t.total_likes}</b> 
                                     </a>
+                                </div>
+                                <div className='col text-center' style={{marginTop:'10px', marginBottom:'15px'}}>
                                     <a href='#' onClick={e=>this.setState({CommentModalOpen:true, 
                                                     CommentModalPostIdPassed : t.id})}>
-                                        (<b>{t.total_comments}</b>)comments
+                                        <i class="fa fa-comments fa-lg" aria-hidden="true"></i> <b>{t.total_comments}</b>
                                     </a>
                                 </div>
                             </div>

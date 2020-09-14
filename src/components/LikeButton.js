@@ -6,7 +6,7 @@ function LikeButton(props){
                         &&
                         <i className='fa fa-gratipay fa-2x' style={{color:'red'}} aria-hidden='true'></i>)
                         ||
-                        <i className='fa fa-gratipay fa-2x' aria-hidden='true'></i>
+                        <i className='fa fa-gratipay fa-2x' style={{color:'#4267B2'}} aria-hidden='true'></i>
                     }
             </div>
 }
