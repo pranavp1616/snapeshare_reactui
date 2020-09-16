@@ -12,8 +12,8 @@ class LandingPage extends React.Component{
                             <h5><a href='/register'>Create a new account?</a></h5>
                         </div>
                         <h5>Github</h5>
-                        <h6>API <a href='https://github.com/pranavp1616/snapshare_nodejs_api'>Node JS Express</a></h6>
-                        <h6>UI <a href='https://github.com/pranavp1616/snapeshare_reactui'>React JS</a></h6>
+                        <h6>API <a href='https://github.com/pranavp1616/snapshare_node_api'>Node JS Express</a></h6>
+                        <h6>UI <a href='https://github.com/pranavp1616/snapshare_react_ui'>React JS</a></h6>
                     </div>
                 </div>
     }
