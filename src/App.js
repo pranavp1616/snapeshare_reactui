@@ -13,7 +13,7 @@ import {Route,BrowserRouter as Router} from 'react-router-dom';
 class App extends React.Component {
     render(){
         return (<Router>
-                        <Route exact path='/' component={LandingPage}/>
+                        <Route exact path='/' component={Home}/>
                         <Route path='/login' component={LandingPage}/>                   
                         <Route path='/register' component={RegisterPage}/>
                         <Route path='/home' component={Home} />
