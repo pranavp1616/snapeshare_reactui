@@ -1,19 +1,15 @@
 body {
     background-color:white;
 }
+
+
+/* Disable dot on UL and LI tags */ 
 ul {
     list-style-type: none;
 }
 
-img {
-    height:100%;
-    width:100%;
-}
 
-.photo_col_padding { 
-    padding:10px;
-}
-
+/* Navigation bar */
 .navbar-custom{
     background-color: #4267B2;
 }
@@ -23,7 +19,6 @@ img {
 .navbar-custom .nav-item:hover .nav-link {
     color: #afc8ff;
 }
-
 .navbar-brand {
     color: #ffffff;
 }
@@ -31,6 +26,8 @@ img {
     color: #afc8ff;    
 }
 
+
+/* photopost card */
 .myphotocard {
     box-shadow: 0 10px 10px rgba(0,0,0,0.3);
     border-radius: 7px;
@@ -41,7 +38,16 @@ img {
     border-radius: 7px;
     transform: scale(1.01);
 }
+img {
+    height:100%;
+    width:100%;
+}
+.photo_col_padding { 
+    padding:10px;
+}
 
+
+/* login card and register card*/
 .card {
     box-shadow: 0 10px 10px rgba(0,0,0,0.1);
 }
@@ -49,6 +55,8 @@ img {
     box-shadow: 0 10px 10px rgba(0,0,0,0.3);
 }
 
+
+/* all likes and all comments modal */
 .modalstyle {
     position: fixed;
     display: block;
