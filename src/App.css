@@ -10,7 +10,7 @@ img {
     width:100%;
 }
 img:hover{
-    opacity: 90%;
+    opacity: 0.9;
 }
 
 .photo_col_padding { 
